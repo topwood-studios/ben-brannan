@@ -18,4 +18,5 @@ collections:
         fields: 
           - { label: "Name", name: "name", widget: "string", required: true }
           - { label: "Image", name: "image", widget: "image", required: true }
+          - { label: "Mobile Image", name: "mobileImage", widget: "image" }
           - { label: "Description", name: "description", widget: "text"}
