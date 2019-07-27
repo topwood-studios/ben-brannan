@@ -215,13 +215,13 @@ const PageRight = styled.div`
   left: 50%;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
+  /* background: rgba(0, 0, 0, 0.1); */
   opacity: 0;
-  transition: opacity 0.5s ease;
+  /* transition: opacity 0.5s ease; */
   cursor: url(${nextArrow}), auto;
 
   &:hover {
-    opacity: 0.2;
+    /* opacity: 0.2; */
   }
 `;
 
@@ -231,12 +231,12 @@ const PageLeft = styled.div`
   left: 0;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  /* background: rgba(0, 0, 0, 0.3); */
   opacity: 0;
-  transition: opacity 0.5s ease;
+  /* transition: opacity 0.5s ease; */
   cursor: url(${prevArrow}), auto;
 
   &:hover {
-    opacity: 0.2;
+    /* opacity: 0.2; */
   }
 `;
