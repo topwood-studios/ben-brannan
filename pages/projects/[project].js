@@ -104,7 +104,7 @@ const Title = styled.h1`
 
 const SubTitle = styled.h2`
   animation: slideUp 1s forwards 1.2s;
-  font-weight: 100;
+  font-weight: lighter;
   font-size: 1.4rem;
   opacity: 0;
   margin: 0;
@@ -133,18 +133,18 @@ const StyledBackground = styled(Background)`
 `;
 
 const Counter = styled.span`
-  animation: fadeIn 1s forwards 2s;
+  animation: fadeIn 1.5s forwards 2s;
+  letter-spacing: 0.25rem;
+  font-weight: bold;
   font-size: 1.8rem;
   opacity: 0;
 
   @keyframes fadeIn {
     0% {
       opacity: 0;
-      transform: translateX(-10rem);
     }
     100% {
-      opacity: 1;
-      transform: translateX(0);
+      opacity: 0.8;
     }
   }
 `;
