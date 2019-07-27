@@ -60,10 +60,10 @@ const Carousel = ({ slides, project, title }) => {
   return (
     <Wrapper>
       {/* Transition group */}
-      {slides.map((slide) => (
+      {slides.map((slide, i) => (
         <Slide
           title={title}
-          pageCount={`${index + 1}/${slides.length}`}
+          pageCount={`${i + 1}/${slides.length}`}
           contents={slide}
           direction={direction}
           activeSlide={activeSlide}
