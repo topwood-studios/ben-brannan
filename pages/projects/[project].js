@@ -81,9 +81,8 @@ Project.propTypes = {
 
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
-Project.getInitialProps = ({ query, file }) => {
+Project.getInitialProps = ({ query }) => {
   const { project } = query;
-  console.log({ file });
   const content = require(`../../content/projects/${project}.md`);
 
   return { content, project };
@@ -183,7 +182,7 @@ const PageRight = styled.div`
   cursor: url(${nextArrow}), auto;
 
   &:hover {
-    opacity: 1;
+    /* opacity: 1; */
   }
 `;
 
@@ -199,6 +198,6 @@ const PageLeft = styled.div`
   cursor: url(${prevArrow}), auto;
 
   &:hover {
-    opacity: 1;
+    /* opacity: 1; */
   }
 `;
