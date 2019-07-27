@@ -1,6 +1,6 @@
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Background from '../../components/Background';
 // import Markdown from '../../components/Markdown';
@@ -22,11 +22,18 @@ const Project = ({
 }) => {
   const [index, setIndex] = useState(0);
 
+  const Router = useRouter();
+
   const activeIndex = projects.indexOf(projects.find(({ name }) => name === project));
   const nextIndex = activeIndex === projects.length - 1 ? 0 : activeIndex + 1;
   const prevIndex = activeIndex === 0 ? projects.length - 1 : activeIndex - 1;
   const nextProject = projects[nextIndex].name;
   const prevProject = projects[prevIndex].name;
+
+  useEffect(() => {
+    Router.prefetch(`/projects/${prevProject}`);
+    Router.prefetch(`/projects/${nextProject}`);
+  }, []);
 
   const handlePageDown = () => {
     if (index === 0) {
@@ -74,8 +81,9 @@ Project.propTypes = {
 
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
-Project.getInitialProps = ({ query }) => {
+Project.getInitialProps = ({ query, file }) => {
   const { project } = query;
+  console.log({ file });
   const content = require(`../../content/projects/${project}.md`);
 
   return { content, project };
