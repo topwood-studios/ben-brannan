@@ -1,5 +1,5 @@
 ---
-title: The Google Design Conundrum
+title: First project
 client: Google
 slides:
   - description: Some words about slide 1
