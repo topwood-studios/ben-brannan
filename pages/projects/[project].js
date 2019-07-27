@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Background from '../../components/Background';
 // import Markdown from '../../components/Markdown';
+import { projects } from '../../data.json';
 
 const nextArrow = '/static/img/next-arrow.png';
 const prevArrow = '/static/img/prev-arrow.png';
 
 const Project = ({
-  nextProject,
-  prevProject,
+  project,
   content: {
     // html,
     attributes: {
@@ -21,6 +21,12 @@ const Project = ({
   },
 }) => {
   const [index, setIndex] = useState(0);
+
+  const activeIndex = projects.indexOf(projects.find(({ name }) => name === project));
+  const nextIndex = activeIndex === projects.length - 1 ? 0 : activeIndex + 1;
+  const prevIndex = activeIndex === 0 ? projects.length - 1 : activeIndex - 1;
+  const nextProject = projects[nextIndex].name;
+  const prevProject = projects[prevIndex].name;
 
   const handlePageDown = () => {
     if (index === 0) {
@@ -63,24 +69,16 @@ export default Project;
 
 Project.propTypes = {
   content: PropTypes.object,
-  nextProject: PropTypes.string,
-  prevProject: PropTypes.string,
+  project: PropTypes.string,
 };
 
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 Project.getInitialProps = ({ query }) => {
   const { project } = query;
-  const { projects } = require('../../data.json');
   const content = require(`../../content/projects/${project}.md`);
 
-  const activeIndex = projects.indexOf(projects.find(({ name }) => name === project));
-  const nextIndex = activeIndex === projects.length - 1 ? 0 : activeIndex + 1;
-  const prevIndex = activeIndex === 0 ? projects.length - 1 : activeIndex - 1;
-  const nextProject = projects[nextIndex].name;
-  const prevProject = projects[prevIndex].name;
-
-  return { content, nextProject, prevProject };
+  return { content, project };
 };
 
 const Title = styled.h1`
