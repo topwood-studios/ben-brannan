@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next",
     "parse-content": "node ./utils/parseContent.js",
-    "build": "next build && npm run parse-content",
+    "build": "npm run parse-content && next build",
     "start": "next start",
     "export": "npm run build && next export"
   },
