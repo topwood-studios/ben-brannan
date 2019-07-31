@@ -23,10 +23,10 @@ class MyApp extends App {
     return (
       <AppWrapper>
         <Container>
-          <MorphTransition timeout={300} classNames="morph">
-            <Component {...pageProps} />
-          </MorphTransition>
-          <style jsx global>
+          {/* <MorphTransition timeout={300} classNames="morph"> */}
+          <Component {...pageProps} />
+          {/* </MorphTransition> */}
+          {/* <style jsx global>
             {`
               .morph.enter {
                 opacity: 0;
@@ -43,7 +43,7 @@ class MyApp extends App {
                 transition: opacity 300ms;
               }
             `}
-          </style>
+          </style> */}
         </Container>
       </AppWrapper>
     );
