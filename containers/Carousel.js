@@ -59,7 +59,7 @@ const Carousel = ({ slides, project, title }) => {
 
   return (
     <Wrapper>
-      {/* Transition group */}
+      {/* TODO: Pagination here */}
       {slides.map((slide, i) => (
         <Slide
           title={title}

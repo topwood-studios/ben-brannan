@@ -2,6 +2,7 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import styled from 'styled-components';
 import MorphTransition from 'nextjs-morph-page';
+import Menu from '../components/Menu';
 
 // Global data
 // import data from '../data.json';
@@ -23,6 +24,7 @@ class MyApp extends App {
     return (
       <AppWrapper>
         <Container>
+          <Menu />
           {/* <MorphTransition timeout={300} classNames="morph"> */}
           <Component {...pageProps} />
           {/* </MorphTransition> */}

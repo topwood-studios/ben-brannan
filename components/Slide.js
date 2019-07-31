@@ -3,14 +3,23 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Background from './Background';
 
-import { slideUp, slideInRight, slideOutRight, slideInLeft, slideOutLeft, fadeUp, fadeRight } from './Animations';
+import {
+  slideUp,
+  slideInRight,
+  slideOutRight,
+  slideInLeft,
+  slideOutLeft,
+  fadeUp,
+  fadeRight,
+} from './Animations';
 
+// Images
 const nextArrow = '/static/assets/next-arrow.png';
 const prevArrow = '/static/assets/prev-arrow.png';
 
 const Slide = ({
   contents,
-  contents: { image, description },
+  contents: { image, mobileImage, description },
   activeSlide,
   pageCount,
   lastActiveSlide,
@@ -29,13 +38,13 @@ const Slide = ({
       animateOut={isLastActiveSlide}
       animationDirection={direction}
     >
-      {/* <Contents>
+      <Contents>
         <div>
           <Title>{title}</Title>
           <SubTitle>{description}</SubTitle>
         </div>
         <Counter>{pageCount}</Counter>
-      </Contents> */}
+      </Contents>
       <PageLeft onClick={handlePageDown} />
       <PageRight onClick={handlePageUp} />
     </StyledBackground>
