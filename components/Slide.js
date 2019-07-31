@@ -1,10 +1,12 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Background from './Background';
 
-const nextArrow = '/static/img/next-arrow.png';
-const prevArrow = '/static/img/prev-arrow.png';
+import { slideUp, slideInRight, slideOutRight, slideInLeft, slideOutLeft, fadeUp, fadeRight } from './Animations';
+
+const nextArrow = '/static/assets/next-arrow.png';
+const prevArrow = '/static/assets/prev-arrow.png';
 
 const Slide = ({
   contents,
@@ -27,13 +29,13 @@ const Slide = ({
       animateOut={isLastActiveSlide}
       animationDirection={direction}
     >
-      <Contents>
+      {/* <Contents>
         <div>
           <Title>{title}</Title>
           <SubTitle>{description}</SubTitle>
         </div>
         <Counter>{pageCount}</Counter>
-      </Contents>
+      </Contents> */}
       <PageLeft onClick={handlePageDown} />
       <PageRight onClick={handlePageUp} />
     </StyledBackground>
@@ -54,33 +56,11 @@ Slide.propTypes = {
 };
 
 const Title = styled.h1`
-  animation: slideRight 1s forwards 1s;
+  animation: ${fadeRight} 1s forwards 1s;
   letter-spacing: 0.125rem;
   font-size: 1.8rem;
   opacity: 0;
   margin: 0;
-
-  @keyframes slideRight {
-    0% {
-      opacity: 0;
-      transform: translateX(-10rem);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-`;
-
-const slideUp = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(10rem);
-  } 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 `;
 
 const SubTitle = styled.h2`
@@ -89,62 +69,7 @@ const SubTitle = styled.h2`
   opacity: 0;
   margin: 0;
 
-  animation: ${slideUp} 1s forwards 1.2s;
-`;
-
-const slideOutLeft = keyframes`
-  from {
-    transform: translateX(0);
-   opacity: 1;
-  }
-  to {
-    transform: translateX(-100%);
-  opacity: 1;
-
-  }
-`;
-
-const slideInLeft = keyframes`
-  0% {
-    transform: translateX(100%);
-    opacity: 1;
-  }
-  75% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-`;
-
-const slideOutRight = keyframes`
-  from {
-    transform: translateX(0);
-  opacity: 1;
-
-  }
-  to {
-    transform: translateX(100%);
-  opacity: 1;
-
-  }
-`;
-
-const slideInRight = keyframes`
-  0% {
-    transform: translateX(-100%);
-    opacity: 1;
-  }
-  75% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  animation: ${fadeUp} 1s forwards 1.2s;
 `;
 
 const StyledBackground = styled(Background)`
@@ -157,11 +82,11 @@ const StyledBackground = styled(Background)`
   display: flex;
   align-items: flex-end;
 
-  /* hide slides offscreen */
-  opacity: 0;
+  /* opacity: 0; hide slides offscreen */
 
   z-index: ${({ animateIn }) => (animateIn ? 1 : 0)};
 
+  animation-timing-function: ease-in-out;
   animation: ${({ animateIn, animateOut, animationDirection }) => animationDirection !== 'forwards'
         ? animateIn
           ? slideInRight
@@ -173,11 +98,11 @@ const StyledBackground = styled(Background)`
         : animateOut
         ? slideOutLeft
         : null}
-    1.5s forwards;
+    1s forwards;
 `;
 
 const Counter = styled.span`
-  animation: fadeIn 1.5s forwards 2s;
+  /* animation: fadeIn 1.5s forwards 2s; */
   letter-spacing: 0.25rem;
   font-weight: bold;
   font-size: 1.8rem;

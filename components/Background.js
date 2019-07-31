@@ -40,9 +40,8 @@ const BackgroundImage = styled.div`
   background-image: url(${({ src }) => src});
   background-size: cover;
   background-position: center;
-  opacity: 0;
 
-  animation: fadeIn 2s forwards;
+  /* animation: fadeIn 2s forwards;
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -50,7 +49,7 @@ const BackgroundImage = styled.div`
     100% {
       opacity: 1;
     }
-  }
+  } */
 `;
 
 const Contents = styled.div`

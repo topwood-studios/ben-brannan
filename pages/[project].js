@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Carousel from '../../containers/Carousel';
+import Carousel from '../containers/Carousel';
 
 const Project = ({
-  project,
+  file,
   content: {
     // html,
     attributes: {
@@ -15,21 +15,22 @@ const Project = ({
   },
 }) => (
   <article>
-    <Carousel project={project} title={title} slides={slides} />
+    <Carousel project={file} title={title} slides={slides} />
   </article>
 );
+
 export default Project;
 
 Project.propTypes = {
   content: PropTypes.object,
-  project: PropTypes.string,
+  file: PropTypes.string,
 };
 
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 Project.getInitialProps = ({ query }) => {
-  const { project } = query;
-  const content = require(`../../content/projects/${project}.md`);
+  const { file } = query;
+  const content = require(`../content/projects/${file}.md`);
 
-  return { content, project };
+  return { content, file };
 };

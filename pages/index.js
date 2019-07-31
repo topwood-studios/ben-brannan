@@ -5,8 +5,7 @@ import { projects } from '../data.json';
 export default class Home extends Component {
   componentDidMount() {
     Router.push({
-      pathname: `/projects/${projects[0].name}`,
-      query: { page: 1 },
+      pathname: `/${projects[0].name}`,
     });
   }
 

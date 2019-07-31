@@ -11,8 +11,9 @@ module.exports = {
   exportPathMap: async () => {
     const projects = data.projects.reduce(
       (files, { name }) => Object.assign({}, files, {
-          [`/projects/${name}`]: {
-            page: `/projects/[project]`,
+          [`/${name}`]: {
+            page: '/[project]',
+            query: { file: name },
           },
         }),
       {},

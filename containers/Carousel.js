@@ -19,15 +19,15 @@ const Carousel = ({ slides, project, title }) => {
   const activeProjectIndex = projects.indexOf(projects.find(({ name }) => name === project));
   const nextProjectIndex = activeProjectIndex === projects.length - 1 ? 0 : activeProjectIndex + 1;
   const prevProjectIndex = activeProjectIndex === 0 ? projects.length - 1 : activeProjectIndex - 1;
-  const nextProject = projects[nextProjectIndex].name;
-  const prevProject = projects[prevProjectIndex].name;
+  const nextProject = `/${projects[nextProjectIndex].name}`;
+  const prevProject = `/${projects[prevProjectIndex].name}`;
 
   // Page down
   const handlePageDown = () => {
     setDirection('backwards');
     if (index === 0) {
       // If no more slides, go to previous project
-      Router.push(`/projects/${prevProject}`);
+      Router.push(prevProject);
     } else {
       setLastActiveSlide(slides[index]);
       setIndex(index - 1); // otherwise change slide
@@ -38,7 +38,7 @@ const Carousel = ({ slides, project, title }) => {
     setDirection('forwards');
     if (index === slides.length - 1) {
       // If no more slides, go to next project
-      Router.push(`/projects/${nextProject}`);
+      Router.push(nextProject);
     } else {
       // otherwise change slide
       setLastActiveSlide(slides[index]);
@@ -53,8 +53,8 @@ const Carousel = ({ slides, project, title }) => {
 
   // Prefetch next and prev project
   useEffect(() => {
-    Router.prefetch(`/projects/${prevProject}`);
-    Router.prefetch(`/projects/${nextProject}`);
+    Router.prefetch(prevProject);
+    Router.prefetch(nextProject);
   }, []);
 
   return (
@@ -63,6 +63,7 @@ const Carousel = ({ slides, project, title }) => {
       {slides.map((slide, i) => (
         <Slide
           title={title}
+          key={slide.description}
           pageCount={`${i + 1}/${slides.length}`}
           contents={slide}
           direction={direction}

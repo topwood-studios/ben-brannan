@@ -26,24 +26,28 @@ class MyApp extends App {
           {/* <MorphTransition timeout={300} classNames="morph"> */}
           <Component {...pageProps} />
           {/* </MorphTransition> */}
-          {/* <style jsx global>
+          <style jsx global>
             {`
               .morph.enter {
-                opacity: 0;
+                opacity: 0.01;
+                transform: scale(1.1);
               }
               .morph.enter.active {
                 opacity: 1;
-                transition: opacity 300ms;
+                transform: scale(1);
+                transition: all 300ms;
               }
               .morph.exit {
                 opacity: 1;
+                transform: scale(1);
               }
               .morph.exit.active {
-                opacity: 0;
-                transition: opacity 300ms;
+                opacity: 0.01;
+                transform: scale(1.1);
+                transition: all 300ms;
               }
             `}
-          </style> */}
+          </style>
         </Container>
       </AppWrapper>
     );
