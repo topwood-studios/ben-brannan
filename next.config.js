@@ -13,6 +13,7 @@ module.exports = {
       (files, { name }) => Object.assign({}, files, {
           [`/${name}`]: {
             page: '/[project]',
+            query: { project: name },
           },
         }),
       {},

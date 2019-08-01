@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Background from './Background';
+// import Background from './Background';
 
 import {
-  slideUp,
+  // slideUp,
   slideInRight,
   slideOutRight,
   slideInLeft,
   slideOutLeft,
+  fadeIn,
   fadeUp,
   fadeRight,
 } from './Animations';
@@ -34,6 +35,7 @@ const Slide = ({
   return (
     <StyledBackground
       src={image}
+      mobileImage={mobileImage}
       animateIn={isActive}
       animateOut={isLastActiveSlide}
       animationDirection={direction}
@@ -67,26 +69,43 @@ Slide.propTypes = {
 const Title = styled.h1`
   animation: ${fadeRight} 1s forwards 1s;
   letter-spacing: 0.125rem;
-  font-size: 1.8rem;
+  /* font-size: 1.8rem; */
   opacity: 0;
   margin: 0;
+  margin-bottom: 0.25rem;
 `;
 
 const SubTitle = styled.h2`
   font-weight: lighter;
-  font-size: 1.4rem;
+  /* font-size: 1.4rem; */
   opacity: 0;
   margin: 0;
 
   animation: ${fadeUp} 1s forwards 1.2s;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
-const StyledBackground = styled(Background)`
+const StyledBackground = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  background-image: url(${({ src }) => src});
+  @media (max-width: 768px) {
+    background-image: url(${({ mobileImage }) => mobileImage});
+  }
+
+  background-size: cover;
+  background-position: center;
 
   display: flex;
   align-items: flex-end;
@@ -111,20 +130,16 @@ const StyledBackground = styled(Background)`
 `;
 
 const Counter = styled.span`
-  /* animation: fadeIn 1.5s forwards 2s; */
+  animation: ${fadeIn} 1.5s forwards 2s;
   letter-spacing: 0.25rem;
   font-weight: bold;
   font-size: 1.8rem;
-  /* opacity: 0; */
+  opacity: 0;
 
-  /* @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0.8;
-    }
-  } */
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin: auto 0;
+  }
 `;
 
 const Contents = styled.div`
@@ -136,11 +151,22 @@ const Contents = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 30px;
+  padding: 1.4rem;
   z-index: 1;
   pointer-events: none;
 
   color: white;
+
+  @media (max-width: 768px) {
+    background: rgba(255, 255, 255, 0.8);
+    color: #222;
+    position: absolute;
+    bottom: 0;
+    top: auto;
+    padding: 1.2rem;
+
+    animation: ${fadeIn} 1.5s forwards;
+  }
 `;
 
 const PageRight = styled.div`

@@ -29,7 +29,7 @@ const ToggleWrapper = styled.div.attrs((props) => ({ className: props.isOpen ? '
     transition: 0.25s ease-in-out;
     box-sizing: border-box;
   }
-
+  
   span {
     display: block;
     background: #fff;
