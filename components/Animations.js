@@ -37,39 +37,43 @@ export const menuUp = keyframes`
 `;
 
 export const slideOutLeft = keyframes`
-  /* 0% {
+  0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
-  } */
+    transform: translateX(-25%);
+  }
 `;
 
 export const slideInLeft = keyframes`
-  /* 0% {
-    transform: translateX(100%);
+  0% {
+    transform: translateX(25%);
+    width: 0;
   }
   100% {
     transform: translateX(0);
-  } */
+    width: 100%;
+  }
 `;
 
 export const slideOutRight = keyframes`
-  /* 0% {
+  0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(100%);
-  } */
+    transform: translateX(25%);
+  }
 `;
 
 export const slideInRight = keyframes`
-  /* 0% {
-    transform: translateX(-100%);
+  0% {
+    transform: translateX(-25%);
+    width: 0;
   }
   100% {
     transform: translateX(0);
-  } */
+    width: 100%%
+  }
 `;
 
 export const fadeUp = keyframes`

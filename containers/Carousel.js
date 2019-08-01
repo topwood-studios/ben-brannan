@@ -57,14 +57,14 @@ const Carousel = ({ slides, project, title }) => {
     Router.prefetch(nextProject);
   }, []);
 
+  const pageCount = `${index + 1}/${slides.length}`;
+
   return (
     <Wrapper>
-      {/* TODO: Pagination here */}
-      {slides.map((slide, i) => (
+      {slides.map((slide) => (
         <Slide
           title={title}
           key={slide.description}
-          pageCount={`${i + 1}/${slides.length}`}
           contents={slide}
           direction={direction}
           activeSlide={activeSlide}
@@ -73,6 +73,7 @@ const Carousel = ({ slides, project, title }) => {
           handlePageUp={handlePageUp}
         />
       ))}
+      <Counter>{pageCount}</Counter>
     </Wrapper>
   );
 };
@@ -86,3 +87,19 @@ Carousel.propTypes = {
 };
 
 const Wrapper = styled.div``;
+
+const Counter = styled.span`
+  letter-spacing: 0.25rem;
+  font-weight: bold;
+  font-size: 1.8rem;
+  position: fixed;
+  z-index: 1;
+  color: white;
+  bottom: 1rem;
+  right: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin: auto 0;
+  }
+`;

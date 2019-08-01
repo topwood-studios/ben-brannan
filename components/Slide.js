@@ -22,7 +22,6 @@ const Slide = ({
   contents,
   contents: { image, mobileImage, description },
   activeSlide,
-  pageCount,
   lastActiveSlide,
   direction,
   title,
@@ -45,7 +44,6 @@ const Slide = ({
           <Title>{title}</Title>
           <SubTitle>{description}</SubTitle>
         </div>
-        <Counter>{pageCount}</Counter>
       </Contents>
       <PageLeft onClick={handlePageDown} />
       <PageRight onClick={handlePageUp} />
@@ -63,13 +61,51 @@ Slide.propTypes = {
   handlePageDown: PropTypes.func,
   handlePageUp: PropTypes.func,
   contents: PropTypes.object,
-  pageCount: PropTypes.string,
 };
 
+const StyledBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: ${({ animationDirection }) => animationDirection !== 'forwards' ? '0' : ''};
+  right: ${({ animationDirection }) => animationDirection === 'forwards' ? '0' : ''};
+  bottom: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: url(${({ src }) => src});
+  background-size: 100vmax;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  z-index: ${({ animateIn }) => (animateIn ? 1 : 0)};
+
+  @media (max-width: 768px) {
+    background-image: url(${({ mobileImage }) => mobileImage});
+  }
+
+  > div > * {
+    display: ${({ animateIn, animateOut }) => (animateIn || animateOut ? '' : 'none')};
+  }
+
+  animation: ${({ animateIn, animateOut, animationDirection }) => animationDirection !== 'forwards'
+      ? animateIn
+        ? slideInRight
+        : animateOut
+        ? slideOutRight
+        : null
+      : animateIn
+      ? slideInLeft
+      : animateOut
+      ? slideOutLeft
+      : null}
+    600ms forwards;
+
+    animation-timing-function: ease-in;
+`;
+
 const Title = styled.h1`
-  animation: ${fadeRight} 1s forwards 1s;
+  animation: ${fadeRight} 600ms forwards 1000ms;
   letter-spacing: 0.125rem;
-  /* font-size: 1.8rem; */
   opacity: 0;
   margin: 0;
   margin-bottom: 0.25rem;
@@ -77,68 +113,13 @@ const Title = styled.h1`
 
 const SubTitle = styled.h2`
   font-weight: lighter;
-  /* font-size: 1.4rem; */
   opacity: 0;
   margin: 0;
 
-  animation: ${fadeUp} 1s forwards 1.2s;
+  animation: ${fadeUp} 1000ms forwards 1000ms;
 
   @media (max-width: 768px) {
     font-size: 1rem;
-  }
-`;
-
-const StyledBackground = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  position: absolute;
-  height: 100%;
-  width: 100%;
-
-  background-image: url(${({ src }) => src});
-  @media (max-width: 768px) {
-    background-image: url(${({ mobileImage }) => mobileImage});
-  }
-
-  background-size: cover;
-  background-position: center;
-
-  display: flex;
-  align-items: flex-end;
-
-  /* opacity: 0; hide slides offscreen */
-
-  z-index: ${({ animateIn }) => (animateIn ? 1 : 0)};
-
-  animation-timing-function: ease-in-out;
-  animation: ${({ animateIn, animateOut, animationDirection }) => animationDirection !== 'forwards'
-        ? animateIn
-          ? slideInRight
-          : animateOut
-          ? slideOutRight
-          : null
-        : animateIn
-        ? slideInLeft
-        : animateOut
-        ? slideOutLeft
-        : null}
-    1s forwards;
-`;
-
-const Counter = styled.span`
-  animation: ${fadeIn} 1.5s forwards 2s;
-  letter-spacing: 0.25rem;
-  font-weight: bold;
-  font-size: 1.8rem;
-  opacity: 0;
-
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
-    margin: auto 0;
   }
 `;
 
@@ -154,6 +135,8 @@ const Contents = styled.div`
   padding: 1.4rem;
   z-index: 1;
   pointer-events: none;
+  overflow: hidden;
+  white-space: nowrap;
 
   color: white;
 
@@ -175,14 +158,8 @@ const PageRight = styled.div`
   left: 50%;
   top: 0;
   bottom: 0;
-  /* background: rgba(0, 0, 0, 0.1); */
   opacity: 0;
-  /* transition: opacity 0.5s ease; */
   cursor: url(${nextArrow}), auto;
-
-  &:hover {
-    /* opacity: 0.2; */
-  }
 `;
 
 const PageLeft = styled.div`
@@ -191,12 +168,6 @@ const PageLeft = styled.div`
   left: 0;
   top: 0;
   bottom: 0;
-  /* background: rgba(0, 0, 0, 0.3); */
   opacity: 0;
-  /* transition: opacity 0.5s ease; */
   cursor: url(${prevArrow}), auto;
-
-  &:hover {
-    /* opacity: 0.2; */
-  }
 `;
