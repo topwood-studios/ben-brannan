@@ -73,8 +73,9 @@ const StyledBackground = styled.div`
   height: 100%;
   width: 100%;
   background-image: url(${({ src }) => src});
-  background-size: 100vmax;
+  background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   display: flex;
   align-items: flex-end;
   z-index: ${({ animateIn }) => (animateIn ? 1 : 0)};
