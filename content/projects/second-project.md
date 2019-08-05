@@ -3,7 +3,7 @@ title: Second Project
 client: Client 2
 slides:
   - description: Some words about slide 1
-    image: /static/img/project2-background-desktop.jpg
+    image: /static/img/josé.gif
     mobileImage: /static/img/project-background-mobile.jpg
     name: Slide 1
   - description: Here's what I've got to say about this slide
