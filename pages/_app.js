@@ -29,9 +29,7 @@ class MyApp extends App {
             Brannan
           </Logo>
           <Menu />
-          <MorphTransition timeout={300} classNames="morph">
-            <Component {...pageProps} />
-          </MorphTransition>
+          <Component {...pageProps} />
         </Container>
       </AppWrapper>
     );
@@ -40,23 +38,7 @@ class MyApp extends App {
 
 export default MyApp;
 
-const AppWrapper = styled.div`
-  .morph.enter {
-    opacity: 0;
-  }
-  .morph.enter.active {
-    opacity: 1;
-    transition: opacity 300ms;
-  }
-  .morph.exit {
-    opacity: 1;
-  }
-  .morph.exit.active {
-    opacity: 0;
-    transition: opacity 300ms;
-    transition-delay: 300ms;
-  }
-`;
+const AppWrapper = styled.div``;
 
 const Logo = styled.h1`
   /* font-family: 'Oswald'; */
