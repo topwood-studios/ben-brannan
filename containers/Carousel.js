@@ -8,7 +8,7 @@ import { projects } from '../data.json';
 
 const Carousel = ({ slides, project, title }) => {
   const [index, setIndex] = useState(0);
-  // const [timer, setTimer] = useState(null);
+  const [timer, setTimer] = useState(true); // eslint-disable-line
 
   // Slide pagination
   const [activeSlide, setActiveSlide] = useState(slides[0]);
@@ -36,20 +36,13 @@ const Carousel = ({ slides, project, title }) => {
     }
   };
 
-  useInterval(() => {
-    handlePageUp();
-  }, 3000);
-
-  // Start or stop the carousel
-  // const toggleCarousel = () => {
-  //   if (timer === null) {
-  //     const tick = setInterval(handlePageUp, 3000);
-  //     setTimer(tick);
-  //   } else {
-  //     clearInterval(timer);
-  //     setTimer(null);
-  //   }
-  // };
+  // Set the carousel rotating
+  useInterval(
+    () => {
+      handlePageUp();
+    },
+    timer ? 3000 : null,
+  );
 
   // Set active slide on index update
   useEffect(() => {
@@ -59,11 +52,6 @@ const Carousel = ({ slides, project, title }) => {
   // Prefetch next and prev project
   useEffect(() => {
     Router.prefetch(nextProject);
-    // toggleCarousel();
-    // return () => {
-    //   clearInterval(timer);
-    //   setTimer(null);
-    // };
   }, []);
 
   // const pageCount = `${index + 1}/${slides.length}`;

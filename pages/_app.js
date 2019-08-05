@@ -1,7 +1,6 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import styled from 'styled-components';
-import MorphTransition from 'nextjs-morph-page';
 import Menu from '../components/Menu';
 
 // Global data

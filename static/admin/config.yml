@@ -12,12 +12,14 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Client", name: "client", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
       - label: 'Slides'
         name: "slides"
         widget: list
         fields: 
           - { label: "Name", name: "name", widget: "string", required: true }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Theme", name: "theme", widget: "select", options: ["Dark", "Light"] }
           - { label: "Desktop Image", name: "image", widget: "image", required: true }
           - { label: "Mobile Image", name: "mobileImage", widget: "image" }
-          - { label: "Description", name: "description", widget: "text"}
+          - { label: "Animated Layer", name: "animatedLayer", widget: "image" }
+          - { label: "Animation", name: "animation", widget: "select", options: ["Background Zoom", "Record Spin"] }

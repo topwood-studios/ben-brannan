@@ -21,12 +21,14 @@ const Slide = ({
   title,
 }) => {
   const isActive = activeSlide === contents;
+  const firstItem = index === 0;
   const isLastActiveSlide = lastActiveSlide === contents;
 
   return (
     <StyledBackground
       src={image}
       mobileImage={mobileImage}
+      firstItem={firstItem}
       animateIn={isActive}
       animateOut={isLastActiveSlide}
       animationDirection={direction}
@@ -35,11 +37,11 @@ const Slide = ({
         <div>
           <Counter>
             {index + 1}
-              /
+/
             {totalSlideCount}
           </Counter>
-          <Title animate={index === 0}>{title}</Title>
-          <SubTitle animate={index === 0}>{description}</SubTitle>
+          <Title animate={firstItem}>{title}</Title>
+          <SubTitle animate={firstItem}>{description}</SubTitle>
         </div>
       </Contents>
     </StyledBackground>
