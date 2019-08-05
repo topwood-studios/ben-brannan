@@ -22,6 +22,7 @@ class MyApp extends App {
     return (
       <AppWrapper>
         <Container>
+          <Logo>Studio Brannan</Logo>
           <Menu />
           <Component {...pageProps} />
         </Container>
@@ -33,3 +34,21 @@ class MyApp extends App {
 export default MyApp;
 
 const AppWrapper = styled.div``;
+
+const Logo = styled.h1`
+  font-family: 'Oswald';
+  color: white;
+  position: fixed;
+  top: 1rem;
+  left: 1.4rem;
+  z-index: 2;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.25rem;
+  display: inline-block;
+`;
