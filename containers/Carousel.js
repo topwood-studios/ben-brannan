@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import useInterval from '../utils/useInterval';
 import Slide from '../components/Slide';
 import { projects } from '../data.json';
 
 const Carousel = ({ slides, project, title }) => {
   const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState('forwards');
+  // const [timer, setTimer] = useState(null);
 
   // Slide pagination
   const [activeSlide, setActiveSlide] = useState(slides[0]);
@@ -18,24 +19,13 @@ const Carousel = ({ slides, project, title }) => {
   // Calculate next/prev projects
   const activeProjectIndex = projects.indexOf(projects.find(({ name }) => name === project));
   const nextProjectIndex = activeProjectIndex === projects.length - 1 ? 0 : activeProjectIndex + 1;
-  const prevProjectIndex = activeProjectIndex === 0 ? projects.length - 1 : activeProjectIndex - 1;
   const nextProject = `/${projects[nextProjectIndex].name}`;
-  const prevProject = `/${projects[prevProjectIndex].name}`;
 
-  // Page down
-  const handlePageDown = () => {
-    setDirection('backwards');
-    if (index === 0) {
-      // If no more slides, go to previous project
-      Router.push(prevProject);
-    } else {
-      setLastActiveSlide(slides[index]);
-      setIndex(index - 1); // otherwise change slide
-    }
-  };
+  // Calculate number of slides
+  const totalSlideCount = projects.reduce((r, p) => r + p.slides.length, 0);
+  // TODO: Calculate slide index in total number of slides;
 
   const handlePageUp = () => {
-    setDirection('forwards');
     if (index === slides.length - 1) {
       // If no more slides, go to next project
       Router.push(nextProject);
@@ -46,6 +36,21 @@ const Carousel = ({ slides, project, title }) => {
     }
   };
 
+  useInterval(() => {
+    handlePageUp();
+  }, 3000);
+
+  // Start or stop the carousel
+  // const toggleCarousel = () => {
+  //   if (timer === null) {
+  //     const tick = setInterval(handlePageUp, 3000);
+  //     setTimer(tick);
+  //   } else {
+  //     clearInterval(timer);
+  //     setTimer(null);
+  //   }
+  // };
+
   // Set active slide on index update
   useEffect(() => {
     setActiveSlide(slides[index]);
@@ -53,27 +58,30 @@ const Carousel = ({ slides, project, title }) => {
 
   // Prefetch next and prev project
   useEffect(() => {
-    Router.prefetch(prevProject);
     Router.prefetch(nextProject);
+    // toggleCarousel();
+    // return () => {
+    //   clearInterval(timer);
+    //   setTimer(null);
+    // };
   }, []);
 
-  const pageCount = `${index + 1}/${slides.length}`;
+  // const pageCount = `${index + 1}/${slides.length}`;
 
   return (
     <Wrapper>
-      {slides.map((slide) => (
+      {slides.map((slide, i) => (
         <Slide
           title={title}
+          index={i}
           key={slide.description}
           contents={slide}
-          direction={direction}
           activeSlide={activeSlide}
           lastActiveSlide={lastActiveSlide}
-          handlePageDown={handlePageDown}
+          totalSlideCount={totalSlideCount}
           handlePageUp={handlePageUp}
         />
       ))}
-      <Counter>{pageCount}</Counter>
     </Wrapper>
   );
 };
@@ -87,19 +95,3 @@ Carousel.propTypes = {
 };
 
 const Wrapper = styled.div``;
-
-const Counter = styled.span`
-  letter-spacing: 0.25rem;
-  font-weight: bold;
-  font-size: 1.8rem;
-  position: fixed;
-  z-index: 1;
-  color: white;
-  bottom: 1rem;
-  right: 1rem;
-
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
-    margin: auto 0;
-  }
-`;

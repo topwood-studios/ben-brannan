@@ -27,16 +27,9 @@ const MenuWrapper = styled.div`
 
 const MenuToggle = styled(Toggle)`
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem;
+  right: 1.5rem;
   z-index: 3;
-
-  transform: scale(0.75);
-
-  @media (max-width: 768px) {
-    top: 0;
-    right: 0;
-  }
 `;
 
 const Backdrop = styled.div`

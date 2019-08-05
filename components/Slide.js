@@ -5,18 +5,10 @@ import PropTypes from 'prop-types';
 
 import {
   // slideUp,
-  slideInRight,
-  slideOutRight,
-  slideInLeft,
-  slideOutLeft,
   fadeIn,
   fadeUp,
   fadeRight,
 } from './Animations';
-
-// Images
-const nextArrow = '/static/assets/next-arrow.png';
-const prevArrow = '/static/assets/prev-arrow.png';
 
 const Slide = ({
   contents,
@@ -24,9 +16,9 @@ const Slide = ({
   activeSlide,
   lastActiveSlide,
   direction,
+  totalSlideCount,
+  index,
   title,
-  handlePageDown,
-  handlePageUp,
 }) => {
   const isActive = activeSlide === contents;
   const isLastActiveSlide = lastActiveSlide === contents;
@@ -41,12 +33,15 @@ const Slide = ({
     >
       <Contents>
         <div>
-          <Title>{title}</Title>
-          <SubTitle>{description}</SubTitle>
+          <Counter>
+            {index + 1}
+              /
+            {totalSlideCount}
+          </Counter>
+          <Title animate={index === 0}>{title}</Title>
+          <SubTitle animate={index === 0}>{description}</SubTitle>
         </div>
       </Contents>
-      <PageLeft onClick={handlePageDown} />
-      <PageRight onClick={handlePageUp} />
     </StyledBackground>
   );
 };
@@ -58,16 +53,14 @@ Slide.propTypes = {
   lastActiveSlide: PropTypes.object,
   direction: PropTypes.string,
   title: PropTypes.string,
-  handlePageDown: PropTypes.func,
-  handlePageUp: PropTypes.func,
+  index: PropTypes.number,
   contents: PropTypes.object,
+  totalSlideCount: PropTypes.number,
 };
 
 const StyledBackground = styled.div`
   position: fixed;
   top: 0;
-  left: ${({ animationDirection }) => (animationDirection !== 'forwards' ? '0' : '')};
-  right: ${({ animationDirection }) => (animationDirection === 'forwards' ? '0' : '')};
   bottom: 0;
   position: absolute;
   height: 100%;
@@ -88,36 +81,31 @@ const StyledBackground = styled.div`
     display: ${({ animateIn, animateOut }) => (animateIn || animateOut ? '' : 'none')};
   }
 
-  animation: ${({ animateIn, animateOut, animationDirection }) => animationDirection !== 'forwards'
-        ? animateIn
-          ? slideInRight
-          : animateOut
-          ? slideOutRight
-          : null
-        : animateIn
-        ? slideInLeft
-        : animateOut
-        ? slideOutLeft
-        : null}
-    600ms forwards;
-
-  animation-timing-function: ease-in;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in;
+  opacity: ${({ animateIn, animateOut }) => (animateIn || animateOut ? 1 : 0)};
 `;
 
 const Title = styled.h1`
-  animation: ${fadeRight} 600ms forwards 1000ms;
+  animation: ${({ animate }) => animate && fadeRight} 600ms forwards 300ms;
   letter-spacing: 0.125rem;
-  opacity: 0;
+  opacity: ${({ animate }) => (animate ? 0 : 1)};
   margin: 0;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
+`;
+
+const Counter = styled.p`
+  margin: 0;
+  padding: 0;
 `;
 
 const SubTitle = styled.h2`
-  font-weight: lighter;
-  opacity: 0;
+  font-weight: 100;
+  opacity: ${({ animate }) => (animate ? 0 : 1)};
   margin: 0;
 
-  animation: ${fadeUp} 1000ms forwards 1000ms;
+  animation: ${({ animate }) => animate && fadeUp} 1000ms forwards 300ms;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -133,7 +121,7 @@ const Contents = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 1.4rem;
+  padding: 1.5rem;
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
@@ -151,24 +139,4 @@ const Contents = styled.div`
 
     animation: ${fadeIn} 1.5s forwards;
   }
-`;
-
-const PageRight = styled.div`
-  position: absolute;
-  right: 0;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  opacity: 0;
-  cursor: url(${nextArrow}), auto;
-`;
-
-const PageLeft = styled.div`
-  position: absolute;
-  right: 50%;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  opacity: 0;
-  cursor: url(${prevArrow}), auto;
 `;
