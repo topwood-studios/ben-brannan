@@ -35,9 +35,9 @@ const Slide = ({
     >
       <Contents>
         <div>
-          <Counter>
+          <Counter animate={firstItem}>
             {index + 1}
-/
+            <span>|</span>
             {totalSlideCount}
           </Counter>
           <Title animate={firstItem}>{title}</Title>
@@ -89,31 +89,7 @@ const StyledBackground = styled.div`
   opacity: ${({ animateIn, animateOut }) => (animateIn || animateOut ? 1 : 0)};
 `;
 
-const Title = styled.h1`
-  animation: ${({ animate }) => animate && fadeRight} 600ms forwards 300ms;
-  letter-spacing: 0.125rem;
-  opacity: ${({ animate }) => (animate ? 0 : 1)};
-  margin: 0;
-  margin-bottom: 0;
-`;
-
-const Counter = styled.p`
-  margin: 0;
-  padding: 0;
-`;
-
-const SubTitle = styled.h2`
-  font-weight: 100;
-  opacity: ${({ animate }) => (animate ? 0 : 1)};
-  margin: 0;
-
-  animation: ${({ animate }) => animate && fadeUp} 1000ms forwards 300ms;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
+// Slide contents
 const Contents = styled.div`
   position: fixed;
   top: 0;
@@ -123,7 +99,7 @@ const Contents = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
@@ -140,5 +116,44 @@ const Contents = styled.div`
     padding: 1.2rem;
 
     animation: ${fadeIn} 1.5s forwards;
+  }
+`;
+
+const Counter = styled.p`
+  margin: 0;
+  padding: 0;
+  color: #999;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  opacity: ${({ animate }) => (animate ? 0 : 1)};
+  animation: ${({ animate }) => animate && fadeIn} 500ms forwards 1000ms;
+  letter-spacing: 0.075rem;
+
+  span {
+    margin: 2px;
+  }
+`;
+
+const Title = styled.h1`
+  opacity: ${({ animate }) => (animate ? 0 : 1)};
+  animation: ${({ animate }) => animate && fadeRight} 600ms forwards 300ms;
+  letter-spacing: 0.05rem;
+  font-weight: lighter;
+  font-size: 1.4rem;
+  margin: 0;
+`;
+
+const SubTitle = styled.h2`
+  font-weight: lighter;
+  opacity: ${({ animate }) => (animate ? 0 : 1)};
+  margin: 0;
+  color: #999;
+  font-size: 1.3rem;
+  letter-spacing: 0.075rem;
+
+  animation: ${({ animate }) => animate && fadeUp} 1000ms forwards 300ms;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
   }
 `;

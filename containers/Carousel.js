@@ -6,7 +6,7 @@ import useInterval from '../utils/useInterval';
 import Slide from '../components/Slide';
 import { projects } from '../data.json';
 
-const Carousel = ({ slides, project, title }) => {
+const Carousel = ({ slides, project, title, menuIsOpen }) => {
   const [index, setIndex] = useState(0);
   const [timer, setTimer] = useState(true); // eslint-disable-line
 
@@ -41,7 +41,7 @@ const Carousel = ({ slides, project, title }) => {
     () => {
       handlePageUp();
     },
-    timer ? 3000 : null,
+    menuIsOpen ? null : 3000,
   );
 
   // Set active slide on index update
@@ -80,6 +80,7 @@ Carousel.propTypes = {
   slides: PropTypes.array,
   project: PropTypes.string,
   title: PropTypes.string,
+  menuIsOpen: PropTypes.bool,
 };
 
 const Wrapper = styled.div``;

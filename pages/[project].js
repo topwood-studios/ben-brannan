@@ -4,18 +4,13 @@ import React from 'react';
 import Carousel from '../containers/Carousel';
 
 const Project = ({
-  project,
   content: {
-    // html,
-    attributes: {
-      title,
-      // client
-      slides,
-    },
+    attributes: { title, slides },
   },
+  ...rest
 }) => (
   <article>
-    <Carousel project={project} title={title} slides={slides} />
+    <Carousel title={title} slides={slides} {...rest} />
   </article>
 );
 
@@ -24,6 +19,7 @@ export default Project;
 Project.propTypes = {
   content: PropTypes.object,
   project: PropTypes.string,
+  menuIsOpen: PropTypes.bool,
 };
 
 /* eslint-disable import/no-dynamic-require */
