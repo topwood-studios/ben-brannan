@@ -6,7 +6,7 @@ import Menu from '../components/Menu';
 // Global data
 
 class MyApp extends App {
-  state = { menuOpen: false };
+  state = { menuOpen: true };
 
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
@@ -27,7 +27,7 @@ class MyApp extends App {
     return (
       <AppWrapper>
         <Container>
-          <Logo>
+          <Logo fadeOut={menuOpen}>
             Studio
             <span>+</span>
             Brannan
@@ -57,6 +57,9 @@ const Logo = styled.h1`
   text-decoration: none;
   letter-spacing: 0.075rem;
   display: inline-block;
+
+  transition: opacity 0.3s ease;
+  opacity: ${({ fadeOut }) => fadeOut ? 0 : 1};
 
   span {
     color: #888;

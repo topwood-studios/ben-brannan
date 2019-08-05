@@ -12,7 +12,18 @@ const Menu = ({ isOpen, toggleMenu }) => (
     </MenuToggle>
     <Backdrop isOpen={isOpen}>
       <Contents isOpen={isOpen}>
-        <h1>I am a menu</h1>
+        <h1>
+          We are Studio
+          <span>+</span>
+          Brannan.
+        </h1>
+        <p>
+          A design consultancy creating corporate identity systems &amp; brand direction, along with
+          beautifully crafted apps, websites, books, literature, reports and information graphics.
+        </p>
+        <p>Please get in touch to discuss a project and see...</p>
+        <hr />
+        <p>Contact details</p>
       </Contents>
     </Backdrop>
   </MenuWrapper>
@@ -54,7 +65,7 @@ const Backdrop = styled.div`
   left: 0;
   bottom: 0;
   overflow: hidden;
-  background: rgba(10, 10, 10, 0.75);
+  background: rgba(15, 15, 15, 0.85);
 
   transition-property: transform;
   transition-duration: 0.5s;
@@ -65,11 +76,32 @@ const Backdrop = styled.div`
 
 const Contents = styled.div`
   color: white;
-  padding: 2rem;
+  width: 100%;
+  max-width: 900px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   transition-duration: 0.5s;
   transition-property: opacity;
   transition-timing-function: ease-in-out;
   transition-delay: ${({ isOpen }) => (isOpen ? 500 : 0)}ms;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+
+  h1 {
+    margin-bottom: 1rem;
+    font-size: 2.6rem;
+    font-weight: bold;
+    letter-spacing: 0.075rem;
+
+    span {
+      color: #999;
+    }
+  }
+
+  p {
+    margin-top: 0;
+    font-size: 2.6rem;
+  }
 `;

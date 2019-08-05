@@ -64,6 +64,7 @@ const Carousel = ({ slides, project, title, menuIsOpen }) => {
           index={i}
           key={slide.description}
           contents={slide}
+          menuIsOpen={menuIsOpen}
           activeSlide={activeSlide}
           lastActiveSlide={lastActiveSlide}
           totalSlideCount={totalSlideCount}

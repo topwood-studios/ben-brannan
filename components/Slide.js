@@ -17,6 +17,7 @@ const Slide = ({
   lastActiveSlide,
   direction,
   totalSlideCount,
+  menuIsOpen,
   index,
   title,
 }) => {
@@ -33,7 +34,7 @@ const Slide = ({
       animateOut={isLastActiveSlide}
       animationDirection={direction}
     >
-      <Contents>
+      <Contents fadeOut={menuIsOpen}>
         <div>
           <Counter animate={firstItem}>
             {index + 1}
@@ -58,6 +59,7 @@ Slide.propTypes = {
   index: PropTypes.number,
   contents: PropTypes.object,
   totalSlideCount: PropTypes.number,
+  menuIsOpen: PropTypes.bool,
 };
 
 const StyledBackground = styled.div`
@@ -104,6 +106,9 @@ const Contents = styled.div`
   pointer-events: none;
   overflow: hidden;
   white-space: nowrap;
+
+  transition: opacity 0.3s ease-in;
+  opacity: ${({ fadeOut }) => fadeOut ? 0 : 1};
 
   color: white;
 
