@@ -18,8 +18,8 @@ collections:
         fields: 
           - { label: "Name", name: "name", widget: "string", required: true }
           - { label: "Description", name: "description", widget: "text" }
-          - { label: "Theme", name: "theme", widget: "select", options: ["Dark", "Light"] }
+          - { label: "Theme", name: "theme", widget: "select", options: ["Dark", "Light"], default: "Light" }
           - { label: "Desktop Image", name: "image", widget: "image", required: true }
           - { label: "Mobile Image", name: "mobileImage", widget: "image" }
           - { label: "Animated Layer", name: "animatedLayer", widget: "image" }
-          - { label: "Animation", name: "animation", widget: "select", options: ["Background Zoom", "Record Spin"] }
+          - { label: "Animation", name: "animation", widget: "select", options: ["None", "Background Zoom", "Record Spin"], default: "None" }
