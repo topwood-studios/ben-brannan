@@ -22,7 +22,8 @@ const Carousel = ({ slides, project, title, menuIsOpen }) => {
   const nextProject = `/${projects[nextProjectIndex].name}`;
 
   // Calculate number of slides
-  const totalSlideCount = projects.reduce((r, p) => r + p.slides.length, 0);
+  // const totalSlideCount = projects.reduce((r, p) => r + p.slides.length, 0);
+  const totalSlideCount = slides.length;
   // TODO: Calculate slide index in total number of slides;
 
   const handlePageUp = () => {
