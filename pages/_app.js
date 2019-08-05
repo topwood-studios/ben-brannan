@@ -6,7 +6,7 @@ import Menu from '../components/Menu';
 // Global data
 
 class MyApp extends App {
-  state = { menuOpen: true };
+  state = { menuOpen: false };
 
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
