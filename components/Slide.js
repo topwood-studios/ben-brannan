@@ -66,8 +66,8 @@ Slide.propTypes = {
 const StyledBackground = styled.div`
   position: fixed;
   top: 0;
-  left: ${({ animationDirection }) => animationDirection !== 'forwards' ? '0' : ''};
-  right: ${({ animationDirection }) => animationDirection === 'forwards' ? '0' : ''};
+  left: ${({ animationDirection }) => (animationDirection !== 'forwards' ? '0' : '')};
+  right: ${({ animationDirection }) => (animationDirection === 'forwards' ? '0' : '')};
   bottom: 0;
   position: absolute;
   height: 100%;
@@ -75,10 +75,10 @@ const StyledBackground = styled.div`
   background-image: url(${({ src }) => src});
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+
   display: flex;
   align-items: flex-end;
-  z-index: ${({ animateIn }) => (animateIn ? 1 : 0)};
+  z-index: ${({ animateIn, animateOut }) => (animateIn ? 1 : animateOut ? 0 : -1)};
 
   @media (max-width: 768px) {
     background-image: url(${({ mobileImage }) => mobileImage});
@@ -89,19 +89,19 @@ const StyledBackground = styled.div`
   }
 
   animation: ${({ animateIn, animateOut, animationDirection }) => animationDirection !== 'forwards'
-      ? animateIn
-        ? slideInRight
+        ? animateIn
+          ? slideInRight
+          : animateOut
+          ? slideOutRight
+          : null
+        : animateIn
+        ? slideInLeft
         : animateOut
-        ? slideOutRight
-        : null
-      : animateIn
-      ? slideInLeft
-      : animateOut
-      ? slideOutLeft
-      : null}
+        ? slideOutLeft
+        : null}
     600ms forwards;
 
-    animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
 `;
 
 const Title = styled.h1`
