@@ -23,7 +23,8 @@ collections:
           - { label: "Mobile Image", name: "mobileImage", widget: "image", required: false }
           - { label: "Animated Layer", name: "animatedLayer", widget: "image", required: false }
           - { label: "Animation", name: "animation", widget: "select", options: ["None", "Background Zoom", "Record Spin"], default: "None" }
- - name: "settings"
+          
+  - name: "settings"
     label: "Settings"
     delete: false # Prevent users from deleting documents in this collection
     editor:
