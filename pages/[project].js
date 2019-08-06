@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Head from 'next/head';
 
 import Carousel from '../containers/Carousel';
 
@@ -10,6 +11,11 @@ const Project = ({
   ...rest
 }) => (
   <article>
+    <Head>
+      <title>
+        {`Studio Brannan | ${title}`}
+      </title>
+    </Head>
     <Carousel title={title} slides={slides} {...rest} />
   </article>
 );
