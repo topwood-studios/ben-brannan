@@ -1,9 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import Markdown from 'react-markdown';
 
 // eslint-disable-next-line
-export default ({ html, ...rest }) => (
-  <Markdown {...rest} dangerouslySetInnerHTML={{ __html: html }} />
-);
-
-const Markdown = styled.div``;
+export default (props) => <Markdown {...props} />;

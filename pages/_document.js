@@ -14,7 +14,6 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <title>Studio Brannan</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link href="/static/css/main.css" rel="stylesheet" />
           <link href="/static/css/fonts.css" rel="stylesheet" />

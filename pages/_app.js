@@ -2,12 +2,15 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import styled from 'styled-components';
 import { PageTransition } from 'next-page-transitions';
+import Head from 'next/head';
 
 import Menu from '../components/Menu';
 
 // Global data
+import content from '../content/settings/global.md';
+
 class MyApp extends App {
-  state = { menuOpen: false, theme: 'Light' };
+  state = { menuOpen: true, theme: 'Light' };
 
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
@@ -26,9 +29,14 @@ class MyApp extends App {
   render() {
     const { Component, pageProps, router } = this.props;
     const { menuOpen, theme } = this.state;
+    const { attributes: { siteTitle, description } } = content;
 
     return (
       <AppWrapper>
+        <Head>
+          <title>{siteTitle}</title>
+          <meta name="description" content={description} />
+        </Head>
         <Container>
           <Logo fadeOut={menuOpen}>
             Studio

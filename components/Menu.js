@@ -2,37 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 // import Toggle from './Toggle';
-
 import { MdAdd } from 'react-icons/md';
+import Markdown from './Markdown';
 
 // TODO: Get content
-// import content from '../content/settings/global.md';
+import content, { attributes } from '../content/settings/global.md';
 
-const Menu = ({ isOpen, toggleMenu }) => (
-  <MenuWrapper>
-    <MenuToggle isOpen={isOpen} onClick={toggleMenu} />
-    <Backdrop isOpen={isOpen}>
-      <Contents isOpen={isOpen}>
-        <h1>
-          We are Studio
-          <span>+</span>
-          Brannan.
-        </h1>
-        <p>
-          A design consultancy creating corporate identity systems &amp; brand direction, along with
-          beautifully crafted apps, websites, books, literature, reports and information graphics.
-        </p>
-        <p>Please get in touch to discuss a project and see...</p>
-        <hr />
-        <Flex>
-          <address>Contact details</address>
-          <div />
-          <div />
-        </Flex>
-      </Contents>
-    </Backdrop>
-  </MenuWrapper>
-);
+const Menu = ({ isOpen, toggleMenu }) => {
+  console.log({ content });
+  const { menuText, menuContact, menuAddress } = attributes;
+  return (
+    <>
+      <MenuToggle isOpen={isOpen} onClick={toggleMenu} />
+      <Backdrop isOpen={isOpen}>
+        <Contents isOpen={isOpen}>
+          <MenuText>
+            <Markdown source={menuText} />
+          </MenuText>
+          <hr />
+          <Flex>
+            <Address>
+              <Markdown source={menuAddress} />
+            </Address>
+            <Contact>
+              <Markdown source={menuContact} />
+            </Contact>
+            <div />
+          </Flex>
+        </Contents>
+      </Backdrop>
+    </>
+  );
+};
 
 export default Menu;
 
@@ -41,13 +42,28 @@ Menu.propTypes = {
   toggleMenu: PropTypes.func,
 };
 
+const Address = styled.address`
+  font-size: 1.1rem;
+  white-space: pre-wrap;
+  font-style: normal;
+`;
+
+const Contact = styled.div`
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
+
 const Flex = styled.div`
   display: flex;
   justify-content: space-between;
-`;
 
-const MenuWrapper = styled.div`
-  display: contents;
+  > * {
+    flex: 1;
+  }
 `;
 
 const MenuToggle = styled(MdAdd)`
@@ -64,7 +80,7 @@ const MenuToggle = styled(MdAdd)`
   transition: transform 0.3s ease-in-out, color 0.3s ease-in;
   transform: rotate(${({ isOpen }) => isOpen && '-45deg'});
 
-  color: ${({ isOpen }) => isOpen ? 'white' : 'black'};
+  color: ${({ isOpen }) => (isOpen ? 'white' : 'black')};
 
   &:hover {
     cursor: pointer;
@@ -102,7 +118,9 @@ const Contents = styled.div`
   transition-timing-function: ease-in-out;
   transition-delay: ${({ isOpen }) => (isOpen ? 500 : 0)}ms;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+`;
 
+const MenuText = styled.div`
   h1 {
     margin-bottom: 1rem;
     font-size: 2.6rem;
