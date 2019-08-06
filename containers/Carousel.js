@@ -8,7 +8,6 @@ import { projects } from '../data.json';
 
 const Carousel = ({ slides, project, title, menuIsOpen }) => {
   const [index, setIndex] = useState(0);
-  const [timer, setTimer] = useState(true); // eslint-disable-line
 
   // Slide pagination
   const [activeSlide, setActiveSlide] = useState(slides[0]);

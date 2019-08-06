@@ -1,21 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-// import Background from './Background';
 
-import {
-  // slideUp,
-  fadeIn,
-  fadeUp,
-  fadeRight,
-} from './Animations';
+import { backgroundZoom, fadeIn, fadeUp, fadeRight, recordSpin } from './Animations';
 
 const Slide = ({
   contents,
-  contents: { image, mobileImage, description },
+  contents: { image, mobileImage, description, animation, theme, animatedLayer },
   activeSlide,
   lastActiveSlide,
-  direction,
   totalSlideCount,
   menuIsOpen,
   index,
@@ -26,26 +19,30 @@ const Slide = ({
   const isLastActiveSlide = lastActiveSlide === contents;
 
   return (
-    <StyledBackground
-      src={image}
-      mobileImage={mobileImage}
-      firstItem={firstItem}
-      animateIn={isActive}
-      animateOut={isLastActiveSlide}
-      animationDirection={direction}
-    >
-      <Contents fadeOut={menuIsOpen}>
-        <div>
-          <Counter animate={firstItem}>
-            {index + 1}
-            <span>|</span>
-            {totalSlideCount}
-          </Counter>
-          <Title animate={firstItem}>{title}</Title>
-          <SubTitle animate={firstItem}>{description}</SubTitle>
-        </div>
-      </Contents>
-    </StyledBackground>
+    <SlideWrapper>
+      <StyledBackground
+        src={image}
+        mobileImage={mobileImage}
+        firstItem={firstItem}
+        animation={animation}
+        animateIn={isActive}
+        animateOut={isLastActiveSlide}
+      />
+      {animatedLayer && <AnimatedLayer src={animatedLayer} animation={animation} />}
+      {isActive && (
+        <Contents fadeOut={menuIsOpen} theme={theme}>
+          <div>
+            <Counter animate={firstItem}>
+              {index + 1}
+              <span>|</span>
+              {totalSlideCount}
+            </Counter>
+            <Title animate={firstItem}>{title}</Title>
+            <SubTitle animate={firstItem}>{description}</SubTitle>
+          </div>
+        </Contents>
+      )}
+    </SlideWrapper>
   );
 };
 
@@ -54,7 +51,6 @@ export default Slide;
 Slide.propTypes = {
   activeSlide: PropTypes.object,
   lastActiveSlide: PropTypes.object,
-  direction: PropTypes.string,
   title: PropTypes.string,
   index: PropTypes.number,
   contents: PropTypes.object,
@@ -62,13 +58,35 @@ Slide.propTypes = {
   menuIsOpen: PropTypes.bool,
 };
 
-const StyledBackground = styled.div`
-  position: fixed;
+const SlideWrapper = styled.div`
+  position: absolute;
   top: 0;
   bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const AnimatedLayer = styled.img`
+  z-index: 1;
+  max-width: 55%;
+  max-height: 55%;
+  animation-name: ${({ animation }) => animation === 'Record Spin' && recordSpin}; 
+  animation-duration: 3s; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+`;
+
+const StyledBackground = styled.div`
   position: absolute;
-  height: 100%;
-  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
   background-image: url(${({ src }) => src});
   background-size: cover;
   background-position: center;
@@ -89,6 +107,9 @@ const StyledBackground = styled.div`
   transition-duration: 250ms;
   transition-timing-function: ease-in;
   opacity: ${({ animateIn, animateOut }) => (animateIn || animateOut ? 1 : 0)};
+
+  animation: ${({ animation }) => (animation === 'Background Zoom' ? backgroundZoom : null)} 10000ms
+    forwards;
 `;
 
 // Slide contents
@@ -108,7 +129,7 @@ const Contents = styled.div`
   white-space: nowrap;
 
   transition: opacity 0.3s ease-in;
-  opacity: ${({ fadeOut }) => fadeOut ? 0 : 1};
+  opacity: ${({ fadeOut }) => (fadeOut ? 0 : 1)};
 
   color: white;
 

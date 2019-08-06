@@ -1,5 +1,23 @@
 import { keyframes } from 'styled-components';
 
+export const recordSpin = keyframes`
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+export const backgroundZoom = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+`;
+
 export const fadeIn = keyframes`
   0% {
     opacity: 0;
