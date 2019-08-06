@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-// import Toggle from './Toggle';
 import { MdAdd } from 'react-icons/md';
 import Markdown from './Markdown';
 
-// TODO: Get content
-import content, { attributes } from '../content/settings/global.md';
+import { attributes } from '../content/settings/global.md';
 
 const Menu = ({ isOpen, toggleMenu }) => {
-  console.log({ content });
   const { menuText, menuContact, menuAddress } = attributes;
   return (
     <>
