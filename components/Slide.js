@@ -100,7 +100,7 @@ const StyledBackground = styled.div`
   }
 
   > div > * {
-    display: ${({ animateIn, animateOut }) => (animateIn || animateOut ? '' : 'none')};
+    visibility: ${({ animateIn, animateOut }) => (animateIn || animateOut ? '' : 'hidden')};
   }
 
   transition-property: opacity;

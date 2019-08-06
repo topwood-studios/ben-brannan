@@ -8,11 +8,8 @@ import { projects } from '../data.json';
 
 const Carousel = ({ slides, project, title, menuIsOpen }) => {
   const [index, setIndex] = useState(0);
-
-  // Slide pagination
-  // const [activeSlide, setActiveSlide] = useState(slides[0]);
+  const [windowBlurred, setWindowBlurred] = useState(false);
   const [lastActiveSlide, setLastActiveSlide] = useState(slides[0]);
-
   const Router = useRouter();
 
   // Calculate next/prev projects
@@ -20,15 +17,12 @@ const Carousel = ({ slides, project, title, menuIsOpen }) => {
   const nextProjectIndex = activeProjectIndex === projects.length - 1 ? 0 : activeProjectIndex + 1;
   const nextProject = `/${projects[nextProjectIndex].name}`;
 
-  // Calculate number of slides
-  // const totalSlideCount = projects.reduce((r, p) => r + p.slides.length, 0);
-  const totalSlideCount = slides.length;
   // TODO: Calculate slide index in total number of slides;
+  const totalSlideCount = slides.length;
 
   const handlePageUp = () => {
     if (index === slides.length - 1) {
-      // If no more slides, go to next project
-      Router.push(nextProject);
+      Router.push(nextProject); // If no more slides, go to next project
     } else {
       // otherwise change slide
       setLastActiveSlide(slides[index]);
@@ -36,25 +30,24 @@ const Carousel = ({ slides, project, title, menuIsOpen }) => {
     }
   };
 
+  // Prefetch next project
+  useEffect(() => {
+    Router.prefetch(nextProject);
+    window.addEventListener('blur', setWindowBlurred(true));
+    window.addEventListener('focus', setWindowBlurred(false));
+    return () => {
+      window.removeEventListener('blur', setWindowBlurred(true));
+      window.removeEventListener('focus', setWindowBlurred(false));
+    };
+  }, []);
+
   // Set the carousel rotating
   useInterval(
     () => {
       handlePageUp();
     },
-    menuIsOpen ? null : 3000,
+    menuIsOpen || windowBlurred ? null : 3000,
   );
-
-  // Set active slide on index update
-  // useEffect(() => {
-  //   setActiveSlide(slides[index]);
-  // }, [index]);
-
-  // Prefetch next and prev project
-  useEffect(() => {
-    Router.prefetch(nextProject);
-  }, []);
-
-  // const pageCount = `${index + 1}/${slides.length}`;
 
   return (
     <Wrapper>
