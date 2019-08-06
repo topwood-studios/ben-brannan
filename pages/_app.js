@@ -10,7 +10,7 @@ import Menu from '../components/Menu';
 import content from '../content/settings/global.md';
 
 class MyApp extends App {
-  state = { menuOpen: true, theme: 'Light' };
+  state = { menuOpen: false, theme: 'Light' };
 
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};

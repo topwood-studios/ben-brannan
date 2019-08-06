@@ -47,7 +47,7 @@ const Address = styled.address`
 
 const Contact = styled.div`
   font-size: 1.1rem;
-  line-height: 1.1rem;
+  line-height: 1.4rem;
   a {
     color: inherit;
     text-decoration: none;
@@ -57,6 +57,11 @@ const Contact = styled.div`
 const Flex = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 1rem 0;
+
+  p {
+    margin: 0;
+  }
 
   > * {
     flex: 1;
@@ -124,7 +129,7 @@ const MenuText = styled.div`
     font-weight: bold;
     letter-spacing: 0.075rem;
 
-    span {
+    strong {
       color: #999;
     }
   }
