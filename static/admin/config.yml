@@ -37,6 +37,6 @@ collections:
           - { label: Site Title, name: siteTitle, widget: string }
           - { label: Site Url, name: siteUrl, widget: string, required: false }
           - { label: Site Description, name: siteDescription, widget: text, required: false }
-          - { label: Menu text, name: menuText, widget: text, required: false }
+          - { label: Menu text, name: menuText, widget: markdown, required: false }
           - { label: Menu address, name: menuAddress, widget: text, required: false }
-          - { label: Menu contact, name: menuContact, widget: text, required: false }
+          - { label: Menu contact, name: menuContact, widget: markdown, required: false }
