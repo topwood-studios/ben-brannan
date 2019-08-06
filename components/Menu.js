@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { MdAdd } from 'react-icons/md';
 
 // TODO: Get content
+// import content from '../content/settings/global.md';
 
 const Menu = ({ isOpen, toggleMenu }) => (
   <MenuWrapper>

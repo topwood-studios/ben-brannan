@@ -30,7 +30,7 @@ collections:
     editor:
       preview: false
     files:
-      - file: "content/settings/global.yml"
+      - file: "content/settings/global.md"
         label: "Site Settings"
         name: "site-settings"
         fields:
