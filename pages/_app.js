@@ -1,7 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import styled from 'styled-components';
-import { PageTransition } from 'next-page-transitions';
+// import { PageTransition } from 'next-page-transitions';
 import Menu from '../components/Menu';
 
 // Global data
@@ -33,10 +33,10 @@ class MyApp extends App {
             Brannan
           </Logo>
           <Menu isOpen={menuOpen} toggleMenu={this.toggleMenu} />
-          <PageTransition timeout={300} classNames="page-transition">
-            <Component {...pageProps} menuIsOpen={menuOpen} toggleMenu={this.toggleMenu} />
-          </PageTransition>
-          <style jsx global>
+          {/* <PageTransition timeout={300} classNames="page-transition"> */}
+          <Component {...pageProps} menuIsOpen={menuOpen} toggleMenu={this.toggleMenu} />
+          {/* </PageTransition> */}
+          {/* <style jsx global>
             {`
             .page-transition-enter {
               opacity: 0;
@@ -53,7 +53,7 @@ class MyApp extends App {
               transition: opacity 300ms;
             }
           `}
-          </style>
+          </style> */}
         </Container>
       </AppWrapper>
     );
@@ -79,7 +79,7 @@ const Logo = styled.h1`
   display: inline-block;
 
   transition: opacity 0.3s ease;
-  opacity: ${({ fadeOut }) => fadeOut ? 0 : 1};
+  opacity: ${({ fadeOut }) => (fadeOut ? 0 : 1)};
 
   span {
     color: #888;
