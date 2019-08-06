@@ -1,12 +1,13 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import styled from 'styled-components';
-// import { PageTransition } from 'next-page-transitions';
+import { PageTransition } from 'next-page-transitions';
+
 import Menu from '../components/Menu';
 
 // Global data
 class MyApp extends App {
-  state = { menuOpen: false };
+  state = { menuOpen: false, theme: 'Light' };
 
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
@@ -20,9 +21,11 @@ class MyApp extends App {
 
   toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen }); // eslint-disable-line
 
+  setTheme = (theme) => this.setState({ theme });
+
   render() {
-    const { Component, pageProps } = this.props;
-    const { menuOpen } = this.state;
+    const { Component, pageProps, router } = this.props;
+    const { menuOpen, theme } = this.state;
 
     return (
       <AppWrapper>
@@ -33,27 +36,16 @@ class MyApp extends App {
             Brannan
           </Logo>
           <Menu isOpen={menuOpen} toggleMenu={this.toggleMenu} />
-          {/* <PageTransition timeout={300} classNames="page-transition"> */}
-          <Component {...pageProps} menuIsOpen={menuOpen} toggleMenu={this.toggleMenu} />
-          {/* </PageTransition> */}
-          {/* <style jsx global>
-            {`
-            .page-transition-enter {
-              opacity: 0;
-            }
-            .page-transition-enter-active {
-              opacity: 1;
-              transition: opacity 300ms;
-            }
-            .page-transition-exit {
-              opacity: 1;
-            }
-            .page-transition-exit-active {
-              opacity: 0;
-              transition: opacity 300ms;
-            }
-          `}
-          </style> */}
+          <PageTransition timeout={300} classNames="page-transition">
+            <Component
+              {...pageProps}
+              theme={theme}
+              key={router.route}
+              menuIsOpen={menuOpen}
+              toggleMenu={this.toggleMenu}
+              setTheme={this.setTheme}
+            />
+          </PageTransition>
         </Container>
       </AppWrapper>
     );
@@ -62,7 +54,22 @@ class MyApp extends App {
 
 export default MyApp;
 
-const AppWrapper = styled.div``;
+const AppWrapper = styled.div`
+  .page-transition-enter {
+    opacity: 0;
+  }
+  .page-transition-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .page-transition-exit {
+    opacity: 1;
+  }
+  .page-transition-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+`;
 
 const Logo = styled.h1`
   color: white;

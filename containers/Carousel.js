@@ -10,7 +10,7 @@ const Carousel = ({ slides, project, title, menuIsOpen }) => {
   const [index, setIndex] = useState(0);
 
   // Slide pagination
-  const [activeSlide, setActiveSlide] = useState(slides[0]);
+  // const [activeSlide, setActiveSlide] = useState(slides[0]);
   const [lastActiveSlide, setLastActiveSlide] = useState(slides[0]);
 
   const Router = useRouter();
@@ -45,9 +45,9 @@ const Carousel = ({ slides, project, title, menuIsOpen }) => {
   );
 
   // Set active slide on index update
-  useEffect(() => {
-    setActiveSlide(slides[index]);
-  }, [index]);
+  // useEffect(() => {
+  //   setActiveSlide(slides[index]);
+  // }, [index]);
 
   // Prefetch next and prev project
   useEffect(() => {
@@ -65,7 +65,7 @@ const Carousel = ({ slides, project, title, menuIsOpen }) => {
           key={slide.description}
           contents={slide}
           menuIsOpen={menuIsOpen}
-          activeSlide={activeSlide}
+          activeSlide={slides[index]}
           lastActiveSlide={lastActiveSlide}
           totalSlideCount={totalSlideCount}
           handlePageUp={handlePageUp}
