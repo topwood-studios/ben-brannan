@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 // import Toggle from './Toggle';
 
+import { MdAdd } from 'react-icons/md';
+
 // TODO: Get content
 
 const Menu = ({ isOpen, toggleMenu }) => (
   <MenuWrapper>
-    <MenuToggle isOpen={isOpen} onClick={toggleMenu}>
-      +
-    </MenuToggle>
+    <MenuToggle isOpen={isOpen} onClick={toggleMenu} />
     <Backdrop isOpen={isOpen}>
       <Contents isOpen={isOpen}>
         <h1>
@@ -40,7 +40,7 @@ const MenuWrapper = styled.div`
   display: contents;
 `;
 
-const MenuToggle = styled.span`
+const MenuToggle = styled(MdAdd)`
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
@@ -49,8 +49,12 @@ const MenuToggle = styled.span`
   font-weight: bolder;
   margin: 0;
   padding: 0;
+  font-size: 3rem;
 
-  transform: rotate(${({ isOpen }) => isOpen && '45deg'});
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in;
+  transform: rotate(${({ isOpen }) => isOpen && '-45deg'});
+
+  color: ${({ isOpen }) => isOpen ? 'white' : 'black'};
 
   &:hover {
     cursor: pointer;
