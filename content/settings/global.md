@@ -3,7 +3,7 @@ siteTitle: Studio Brannan
 siteUrl: studiobrannan.com
 siteDescription: A short description to use for Metadata
 menuText: >-
-  # We are Studio+Brannan.
+  # We are Studio**+**Brannan.
 
 
   A design consultancy creating corporate identity systems & brand direction,
