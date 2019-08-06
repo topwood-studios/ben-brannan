@@ -23,7 +23,11 @@ const Menu = ({ isOpen, toggleMenu }) => (
         </p>
         <p>Please get in touch to discuss a project and see...</p>
         <hr />
-        <p>Contact details</p>
+        <Flex>
+          <address>Contact details</address>
+          <div />
+          <div />
+        </Flex>
       </Contents>
     </Backdrop>
   </MenuWrapper>
@@ -35,6 +39,11 @@ Menu.propTypes = {
   isOpen: PropTypes.bool,
   toggleMenu: PropTypes.func,
 };
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 const MenuWrapper = styled.div`
   display: contents;
@@ -69,7 +78,7 @@ const Backdrop = styled.div`
   left: 0;
   bottom: 0;
   overflow: hidden;
-  background: rgba(15, 15, 15, 0.85);
+  background: rgba(20, 20, 20, 0.95);
 
   transition-property: transform;
   transition-duration: 0.5s;

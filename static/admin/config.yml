@@ -23,3 +23,19 @@ collections:
           - { label: "Mobile Image", name: "mobileImage", widget: "image", required: false }
           - { label: "Animated Layer", name: "animatedLayer", widget: "image", required: false }
           - { label: "Animation", name: "animation", widget: "select", options: ["None", "Background Zoom", "Record Spin"], default: "None" }
+ - name: "settings"
+    label: "Settings"
+    delete: false # Prevent users from deleting documents in this collection
+    editor:
+      preview: false
+    files:
+      - file: "content/settings/global.yml"
+        label: "Site Settings"
+        name: "site-settings"
+        fields:
+          - { label: Site Title, name: siteTitle, widget: string }
+          - { label: Site Url, name: siteUrl, widget: string, required: false }
+          - { label: Site Description, name: siteDescription, widget: text, required: false }
+          - { label: Menu text, name: menuText, widget: text, required: false }
+          - { label: Menu address, name: menuAddress, widget: text, required: false }
+          - { label: Menu contact, name: menuContact, widget: text, required: false }
