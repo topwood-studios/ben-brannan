@@ -1,10 +1,10 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import styled from 'styled-components';
+import { PageTransition } from 'next-page-transitions';
 import Menu from '../components/Menu';
 
 // Global data
-
 class MyApp extends App {
   state = { menuOpen: false };
 
@@ -33,7 +33,27 @@ class MyApp extends App {
             Brannan
           </Logo>
           <Menu isOpen={menuOpen} toggleMenu={this.toggleMenu} />
-          <Component {...pageProps} menuIsOpen={menuOpen} toggleMenu={this.toggleMenu} />
+          <PageTransition timeout={300} classNames="page-transition">
+            <Component {...pageProps} menuIsOpen={menuOpen} toggleMenu={this.toggleMenu} />
+          </PageTransition>
+          <style jsx global>
+            {`
+            .page-transition-enter {
+              opacity: 0;
+            }
+            .page-transition-enter-active {
+              opacity: 1;
+              transition: opacity 300ms;
+            }
+            .page-transition-exit {
+              opacity: 1;
+            }
+            .page-transition-exit-active {
+              opacity: 0;
+              transition: opacity 300ms;
+            }
+          `}
+          </style>
         </Container>
       </AppWrapper>
     );
