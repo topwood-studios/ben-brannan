@@ -1,14 +1,12 @@
 ---
-title: Second Project
-client: Client 2
+title: Rowden
+client: Rowden
 slides:
-  - description: Some words about slide 1
-    image: /static/img/dare-to-win-3.jpg
-    mobileImage: /static/img/project-background-mobile.jpg
+  - animatedLayer: /static/img/rowden-logo.png
+    animation: Background Zoom
+    description: Description for Rowden slide 1
+    image: /static/img/rowden-background.jpg
     name: Slide 1
-  - description: Here's what I've got to say about this slide
-    image: /static/img/project-background-desktop.jpg
-    mobileImage: /static/img/project-background-mobile.jpg
-    name: Slide 2
+    theme: Dark
 ---
-Some great words about the second project
+
