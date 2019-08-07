@@ -46,7 +46,7 @@ const Carousel = ({ slides, project, title, menuIsOpen }) => {
     () => {
       handlePageUp();
     },
-    menuIsOpen || windowBlurred ? null : 3000,
+    menuIsOpen || windowBlurred ? null : 4000,
   );
 
   return (

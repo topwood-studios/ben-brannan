@@ -130,7 +130,7 @@ const MenuText = styled.div`
     letter-spacing: 0.075rem;
 
     strong {
-      color: #999;
+      color: #868686;
     }
   }
 

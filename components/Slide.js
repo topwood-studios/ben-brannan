@@ -148,7 +148,7 @@ const Contents = styled.div`
 const Counter = styled.p`
   margin: 0;
   padding: 0;
-  color: #999;
+  color: #868686;
   font-size: 0.9rem;
   margin-bottom: 0.25rem;
   opacity: ${({ animate }) => (animate ? 0 : 1)};
@@ -173,7 +173,7 @@ const SubTitle = styled.h2`
   font-weight: lighter;
   opacity: ${({ animate }) => (animate ? 0 : 1)};
   margin: 0;
-  color: #999;
+  color: #868686;
   font-size: 1.3rem;
   letter-spacing: 0.075rem;
 
