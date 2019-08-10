@@ -16,6 +16,7 @@ const Slide = ({
   lastActiveSlide,
   totalSlideCount,
   index,
+  toggleCarousel,
   title,
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -25,8 +26,15 @@ const Slide = ({
 
   return (
     <SlideWrapper>
-      <Logo theme={theme} />
-      <Menu isOpen={menuIsOpen} theme={theme} toggleMenu={() => setMenuIsOpen(!menuIsOpen)} />
+      <Logo theme={theme} menuOpen={menuIsOpen} />
+      <Menu
+        isOpen={menuIsOpen}
+        theme={theme}
+        toggleMenu={() => {
+          setMenuIsOpen(!menuIsOpen);
+          toggleCarousel();
+        }}
+      />
       <StyledBackground
         src={image}
         mobileImage={mobileImage}
@@ -64,6 +72,7 @@ Slide.propTypes = {
   index: PropTypes.number,
   contents: PropTypes.object,
   totalSlideCount: PropTypes.number,
+  toggleCarousel: PropTypes.func,
 };
 
 const SlideWrapper = styled.div`

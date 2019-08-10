@@ -71,8 +71,8 @@ const Flex = styled.div`
 
 const MenuToggle = styled(MdAdd)`
   position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 1rem;
+  right: 1rem;
   z-index: 3;
   font-size: 2rem;
   font-weight: bolder;

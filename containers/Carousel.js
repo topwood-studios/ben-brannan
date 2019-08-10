@@ -6,8 +6,9 @@ import useInterval from '../utils/useInterval';
 import Slide from '../components/Slide';
 import { projects } from '../data.json';
 
-const Carousel = ({ slides, project, title, menuIsOpen }) => {
+const Carousel = ({ slides, project, title }) => {
   const [index, setIndex] = useState(0);
+  const [startCarousel, setStartCoursel] = useState(true);
   const [lastActiveSlide, setLastActiveSlide] = useState(slides[0]);
   const Router = useRouter();
 
@@ -15,7 +16,6 @@ const Carousel = ({ slides, project, title, menuIsOpen }) => {
   const activeProjectIndex = projects.indexOf(projects.find(({ name }) => name === project));
   const nextProjectIndex = activeProjectIndex === projects.length - 1 ? 0 : activeProjectIndex + 1;
   const nextProject = `/${projects[nextProjectIndex].name}`;
-
 
   // TODO: Calculate slide index in total number of slides;
   const totalSlideCount = slides.length;
@@ -36,12 +36,7 @@ const Carousel = ({ slides, project, title, menuIsOpen }) => {
   }, []);
 
   // Set the carousel rotating
-  useInterval(
-    () => {
-      handlePageUp();
-    },
-    !menuIsOpen ? null : 4000,
-  );
+  useInterval(handlePageUp, startCarousel ? 4000 : null);
 
   return (
     <Wrapper>
@@ -51,7 +46,7 @@ const Carousel = ({ slides, project, title, menuIsOpen }) => {
           index={i}
           key={slide.description}
           contents={slide}
-          menuIsOpen={menuIsOpen}
+          toggleCarousel={() => setStartCoursel(!startCarousel)}
           activeSlide={slides[index]}
           lastActiveSlide={lastActiveSlide}
           totalSlideCount={totalSlideCount}
@@ -68,7 +63,6 @@ Carousel.propTypes = {
   slides: PropTypes.array,
   project: PropTypes.string,
   title: PropTypes.string,
-  menuIsOpen: PropTypes.bool,
 };
 
 const Wrapper = styled.div``;
