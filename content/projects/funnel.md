@@ -12,6 +12,6 @@ slides:
     description: Description about this bag.
     image: /static/img/funnel-2.jpg
     name: Funnel Bag
-    theme: Dark
+    theme: Light
 ---
 
