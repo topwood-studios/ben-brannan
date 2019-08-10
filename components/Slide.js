@@ -26,15 +26,6 @@ const Slide = ({
 
   return (
     <SlideWrapper>
-      <Logo theme={theme} menuOpen={menuIsOpen} />
-      <Menu
-        isOpen={menuIsOpen}
-        theme={theme}
-        toggleMenu={() => {
-          setMenuIsOpen(!menuIsOpen);
-          toggleCarousel();
-        }}
-      />
       <StyledBackground
         src={image}
         mobileImage={mobileImage}
@@ -43,21 +34,33 @@ const Slide = ({
         animateIn={isActive}
         animateOut={isLastActiveSlide}
       />
+
       {animatedLayer && <AnimatedLayer src={animatedLayer} animation={animation} />}
       {isActive && (
-        <Contents fadeOut={menuIsOpen}>
-          <div>
-            <Counter animate={firstItem}>
-              {index + 1}
-              <span>|</span>
-              {totalSlideCount}
-            </Counter>
-            <Title animate={firstItem} theme={theme}>
-              {title}
-            </Title>
-            <SubTitle animate={firstItem}>{description}</SubTitle>
-          </div>
-        </Contents>
+        <React.Fragment>
+          <Logo theme={theme} menuOpen={menuIsOpen} />
+          <Menu
+            isOpen={menuIsOpen}
+            theme={theme}
+            toggleMenu={() => {
+              setMenuIsOpen(!menuIsOpen);
+              toggleCarousel();
+            }}
+          />
+          <Contents fadeOut={menuIsOpen}>
+            <div>
+              <Counter animate={firstItem}>
+                {index + 1}
+                <span>|</span>
+                {totalSlideCount}
+              </Counter>
+              <Title animate={firstItem} theme={theme}>
+                {title}
+              </Title>
+              <SubTitle animate={firstItem}>{description}</SubTitle>
+            </div>
+          </Contents>
+        </React.Fragment>
       )}
     </SlideWrapper>
   );
