@@ -96,7 +96,7 @@ const StyledBackground = styled.div`
   z-index: ${({ animateIn, animateOut }) => (animateIn ? 1 : animateOut ? 0 : -1)};
 
   @media (max-width: 768px) {
-    background-image: url(${({ mobileImage }) => mobileImage});
+    background-image: url(${({ mobileImage, src }) => mobileImage || src});
   }
 
   > div > * {
