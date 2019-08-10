@@ -149,17 +149,6 @@ const Contents = styled.div`
   opacity: ${({ fadeOut }) => (fadeOut ? 0 : 1)};
 
   color: white;
-
-  @media (max-width: 768px) {
-    /* background: rgba(255, 255, 255, 0.8); */
-    /* color: #222; */
-    /* position: absolute; */
-    /* bottom: 0; */
-    /* top: auto; */
-    /* padding: 1.2rem; */
-
-    /* animation: ${fadeIn} 1.5s forwards; */
-  }
 `;
 
 const Counter = styled.p`
