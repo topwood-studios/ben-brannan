@@ -18,7 +18,7 @@ Logo.propTypes = {
 export default Logo;
 
 const Text = styled.h1`
-  color: ${({ theme }) => (theme === 'Light' ? '#000' : theme === 'Dark' ? '#fff' : '#000')};
+  color: ${({ theme }) => (theme === 'Light' ? '#000' : theme === 'Dark' ? '#FFF' : '#FFF')};
   position: fixed;
   top: 1.5rem;
   left: 1.5rem;
