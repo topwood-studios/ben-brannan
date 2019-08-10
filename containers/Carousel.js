@@ -8,7 +8,7 @@ import { projects } from '../data.json';
 
 const Carousel = ({ slides, project, title }) => {
   const [index, setIndex] = useState(0);
-  const [startCarousel, setStartCarousel] = useState(true);
+  const [startCarousel, setStartCarousel] = useState(false);
   const [lastActiveSlide, setLastActiveSlide] = useState(slides[0]);
   const Router = useRouter();
 

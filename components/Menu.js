@@ -44,6 +44,10 @@ const Address = styled.address`
   font-size: 1.1rem;
   white-space: pre-wrap;
   font-style: normal;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Contact = styled.div`
@@ -73,7 +77,7 @@ const MenuToggle = styled(MdAdd)`
   position: fixed;
   top: 1rem;
   right: 1rem;
-  z-index: 3;
+  z-index: 10;
   font-size: 2rem;
   font-weight: bolder;
   margin: 0;
@@ -144,5 +148,15 @@ const MenuText = styled.div`
   p {
     margin-top: 0;
     font-size: 2.6rem;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
   }
 `;

@@ -25,7 +25,7 @@ const Slide = ({
   const isLastActiveSlide = lastActiveSlide === contents;
 
   return (
-    <SlideWrapper>
+    <SlideWrapper clickable={isActive}>
       <StyledBackground
         src={image}
         mobileImage={mobileImage}
@@ -88,6 +88,8 @@ const SlideWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  pointer-events: ${({ clickable }) => (clickable ? 'default' : 'none')};
 `;
 
 const AnimatedLayer = styled.img`
