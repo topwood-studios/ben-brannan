@@ -6,11 +6,11 @@ import Markdown from './Markdown';
 
 import { attributes } from '../content/settings/global.md';
 
-const Menu = ({ isOpen, toggleMenu }) => {
+const Menu = ({ isOpen, toggleMenu, theme }) => {
   const { menuText, menuContact, menuAddress } = attributes;
   return (
     <>
-      <MenuToggle isOpen={isOpen} onClick={toggleMenu} />
+      <MenuToggle isOpen={isOpen} onClick={toggleMenu} theme={theme} />
       <Backdrop isOpen={isOpen}>
         <Contents isOpen={isOpen}>
           <MenuText>
@@ -37,6 +37,7 @@ export default Menu;
 Menu.propTypes = {
   isOpen: PropTypes.bool,
   toggleMenu: PropTypes.func,
+  theme: PropTypes.string,
 };
 
 const Address = styled.address`
@@ -82,10 +83,16 @@ const MenuToggle = styled(MdAdd)`
   transition: transform 0.3s ease-in-out, color 0.3s ease-in;
   transform: rotate(${({ isOpen }) => isOpen && '-45deg'});
 
-  color: ${({ isOpen }) => (isOpen ? 'white' : 'black')};
+  color: ${({ isOpen, theme }) => (isOpen || theme === 'Dark' ? 'white' : 'black')};
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.4rem;
   }
 `;
 

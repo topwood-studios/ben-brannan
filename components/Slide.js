@@ -1,25 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+// Components
+import Menu from './Menu';
+import Logo from './Logo';
+
+// Animations
 import { backgroundZoom, fadeIn, fadeUp, fadeRight, recordSpin } from './Animations';
 
 const Slide = ({
   contents,
-  contents: { image, mobileImage, description, animation, theme, animatedLayer },
+  contents: { image, mobileImage, description, animation, animatedLayer, theme },
   activeSlide,
   lastActiveSlide,
   totalSlideCount,
-  menuIsOpen,
   index,
   title,
 }) => {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
   const isActive = activeSlide === contents;
   const firstItem = index === 0;
   const isLastActiveSlide = lastActiveSlide === contents;
 
   return (
     <SlideWrapper>
+      <Logo theme={theme} />
+      <Menu isOpen={menuIsOpen} theme={theme} toggleMenu={() => setMenuIsOpen(!menuIsOpen)} />
       <StyledBackground
         src={image}
         mobileImage={mobileImage}
@@ -30,14 +37,16 @@ const Slide = ({
       />
       {animatedLayer && <AnimatedLayer src={animatedLayer} animation={animation} />}
       {isActive && (
-        <Contents fadeOut={menuIsOpen} theme={theme}>
+        <Contents fadeOut={menuIsOpen}>
           <div>
             <Counter animate={firstItem}>
               {index + 1}
               <span>|</span>
               {totalSlideCount}
             </Counter>
-            <Title animate={firstItem}>{title}</Title>
+            <Title animate={firstItem} theme={theme}>
+              {title}
+            </Title>
             <SubTitle animate={firstItem}>{description}</SubTitle>
           </div>
         </Contents>
@@ -55,11 +64,10 @@ Slide.propTypes = {
   index: PropTypes.number,
   contents: PropTypes.object,
   totalSlideCount: PropTypes.number,
-  menuIsOpen: PropTypes.bool,
 };
 
 const SlideWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -74,8 +82,8 @@ const AnimatedLayer = styled.img`
   z-index: 1;
   max-width: 55%;
   max-height: 55%;
-  animation-name: ${({ animation }) => animation === 'Record Spin' && recordSpin}; 
-  animation-duration: 3s; 
+  animation-name: ${({ animation }) => animation === 'Record Spin' && recordSpin};
+  animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 `;
@@ -134,14 +142,14 @@ const Contents = styled.div`
   color: white;
 
   @media (max-width: 768px) {
-    background: rgba(255, 255, 255, 0.8);
-    color: #222;
-    position: absolute;
-    bottom: 0;
-    top: auto;
-    padding: 1.2rem;
+    /* background: rgba(255, 255, 255, 0.8); */
+    /* color: #222; */
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* top: auto; */
+    /* padding: 1.2rem; */
 
-    animation: ${fadeIn} 1.5s forwards;
+    /* animation: ${fadeIn} 1.5s forwards; */
   }
 `;
 
@@ -166,6 +174,7 @@ const Title = styled.h1`
   letter-spacing: 0.05rem;
   font-weight: lighter;
   font-size: 1.4rem;
+  color: ${({ theme }) => (theme === 'Light' ? '#000' : '#FFF')};
   margin: 0;
 `;
 
