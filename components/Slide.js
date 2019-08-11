@@ -18,6 +18,7 @@ const Slide = ({
   totalSlideCount,
   index,
   toggleCarousel,
+  slideNumber,
   title,
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -51,7 +52,7 @@ const Slide = ({
           <Contents fadeOut={menuIsOpen}>
             <div>
               <Counter animate={firstItem}>
-                {index + 1}
+                {slideNumber}
                 <span>|</span>
                 {totalSlideCount}
               </Counter>
@@ -77,6 +78,7 @@ Slide.propTypes = {
   contents: PropTypes.object,
   totalSlideCount: PropTypes.number,
   toggleCarousel: PropTypes.func,
+  slideNumber: PropTypes.number,
 };
 
 const SlideWrapper = styled.div`

@@ -44,11 +44,12 @@ const Carousel = ({ slides, project, title }) => {
 
   return (
     <Wrapper>
-      {slides.map((slide) => (
+      {slides.map((slide, i) => (
         <Slide
-          index={allSlides.indexOf(slide) + 1}
+          index={i}
           title={title}
           contents={slide}
+          slideNumber={allSlides.indexOf(slide) + 1}
           totalSlideCount={allSlides.length}
           key={slide.description}
           toggleCarousel={() => setStartCarousel(!startCarousel)}
