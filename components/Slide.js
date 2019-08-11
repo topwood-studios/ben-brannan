@@ -20,7 +20,7 @@ const Slide = ({
   toggleCarousel,
   title,
 }) => {
-  const [menuIsOpen, setMenuIsOpen] = useState(true);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
   const isActive = activeSlide === contents;
   const firstItem = index === 0;
   const isLastActiveSlide = lastActiveSlide === contents;
@@ -155,6 +155,10 @@ const Contents = styled.div`
   opacity: ${({ fadeOut }) => (fadeOut ? 0 : 1)};
 
   color: white;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
 `;
 
 const Counter = styled.p`
@@ -170,6 +174,11 @@ const Counter = styled.p`
   span {
     margin: 2px;
   }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    font-weight: 500;
+  }
 `;
 
 const Title = styled.h1`
@@ -181,6 +190,11 @@ const Title = styled.h1`
   animation: ${({ animate }) => animate && fadeUp} 600ms forwards 300ms;
   letter-spacing: 0.05rem;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    font-weight: 500;
+  }
 `;
 
 const Description = styled.h2`
@@ -196,6 +210,8 @@ const Description = styled.h2`
   animation: ${({ animate }) => animate && fadeUp} 1000ms forwards 300ms;
 
   @media (max-width: 768px) {
-    /* font-size: 1rem; */
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: 500;
   }
 `;

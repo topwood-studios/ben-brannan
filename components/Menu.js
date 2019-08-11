@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { attributes } from '../content/settings/global.md';
 import { colors } from '../utils/theme';
 import Markdown from './Markdown';
-import Plus from './Toggle';
+import Plus from './Plus';
 
 const Menu = ({ isOpen, toggleMenu, theme }) => {
   const { menuText, menuContact, menuAddress } = attributes;
@@ -40,7 +40,6 @@ Menu.propTypes = {
 };
 
 const Address = styled.address`
-  font-size: 24px;
   white-space: pre-wrap;
   font-style: normal;
 
@@ -50,16 +49,28 @@ const Address = styled.address`
 `;
 
 const Contact = styled.div`
-  font-size: 24px;
+  /* font-size: 24px; */
+
   a {
     color: inherit;
     text-decoration: none;
   }
+
+/* 
+  @media (max-width: 768px) {
+    font-size: 16px;
+  } */
 `;
 
 const Flex = styled.div`
   display: flex;
   justify-content: space-between;
+  font-size: 24px;
+  letter-spacing: 0.025rem;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 
   p {
     margin: 0;
@@ -93,9 +104,11 @@ const MenuToggle = styled(Plus)`
   }
 
   @media (max-width: 768px) {
-    top: 1rem;
-    right: 1rem;
-    font-size: 2.4rem;
+    top: 16px;
+    right: 16px;
+    /* height: 24px;
+    width: 24px; */
+    font-size: 24px;
   }
 `;
 
@@ -133,6 +146,10 @@ const Contents = styled.div`
   transition-timing-function: ease-in-out;
   transition-delay: ${({ isOpen }) => (isOpen ? 500 : 0)}ms;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
 `;
 
 const MenuText = styled.div`
@@ -161,11 +178,11 @@ const MenuText = styled.div`
 
   @media (max-width: 768px) {
     h1 {
-      font-size: 1.8rem;
+      font-size: 20px;
     }
 
     p {
-      font-size: 1.4rem;
+      font-size: 20px;
     }
   }
 `;

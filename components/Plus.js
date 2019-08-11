@@ -1,22 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Toggle = ({ stroke = '#000', ...rest }) => (
-  <svg width={32} height={32} {...rest}>
+const Plus = ({ stroke = '#000', ...rest }) => (
+  <Svg {...rest}>
     <defs>
       <clipPath id="prefix__a">
         <path fill="none" d="M0 0h32v32H0z" />
       </clipPath>
-      <style>{'.prefix__c{fill:none;stroke-width:4px}'}</style>
+      <style>{'.prefix__c{fill:none;}'}</style>
     </defs>
     <g clipPath="url(#prefix__a)">
       <path className="prefix__c" stroke={stroke} d="M16 0v32M0 16h32" />
     </g>
-  </svg>
+  </Svg>
 );
 
-export default Toggle;
+export default Plus;
 
-Toggle.propTypes = {
+Plus.propTypes = {
   stroke: PropTypes.string,
 };
+
+const Svg = styled.svg`
+  stroke-width: 0.25rem;
+
+  @media (max-width: 768px) {
+    stroke-width: 0.15rem;
+  }
+`;

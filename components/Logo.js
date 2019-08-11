@@ -37,4 +37,10 @@ const Text = styled.h1`
   span {
     color: ${colors.grey};
   }
+
+  @media (max-width: 768px) {
+    top: 16px;
+  left: 16px;
+    font-size: 20px;
+  }
 `;
