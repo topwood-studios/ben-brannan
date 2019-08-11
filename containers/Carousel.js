@@ -17,8 +17,10 @@ const Carousel = ({ slides, project, title }) => {
   const nextProjectIndex = activeProjectIndex === projects.length - 1 ? 0 : activeProjectIndex + 1;
   const nextProject = `/${projects[nextProjectIndex].name}`;
 
-  // TODO: Calculate slide index in total number of slides;
-  const totalSlideCount = slides.length;
+  // Calculate slide total number of slides for 'page number'
+  const slideArray = [];
+  projects.forEach((p) => slideArray.push(p.slides));
+  const allSlides = slideArray.flat();
 
   const handlePageUp = () => {
     if (index === slides.length - 1) {
@@ -40,16 +42,16 @@ const Carousel = ({ slides, project, title }) => {
 
   return (
     <Wrapper>
-      {slides.map((slide, i) => (
+      {slides.map((slide) => (
         <Slide
+          index={allSlides.indexOf(slide) + 1}
           title={title}
-          index={i}
-          key={slide.description}
           contents={slide}
+          totalSlideCount={allSlides.length}
+          key={slide.description}
           toggleCarousel={() => setStartCarousel(!startCarousel)}
           activeSlide={slides[index]}
           lastActiveSlide={lastActiveSlide}
-          totalSlideCount={totalSlideCount}
           handlePageUp={handlePageUp}
         />
       ))}
