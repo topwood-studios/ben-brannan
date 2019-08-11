@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { colors } from '../utils/theme';
 
 const Logo = ({ menuOpen, theme }) => (
   <Text fadeOut={menuOpen} theme={theme}>
@@ -18,23 +19,22 @@ Logo.propTypes = {
 export default Logo;
 
 const Text = styled.h1`
-  color: ${({ theme }) => (theme === 'Light' ? '#000' : theme === 'Dark' ? '#FFF' : '#FFF')};
   position: fixed;
-  top: 1.5rem;
-  left: 1.5rem;
-  z-index: 2;
-  margin: 0;
-  font-size: 2rem;
-  font-weight: 900;
-  font-size: 20px;
-  text-decoration: none;
-  letter-spacing: 0.075rem;
   display: inline-block;
+  z-index: 2;
+  top: 32px;
+  left: 32px;
+  margin: 0;
 
+  font-size: 28px;
+  font-weight: bold;
+  color: ${({ theme }) => (theme === 'Light' ? '#000' : theme === 'Dark' ? '#FFF' : '#FFF')};
+
+  letter-spacing: 0.025rem;
   transition: opacity 0.3s ease;
   opacity: ${({ fadeOut }) => (fadeOut ? 0 : 1)};
 
   span {
-    color: #888;
+    color: ${colors.grey};
   }
 `;

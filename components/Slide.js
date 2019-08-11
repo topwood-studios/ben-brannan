@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { colors } from '../utils/theme';
 
 // Components
 import Menu from './Menu';
 import Logo from './Logo';
 
 // Animations
-import { backgroundZoom, fadeIn, fadeUp, fadeRight, recordSpin } from './Animations';
+import { backgroundZoom, fadeIn, fadeUp, recordSpin } from './Animations';
 
 const Slide = ({
   contents,
@@ -19,7 +20,7 @@ const Slide = ({
   toggleCarousel,
   title,
 }) => {
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [menuIsOpen, setMenuIsOpen] = useState(true);
   const isActive = activeSlide === contents;
   const firstItem = index === 0;
   const isLastActiveSlide = lastActiveSlide === contents;
@@ -57,7 +58,7 @@ const Slide = ({
               <Title animate={firstItem} theme={theme}>
                 {title}
               </Title>
-              <SubTitle animate={firstItem}>{description}</SubTitle>
+              <Description animate={firstItem}>{description}</Description>
             </div>
           </Contents>
         </React.Fragment>
@@ -144,7 +145,7 @@ const Contents = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
+  padding: 32px;
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
@@ -159,8 +160,8 @@ const Contents = styled.div`
 const Counter = styled.p`
   margin: 0;
   padding: 0;
-  color: #868686;
-  font-size: 0.9rem;
+  color: ${colors.grey};
+  font-size: 18px;
   margin-bottom: 0.25rem;
   opacity: ${({ animate }) => (animate ? 0 : 1)};
   animation: ${({ animate }) => animate && fadeIn} 500ms forwards 1000ms;
@@ -172,26 +173,29 @@ const Counter = styled.p`
 `;
 
 const Title = styled.h1`
+  font-size: 28px;
+  font-weight: normal;
+  color: ${({ theme }) => (theme === 'Light' ? '#000' : '#FFF')};
+
   opacity: ${({ animate }) => (animate ? 0 : 1)};
   animation: ${({ animate }) => animate && fadeUp} 600ms forwards 300ms;
   letter-spacing: 0.05rem;
-  font-weight: lighter;
-  font-size: 1.4rem;
-  color: ${({ theme }) => (theme === 'Light' ? '#000' : '#FFF')};
   margin: 0;
 `;
 
-const SubTitle = styled.h2`
-  font-weight: lighter;
+const Description = styled.h2`
+  font-size: 28px;
+  font-weight: normal;
+  color: ${colors.grey};
+
   opacity: ${({ animate }) => (animate ? 0 : 1)};
   margin: 0;
-  color: #868686;
-  font-size: 1.3rem;
-  letter-spacing: 0.075rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.025rem;
 
   animation: ${({ animate }) => animate && fadeUp} 1000ms forwards 300ms;
 
   @media (max-width: 768px) {
-    font-size: 1rem;
+    /* font-size: 1rem; */
   }
 `;
