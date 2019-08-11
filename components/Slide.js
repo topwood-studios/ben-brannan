@@ -131,7 +131,7 @@ const StyledBackground = styled.div`
   transition-timing-function: ease-in;
   opacity: ${({ animateIn, animateOut }) => (animateIn || animateOut ? 1 : 0)};
 
-  animation: ${({ animation }) => (animation === 'Background Zoom' ? backgroundZoom : null)} 10000ms
+  animation: ${({ animation }) => (animation === 'Background Zoom' ? backgroundZoom : null)} 5000ms
     forwards;
 `;
 

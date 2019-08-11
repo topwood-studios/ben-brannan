@@ -14,7 +14,7 @@ export const backgroundZoom = keyframes`
     transform: scale(1);
   }
   100% {
-    transform: scale(1.05);
+    transform: scale(1.10);
   }
 `;
 
