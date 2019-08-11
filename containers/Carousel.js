@@ -1,3 +1,5 @@
+import 'array-flat-polyfill';
+
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
