@@ -173,7 +173,7 @@ const Counter = styled.p`
 
 const Title = styled.h1`
   opacity: ${({ animate }) => (animate ? 0 : 1)};
-  animation: ${({ animate }) => animate && fadeRight} 600ms forwards 300ms;
+  animation: ${({ animate }) => animate && fadeUp} 600ms forwards 300ms;
   letter-spacing: 0.05rem;
   font-weight: lighter;
   font-size: 1.4rem;
