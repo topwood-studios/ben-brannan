@@ -9,11 +9,17 @@ slides:
     mobileImage: ''
     name: Slide 1
     theme: Dark
-  - animation: Background Zoom
+  - animation: None
     description: Brand Identity | Digital | Print
     image: /static/img/rowden-proposals-dt.jpg
     mobileImage: /static/img/iphone-6-7-8-–-10.png
     name: Rowden Technologies
     theme: Dark
+  - animation: None
+    description: Brand Identity | Digital | Print
+    image: /static/img/rowden-power-point-dt.jpg
+    mobileImage: /static/img/iphone-6-7-8-–-11.png
+    name: Rowden Technologies
+    theme: Light
 ---
 
