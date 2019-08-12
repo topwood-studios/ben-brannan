@@ -3,14 +3,16 @@ title: Waitrose
 client: Waitrose
 slides:
   - animation: None
-    description: Description for slide 1
+    description: Full Editorial Redesign
     image: /static/img/waitrose-1.jpg
-    name: Slide 1
+    mobileImage: /static/img/iphone-6-7-8-–-1.png
+    name: Waitrose & Partners
     theme: Light
   - animation: None
-    description: Description for slide 2
+    description: Full Editorial Redesign
     image: /static/img/waitrose-2.jpg
-    name: Slide 2
+    mobileImage: /static/img/iphone-6-7-8-–-3.png
+    name: Waitrose & Partners
     theme: Light
 ---
 
