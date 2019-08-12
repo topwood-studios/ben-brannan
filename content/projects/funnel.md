@@ -11,6 +11,7 @@ slides:
   - animation: None
     description: Description about this bag.
     image: /static/img/funnel-2.jpg
+    mobileImage: /static/img/iphone-6-7-8-–-5.png
     name: Funnel Bag
     theme: Light
 ---
