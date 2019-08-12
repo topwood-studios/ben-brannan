@@ -6,12 +6,14 @@ menuText: >-
   # We are Studio**+**Brannan.
 
 
-  A design consultancy creating corporate identity systems & brand direction,
-  along with beautifully crafted apps, websites, books, literature, reports and
-  information graphics.
+  A design consultancy creating distinctive brand identities and direction,
+  alongside finely crafted apps, websites, books, publications and information
+  graphics. 
 
 
-  Please get in touch to discuss a project and see...
+  We enjoy working with a range of clients, from established international
+  brands to innovative start-ups. Please [contact us](info@studiobrannan.com) to
+  see more of our work and discuss a project.
 menuAddress: |-
   Studio 18
   Glove Factory Studios
