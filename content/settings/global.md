@@ -12,8 +12,9 @@ menuText: >-
 
 
   We enjoy working with a range of clients, from established international
-  brands to innovative start-ups. Please contact us to see more of our work and
-  discuss a project.
+  brands to innovative start-ups. Please [contact
+  us](mailto:info@studiobrannan.com) to see more of our work and discuss a
+  project.
 menuAddress: |-
   Studio 18
   Glove Factory Studios
