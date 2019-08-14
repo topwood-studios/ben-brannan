@@ -154,7 +154,8 @@ const Contents = styled.div`
 
 const MenuText = styled.div`
   h1 {
-    font-size: 48px;
+    font-size: 44px;
+    line-height: 50px;
     font-weight: bold;
 
     margin: 0;
@@ -174,6 +175,8 @@ const MenuText = styled.div`
   p {
     margin-top: 0;
     font-size: 44px;
+    line-height: 50px;
+    margin-block-end: 18px;
   }
 
   @media (max-width: 768px) {
