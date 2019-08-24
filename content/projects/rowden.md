@@ -3,19 +3,19 @@ title: Rowden Technologies
 client: Rowden Technologies
 slides:
   - animatedLayer: /static/img/rowden-logo.png
-    animation: Background Zoom
+    animation: background-zoom
     description: Brand Identity | Digital | Print
     image: /static/img/rowden-background.jpg
     mobileImage: ''
     name: Slide 1
     theme: Dark
-  - animation: None
+  - animation: none
     description: Brand Identity | Digital | Print
     image: /static/img/rowden-proposals-dt.jpg
     mobileImage: /static/img/iphone-6-7-8-–-10.png
     name: Proposal
     theme: Dark
-  - animation: None
+  - animation: none
     description: Brand Identity | Digital | Print
     image: /static/img/rowden-power-point-dt.jpg
     mobileImage: /static/img/iphone-6-7-8-–-11.png
