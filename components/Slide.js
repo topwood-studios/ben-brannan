@@ -36,8 +36,7 @@ const Slide = ({
         animateIn={isActive}
         animateOut={isLastActiveSlide}
       />
-
-      {animatedLayer && <AnimatedLayer src={animatedLayer} animation={animation} />}
+      {animatedLayer && <AnimatedLayer src={animatedLayer} className={animation} />}
       {isActive && (
         <React.Fragment>
           <Logo theme={theme} menuOpen={menuIsOpen} />
@@ -99,10 +98,15 @@ const AnimatedLayer = styled.img`
   z-index: 1;
   max-width: 55%;
   max-height: 55%;
-  animation-name: ${({ animation }) => animation === 'Record Spin' && recordSpin};
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  /* animation-name: ${({ animation }) => animation === 'Record Spin' && recordSpin}; */
+  
+  &.record-spin {
+    animation-name: ${recordSpin};
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    will-change: transform;
+  }
 `;
 
 const StyledBackground = styled.div`
