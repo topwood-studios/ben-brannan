@@ -10,8 +10,15 @@ const Menu = ({ isOpen, toggleMenu, theme }) => {
   const { menuText, menuContact, menuAddress } = attributes;
   return (
     <>
-      <MenuToggle isOpen={isOpen} onClick={toggleMenu} theme={theme} />
-      <Backdrop isOpen={isOpen}>
+      <MenuToggle
+        isOpen={isOpen}
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleMenu();
+        }}
+        theme={theme}
+      />
+      <Backdrop isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
         <Contents isOpen={isOpen}>
           <MenuText>
             <Markdown source={menuText} />
@@ -56,7 +63,7 @@ const Contact = styled.div`
     text-decoration: none;
   }
 
-/* 
+  /* 
   @media (max-width: 768px) {
     font-size: 16px;
   } */
@@ -114,13 +121,14 @@ const MenuToggle = styled(Plus)`
 
 const Backdrop = styled.div`
   position: fixed;
-  z-index: 2;
+  z-index: 5;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   overflow: hidden;
   background: rgba(20, 20, 20, 0.95);
+  cursor: default;
 
   transition-property: transform;
   transition-duration: 0.5s;
