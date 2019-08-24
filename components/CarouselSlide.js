@@ -60,7 +60,9 @@ const Slide = ({
         animateOut={isLastActiveSlide}
       />
       {animatedLayer && isActive && (
-        <AnimatedLayer src={mobileIcon || desktopIcon || animatedLayer} className={animation} />
+        <IconWrapper>
+          <AnimatedLayer src={mobileIcon || desktopIcon || animatedLayer} className={animation} />
+        </IconWrapper>
       )}
       {isActive && (
         <>
@@ -119,6 +121,18 @@ const SlideWrapper = styled.div`
   pointer-events: ${({ clickable }) => (clickable ? 'default' : 'none')};
 
   cursor: url(${({ paused }) => (paused ? '' : pauseIcon)}), auto;
+`;
+
+const IconWrapper = styled.div`
+  opacity: 0;
+  animation: 0.5s ${fadeIn} 0.5s forwards;
+  animation-timing-function: linear;
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const AnimatedLayer = styled.img`
