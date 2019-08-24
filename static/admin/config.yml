@@ -19,10 +19,11 @@ collections:
           - { label: "Name", name: "name", widget: "string", required: true }
           - { label: "Description", name: "description", widget: "text" }
           - { label: "Theme", name: "theme", widget: "select", options: ["Dark", "Light"], default: "Light" }
-          - { label: "Desktop Image", name: "image", widget: "image", required: true }
-          - { label: "Mobile Image", name: "mobileImage", widget: "image", required: false }
-          - { label: "Animated Layer", name: "animatedLayer", widget: "image", required: false }
           - { label: "Animation", name: "animation", widget: "select", options: ["none", "background-zoom", "record-spin"], default: "none" }
+          - { label: "Desktop Background", name: "image", widget: "image", required: true }
+          - { label: "Mobile Background", name: "mobileImage", widget: "image", required: false }
+          - { label: "Desktop Icon", name: "desktopIcon", widget: "image", required: false }
+          - { label: "Mobile Icon", name: "mobileIcon", widget: "image", required: false }
           
   - name: "settings"
     label: "Settings"
