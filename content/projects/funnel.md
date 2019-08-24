@@ -8,13 +8,13 @@ slides:
     image: /static/img/funnel-background.jpg
     name: Record Spin
     theme: Dark
-  - animation: None
+  - animation: none
     description: Brand Identity | Digital Design | Print Design
     image: /static/img/funnel-2.jpg
     mobileImage: /static/img/iphone-6-7-8-–-5.png
     name: Funnel Bag
     theme: Light
-  - animation: None
+  - animation: none
     description: Brand Identity | Digital Design | Print Design
     image: /static/img/funnel-phones-dt.jpg
     mobileImage: /static/img/iphone-6-7-8-–-6.png
