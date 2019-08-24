@@ -22,7 +22,7 @@ collections:
           - { label: "Desktop Image", name: "image", widget: "image", required: true }
           - { label: "Mobile Image", name: "mobileImage", widget: "image", required: false }
           - { label: "Animated Layer", name: "animatedLayer", widget: "image", required: false }
-          - { label: "Animation", name: "animation", widget: "select", options: ["None", "Background Zoom", "Record Spin"], default: "None" }
+          - { label: "Animation", name: "animation", widget: "select", options: ["none", "background-zoom", "record-spin"], default: "none" }
           
   - name: "settings"
     label: "Settings"
