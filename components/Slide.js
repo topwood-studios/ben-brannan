@@ -32,11 +32,11 @@ const Slide = ({
         src={image}
         mobileImage={mobileImage}
         firstItem={firstItem}
-        animation={animation}
+        className={animation}
         animateIn={isActive}
         animateOut={isLastActiveSlide}
       />
-      {animatedLayer && <AnimatedLayer src={animatedLayer} className={animation} />}
+      {animatedLayer && isActive && <AnimatedLayer src={animatedLayer} className={animation} />}
       {isActive && (
         <React.Fragment>
           <Logo theme={theme} menuOpen={menuIsOpen} />
@@ -137,8 +137,12 @@ const StyledBackground = styled.div`
   transition-timing-function: ease-in;
   opacity: ${({ animateIn, animateOut }) => (animateIn || animateOut ? 1 : 0)};
 
-  animation: ${({ animation }) => (animation === 'Background Zoom' ? backgroundZoom : null)} 5000ms
-    forwards;
+  &.background-zoom {
+    animation-name: ${backgroundZoom};
+    animation-duration: 5s;
+    animation-direction: forwards;
+    animation-timing-function: linear;
+  }
 `;
 
 // Slide contents
