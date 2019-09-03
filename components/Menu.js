@@ -176,8 +176,9 @@ const MenuText = styled.div`
   }
 
   a {
-    text-decoration: underline;
+    text-decoration: none;
     color: ${colors.white};
+    border-bottom: 2px solid #868686;
   }
 
   p {
