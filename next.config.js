@@ -1,4 +1,4 @@
-const data = require('./data.json');
+// const data = require('./data.json');
 
 module.exports = {
   webpack: (cfg) => {
@@ -8,22 +8,22 @@ module.exports = {
     });
     return cfg;
   },
-  exportPathMap: async () => {
-    const projects = data.projects.reduce(
-      (files, { name }) => Object.assign({}, files, {
-          [`/${name}`]: {
-            page: '/[project]',
-            query: { project: name },
-          },
-        }),
-      {},
-    );
+  // exportPathMap: async () => {
+  //   // const projects = data.projects.reduce(
+  //   //   (files, { name }) => Object.assign({}, files, {
+  //   //       [`/${name}`]: {
+  //   //         page: '/[project]',
+  //   //         query: { project: name },
+  //   //       },
+  //   //     }),
+  //   //   {},
+  //   // );
 
-    const exportPages = {
-      '/': { page: '/' },
-      ...projects,
-    };
+  //   const exportPages = {
+  //     '/': { page: '/' },
+  //     ...projects,
+  //   };
 
-    return exportPages;
-  },
+  //   return exportPages;
+  // },
 };
