@@ -3,7 +3,7 @@ import ProjectPreview from '../static/admin/preview-templates/ProjectPreview';
 
 let CMS = null;
 if (typeof window !== 'undefined') {
-  CMS = require('netlify-cms-app'); // eslint-disable-line
+  CMS = require('netlify-cms'); // eslint-disable-line
 }
 // import CMS from 'netlify-cms-app';
 
