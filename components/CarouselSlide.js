@@ -16,7 +16,7 @@ const Slide = ({
     mobileImage,
     description,
     animation,
-    animatedLayer,
+    // animatedLayer,
     desktopIcon,
     mobileIcon,
     theme,
@@ -34,6 +34,10 @@ const Slide = ({
   const isActive = activeSlide === contents;
   const isLastActiveSlide = lastActiveSlide === contents;
   const animateText = index === 0 || activeSlide.title !== lastActiveSlide.title;
+
+  console.log({ contents });
+
+  const animatedLayer = mobileIcon || desktopIcon;
 
   useEffect(() => {
     if (menuIsOpen) {
@@ -61,7 +65,7 @@ const Slide = ({
       />
       {animatedLayer && isActive && (
         <IconWrapper>
-          <AnimatedLayer src={mobileIcon || desktopIcon || animatedLayer} className={animation} />
+          <AnimatedLayer src={animatedLayer} className={animation} />
         </IconWrapper>
       )}
       {isActive && (
