@@ -12,9 +12,7 @@ const Project = ({
 }) => (
   <article>
     <Head>
-      <title>
-        {`Studio Brannan | ${title}`}
-      </title>
+      <title>{`Studio Brannan | ${title}`}</title>
     </Head>
     <Carousel title={title} slides={slides} {...rest} />
   </article>
