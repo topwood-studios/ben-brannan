@@ -6,10 +6,11 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import useInterval from '../utils/useInterval';
 import Slide from '../components/CarouselSlide';
-import { projects } from '../data.json';
+import { projects, settings } from '../data.json';
 
-// TODO: Get from CMS
-const CAROUSEL_SPEED = 4000;
+// TODO: Preload everything
+
+const CAROUSEL_SPEED = settings[0].carouselSpeed;
 
 const Carousel = ({ slides, project, title }) => {
   const [index, setIndex] = useState(0);
