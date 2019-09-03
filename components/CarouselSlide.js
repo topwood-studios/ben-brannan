@@ -7,7 +7,7 @@ import { backgroundZoom, fadeIn, fadeUp, recordSpin } from './Animations';
 import Logo from './Logo';
 
 const pauseIcon = '/static/assets/pause.svg';
-// const playIcon = '/static/assets/pause.svg';
+const playIcon = '/static/assets/play-icon.svg';
 
 const Slide = ({
   contents,
@@ -120,7 +120,7 @@ const SlideWrapper = styled.div`
 
   pointer-events: ${({ clickable }) => (clickable ? 'default' : 'none')};
 
-  cursor: url(${({ paused }) => (paused ? '' : pauseIcon)}), auto;
+  cursor: url(${({ paused }) => (paused ? playIcon : pauseIcon)}), auto;
 `;
 
 const IconWrapper = styled.div`
