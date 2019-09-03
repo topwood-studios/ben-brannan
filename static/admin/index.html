@@ -17,9 +17,8 @@
           // object in the array of slides
           this.props.widgetsFor('slides').map((slide, index) => {
             var bg = slide.getIn(['data', 'image']);
-            return h('div', {key: index},
-              h('hr', {}),
-              h('img', {src: bg.toString()}),
+            return h('div', {key: index, style: { backgroundImage: `url(${bg.toString()})`  }},
+              // h('img', {src: bg.toString()}),
               h('strong', {}, slide.getIn(['data', 'description'])),
               slide.getIn(['widgets', 'description'])
             );
