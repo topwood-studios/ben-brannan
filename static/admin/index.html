@@ -5,20 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-  <style>
-    .slide-preview {
-      position: relative;
-      background-size: cover;
-      background-position: center;
-      padding-top: 60%;
-      margin-bottom: 15px;
-    }
-
-    .slide-preview > strong {
-      display: none;
-    }
-  </style>
 </head>
 <body>
   <!-- Include the script that builds the page and powers Netlify CMS -->
@@ -43,6 +29,7 @@
     });
 
     CMS.registerPreviewTemplate("projects", ProjectPreview);
+    CMS.registerPreviewStyle("/static/admin/cms-preview.css");
   </script>
 </body>
 </html>

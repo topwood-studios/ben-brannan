@@ -1,0 +1,11 @@
+.slide-preview {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding-top: 60%;
+  margin-bottom: 15px;
+}
+
+.slide-preview > strong {
+  display: none;
+}
