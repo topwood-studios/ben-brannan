@@ -2,9 +2,9 @@
 title: Rowden Technologies
 client: Rowden Technologies
 slides:
-  - animatedLayer: /static/img/rowden-logo.png
-    animation: background-zoom
+  - animation: background-zoom
     description: Brand Identity | Digital | Print
+    desktopIcon: /static/img/logo_black.png
     image: /static/img/rowden-background.jpg
     mobileImage: ''
     name: Slide 1
