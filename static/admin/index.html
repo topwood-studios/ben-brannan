@@ -9,43 +9,26 @@
 <body>
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-  <script src="./preview-templates/ProjectPreview.js"></script>
   <script>
-//    var ProjectsPreview = createClass({
-//   // For list fields, the widgetFor function returns an array of objects
-//   // that you can map over in your template. If our field is a list of
-//   // authors containing two entries, with fields `name` and `description`,
-//   // the return value of `widgetsFor` would look like this:
-//   //
-//   // [{
-//   //   data: { name: 'Mathias', description: 'Co-Founder'},
-//   //   widgets: { name: (<WidgetComponent>), description: (WidgetComponent>)}
-//   // },
-//   // {
-//   //   data: { name: 'Chris', description: 'Co-Founder'},
-//   //   widgets: { name: (<WidgetComponent>), description: (WidgetComponent>)}
-//   // }]
-//   //
-//   // Templating would look something like this:
+    var ProjectPreview = createClass({
+      render: function() {
+        return h('div', {},
+          // Here we provide a simple mapping function that will be applied to each
+          // object in the array of slides
+          this.props.widgetsFor('slides').map((slide, index) => {
+            var bg = slide.getIn(['data', 'image']);
+            return h('div', {key: index},
+              h('hr', {}),
+              h('img', {src: bg.toString()}),
+              h('strong', {}, slide.getIn(['data', 'description'])),
+              slide.getIn(['widgets', 'description'])
+            );
+          })
+        );
+      }
+    });
 
-//   render: function() {
-//     return h('div', {},
-//       // Here we provide a simple mapping function that will be applied to each
-//       // object in the array of authors
-//       this.props.widgetsFor('slides').map((slide, index) => {
-//         var bg = slide.getIn(['data', 'image']);
-//         return h('div', {key: index},
-//           h('hr', {}),
-//           h('img', {src: bg.toString()}),
-//           h('strong', {}, slide.getIn(['data', 'description'])),
-//           slide.getIn(['widgets', 'description'])
-//         );
-//       })
-//     );
-//   }
-// });
-
-CMS.registerPreviewTemplate("projects", ProjectPreview);
+    CMS.registerPreviewTemplate("projects", ProjectPreview);
   </script>
 </body>
 </html>
