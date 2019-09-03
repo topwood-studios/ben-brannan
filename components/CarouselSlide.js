@@ -35,8 +35,6 @@ const Slide = ({
   const isLastActiveSlide = lastActiveSlide === contents;
   const animateText = index === 0 || activeSlide.title !== lastActiveSlide.title;
 
-  console.log({ contents });
-
   const animatedLayer = mobileIcon || desktopIcon;
 
   useEffect(() => {
