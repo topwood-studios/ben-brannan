@@ -2,9 +2,9 @@
 title: Funnel Music
 client: Funnel Music
 slides:
-  - animatedLayer: /static/img/funnel-logo.png
-    animation: record-spin
+  - animation: record-spin
     description: Brand Identity | Digital Design | Print Design
+    desktopIcon: /static/img/funnel-logo.png
     image: /static/img/funnel-background.jpg
     name: Record Spin
     theme: Dark
