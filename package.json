@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "array-flat-polyfill": "^1.0.1",
+    "netlify-cms": "^2.9.7",
     "next": "^9.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
