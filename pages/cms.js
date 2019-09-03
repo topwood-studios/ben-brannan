@@ -1,13 +1,18 @@
 import React from 'react';
-import CMS from 'netlify-cms-app';
+import ProjectPreview from '../static/admin/preview-templates/ProjectPreview';
+
+let CMS = null;
+if (typeof window !== 'undefined') {
+  CMS = require('netlify-cms-app'); // eslint-disable-line
+}
+// import CMS from 'netlify-cms-app';
 
 // Templates
-import ProjectPreview from '../static/admin/preview-templates/ProjectPreview';
 
 const NetlifyCMS = () => {
   React.useEffect(() => {
     CMS.registerPreviewTemplate("projects", ProjectPreview);
-  });
+  }, [CMS]);
 
   return <div id="nc-root" />;
 };
