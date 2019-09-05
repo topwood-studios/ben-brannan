@@ -6,8 +6,8 @@ import Menu from './Menu';
 import { backgroundZoom, fadeIn, fadeUp, recordSpin } from './Animations';
 import Logo from './Logo';
 
-const pauseIcon = '/static/assets/pause.svg';
-const playIcon = '/static/assets/play-icon.svg';
+// const pauseIcon = '/static/assets/pause.svg';
+// const playIcon = '/static/assets/play-icon.svg';
 
 const Slide = ({
   contents,
@@ -25,7 +25,6 @@ const Slide = ({
   activeSlide,
   lastActiveSlide,
   totalSlideCount,
-  toggleCarousel,
   setStartCarousel,
   paused,
   index,
@@ -48,7 +47,6 @@ const Slide = ({
   return (
     <SlideWrapper
       clickable={isActive}
-      onClick={toggleCarousel}
       paused={paused}
       animateIn={isActive}
       animateOut={isLastActiveSlide}
@@ -103,7 +101,6 @@ Slide.propTypes = {
   index: PropTypes.number,
   contents: PropTypes.object,
   totalSlideCount: PropTypes.number,
-  toggleCarousel: PropTypes.func,
   setStartCarousel: PropTypes.func,
   paused: PropTypes.bool,
 };
@@ -121,8 +118,6 @@ const SlideWrapper = styled.div`
   z-index: ${({ animateIn, animateOut }) => (animateIn ? 2 : animateOut ? 1 : -1)};
 
   pointer-events: ${({ clickable }) => (clickable ? 'default' : 'none')};
-
-  cursor: url(${({ paused }) => (paused ? playIcon : pauseIcon)}), auto;
 `;
 
 const IconWrapper = styled.div`
