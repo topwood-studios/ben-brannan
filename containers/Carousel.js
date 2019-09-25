@@ -5,13 +5,17 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import useInterval from '../utils/useInterval';
-import Slide from '../components/Slide';
-import { projects } from '../data.json';
+import Slide from '../components/CarouselSlide';
+import { projects, settings } from '../data.json';
+
+// TODO: Preload everything
+
+const CAROUSEL_SPEED = settings[0].carouselSpeed;
 
 const Carousel = ({ slides, project, title }) => {
   const [index, setIndex] = useState(0);
   const [startCarousel, setStartCarousel] = useState(true);
-  const [lastActiveSlide, setLastActiveSlide] = useState(slides[0]);
+  const [lastActiveSlide, setLastActiveSlide] = useState(slides[5]);
   const Router = useRouter();
 
   // Calculate next/prev projects
@@ -19,16 +23,11 @@ const Carousel = ({ slides, project, title }) => {
   const nextProjectIndex = activeProjectIndex === projects.length - 1 ? 0 : activeProjectIndex + 1;
   const nextProject = `/${projects[nextProjectIndex].name}`;
 
-  // Calculate slide total number of slides for 'page number'
-  const slideArray = [];
-  projects.forEach((p) => slideArray.push(p.slides));
-  const allSlides = slideArray.flat();
-
   const handlePageUp = () => {
     if (index === slides.length - 1) {
-      Router.push(nextProject); // If no more slides, go to next project
+      setLastActiveSlide(slides[index]);
+      setIndex(0);
     } else {
-      // otherwise change slide
       setLastActiveSlide(slides[index]);
       setIndex(index + 1);
     }
@@ -40,19 +39,20 @@ const Carousel = ({ slides, project, title }) => {
   }, []);
 
   // Set the carousel rotating
-  useInterval(handlePageUp, startCarousel ? 4000 : null);
+  useInterval(handlePageUp, startCarousel ? CAROUSEL_SPEED : null);
 
   return (
     <Wrapper>
       {slides.map((slide, i) => (
         <Slide
+          key={`${slide.description}_${i}`} // eslint-disable-line
           index={i}
           title={title}
           contents={slide}
-          slideNumber={allSlides.indexOf(slide) + 1}
-          totalSlideCount={allSlides.length}
-          key={slide.description}
+          totalSlideCount={slides.length}
           toggleCarousel={() => setStartCarousel(!startCarousel)}
+          setStartCarousel={setStartCarousel}
+          paused={!startCarousel}
           activeSlide={slides[index]}
           lastActiveSlide={lastActiveSlide}
           handlePageUp={handlePageUp}

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { attributes } from '../content/settings/global.md';
-import { colors } from '../utils/theme';
+import { colors, media } from '../utils/theme';
 import Markdown from './Markdown';
 import Plus from './Plus';
 
@@ -56,17 +56,10 @@ const Address = styled.address`
 `;
 
 const Contact = styled.div`
-  /* font-size: 24px; */
-
   a {
     color: inherit;
     text-decoration: none;
   }
-
-  /* 
-  @media (max-width: 768px) {
-    font-size: 16px;
-  } */
 `;
 
 const Flex = styled.div`
@@ -99,10 +92,12 @@ const MenuToggle = styled(Plus)`
   margin: 0;
   padding: 0;
 
-  transition: transform 0.3s ease-in-out, stroke 0.3s ease-in;
+  transition: transform 0.3s ease-in-out;
   transform: rotate(${({ isOpen }) => isOpen && '-45deg'});
-
+  
   path {
+    transition: stroke 0.3s ease-in
+    transition-delay: 0.5s;
     stroke: ${({ isOpen, theme }) => (isOpen || theme === 'Dark' ? 'white' : 'black')} !important;
   }
 
@@ -113,8 +108,6 @@ const MenuToggle = styled(Plus)`
   @media (max-width: 768px) {
     top: 16px;
     right: 16px;
-    /* height: 24px;
-    width: 24px; */
     font-size: 24px;
   }
 `;
@@ -127,7 +120,7 @@ const Backdrop = styled.div`
   left: 0;
   bottom: 0;
   overflow: hidden;
-  background: rgba(20, 20, 20, 0.95);
+  background: rgba(3, 3, 3, 0.93);
   cursor: default;
 
   transition-property: transform;
@@ -141,9 +134,9 @@ const Contents = styled.div`
   color: ${colors.white};
   position: absolute;
   width: 100%;
-  max-width: 1024px;
+  max-width: 300px;
   height: 100%;
-  padding: 32px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -155,15 +148,23 @@ const Contents = styled.div`
   transition-delay: ${({ isOpen }) => (isOpen ? 500 : 0)}ms;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
 
-  @media (max-width: 768px) {
-    padding: 16px;
+  /* Laptop */
+  @media (${media.laptop}) {
+    max-width: 920px;
+    padding: 32px;
+  }
+
+  /* Desktop */
+  @media (${media.desktop}) {
+
   }
 `;
 
 const MenuText = styled.div`
   h1 {
-    font-size: 44px;
-    line-height: 50px;
+    font-size: inherit;
+
+    line-height: inherit;
     font-weight: bold;
 
     margin: 0;
@@ -183,18 +184,24 @@ const MenuText = styled.div`
 
   p {
     margin-top: 0;
-    font-size: 44px;
-    line-height: 50px;
+    font-size: inherit;
+    line-height: inherit;
     margin-block-end: 18px;
   }
 
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 20px;
-    }
+  /* Mobile */
+  font-size: 20px;
+  line-height: 24px;
 
-    p {
-      font-size: 20px;
-    }
+  /* Laptop */
+  @media (${media.laptop}) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  /* Desktop */
+  @media (${media.desktop}) {
+    font-size: 44px;
+    line-height: 50px;
   }
 `;

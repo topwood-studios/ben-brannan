@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Router from 'next/router';
 import { projects } from '../data.json';
-import Carousel from '../containers/NewCarousel';
+import Carousel from '../containers/Carousel';
 
 const slideArray = [];
 projects.forEach((project) => {

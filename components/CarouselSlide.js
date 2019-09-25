@@ -61,7 +61,8 @@ const Slide = ({
       />
       {animatedLayer && isActive && (
         <IconWrapper>
-          <AnimatedLayer src={animatedLayer} className={animation} />
+          <AnimatedLayer src={animatedLayer} mobile className={animation} />
+          <AnimatedLayer src={desktopIcon} className={animation} />
         </IconWrapper>
       )}
       {isActive && (
@@ -137,6 +138,12 @@ const AnimatedLayer = styled.img`
   max-width: 55%;
   max-height: 55%;
 
+  display: ${({ mobile }) => mobile ? 'none' : 'block'};
+
+  @media (max-width: 768px) {
+    display: ${({ mobile }) => mobile ? 'block' : 'none'};
+  }
+
   &.record-spin {
     animation-name: ${recordSpin};
     animation-duration: 3s;
@@ -152,14 +159,14 @@ const StyledBackground = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-
+  
   background-image: url(${({ src }) => src});
   background-size: cover;
   background-position: center;
-
+  
   display: flex;
   align-items: flex-end;
-
+  
   @media (max-width: 768px) {
     background-image: url(${({ mobileImage, src }) => mobileImage || src});
   }
@@ -177,7 +184,7 @@ const StyledBackground = styled.div`
     animation-name: ${backgroundZoom};
     animation-duration: 5s;
     animation-direction: forwards;
-    animation-timing-function: linear;
+    /* animation-timing-function: linear; */
   }
 `;
 
