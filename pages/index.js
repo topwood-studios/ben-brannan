@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
 // import Router from 'next/router';
 import { projects } from '../data.json';
 import Carousel from '../containers/Carousel';
+import { recordSpin } from '../components/Animations';
+import { colors } from '../utils/theme';
 
 const slideArray = [];
 projects.forEach((project) => {
@@ -37,9 +41,54 @@ export default class Home extends Component {
     const isReady = isLoading && imagesToLoad === imagesLoaded;
 
     if (!isReady) {
-      return (<div><h1>Loading...</h1></div>);
+      return (
+        <LoadingPage>
+          <h1>
+            Studio
+            <Plus>+</Plus>
+            Brannan
+          </h1>
+        </LoadingPage>
+      );
     }
     return (
       <Carousel title="test" slides={allSlides} />);
   }
 }
+
+const LoadingPage = styled.div`
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  font-size: 60px;
+  color: white;
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: inherit;
+
+    line-height: inherit;
+    font-weight: bold;
+
+    margin: 0;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05rem;
+  }
+  `;
+
+const Plus = styled.strong`
+  color: ${colors.grey};
+  animation-name: ${recordSpin};
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  will-change: transform;
+`;
