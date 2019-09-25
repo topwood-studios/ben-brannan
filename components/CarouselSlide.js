@@ -181,10 +181,10 @@ const StyledBackground = styled.div`
   opacity: ${({ animateIn, animateOut }) => (animateIn || animateOut ? 1 : 0)};
 
   &.background-zoom {
-    animation-name: ${backgroundZoom};
+    animation-name: ${({ animateIn }) => animateIn && backgroundZoom};
     animation-duration: 5s;
     animation-direction: forwards;
-    /* animation-timing-function: linear; */
+    animation-timing-function: linear;
   }
 `;
 
