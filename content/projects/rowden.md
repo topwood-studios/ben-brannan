@@ -6,8 +6,9 @@ slides:
     description: Brand Identity | Digital | Print
     desktopIcon: /static/img/logo_black.png
     image: /static/img/rowden-background.jpg
+    mobileIcon: /static/img/brandmark_black-2x.png
     mobileImage: ''
-    name: Slide 1
+    name: Animated background
     theme: Dark
   - animation: none
     description: Brand Identity | Digital | Print
