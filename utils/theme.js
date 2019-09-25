@@ -8,4 +8,8 @@ module.exports = {
     grey,
     white,
   },
+  media: {
+    laptop: 'min-width: 992px',
+    desktop: 'min-width: 1440px',
+  },
 };
