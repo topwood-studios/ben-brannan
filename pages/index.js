@@ -12,17 +12,19 @@ projects.forEach((project) => {
 const allSlides = slideArray.flat();
 
 export default class Home extends Component {
-  state = { isLoading: false, loading: 0, loaded: 0 };
+  state = { isLoading: false, imagesToLoad: 0, imagesLoaded: 0 };
 
   componentDidMount() {
-    let { loading, loaded } = this.state;
+    let { imagesToLoad, imagesLoaded } = this.state;
 
     allSlides.forEach(({ image, mobileImage, desktopIcon, mobileIcon }) => {
       [image, mobileImage, desktopIcon, mobileIcon].forEach(img => {
         if (img) {
-          this.setState({ loading: loading += 1 });
+          this.setState({ imagesToLoad: imagesToLoad += 1 });
           const newImage = new Image();
-          newImage.onload = this.setState({ loaded: loaded += 1 });
+          newImage.onload = () => {
+            this.setState({ imagesLoaded: imagesLoaded += 1 });
+          };
           newImage.src = img;
         }
       });
@@ -31,8 +33,8 @@ export default class Home extends Component {
   }
 
   render() {
-    const { isLoading, loading, loaded } = this.state;
-    const isReady = isLoading && loading === loaded;
+    const { isLoading, imagesToLoad, imagesLoaded } = this.state;
+    const isReady = isLoading && imagesToLoad === imagesLoaded;
 
     if (!isReady) {
       return (<div><h1>Loading...</h1></div>);
