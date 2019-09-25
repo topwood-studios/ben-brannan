@@ -12,14 +12,32 @@ projects.forEach((project) => {
 const allSlides = slideArray.flat();
 
 export default class Home extends Component {
+  state = { isLoading: false, loading: 0, loaded: 0 };
+
   componentDidMount() {
-    // console.log({ projects });
-    // Router.push({
-    //   pathname: `/${projects[0].name}`,
-    // });
+    let { loading, loaded } = this.state;
+
+    allSlides.forEach(({ image, mobileImage, desktopIcon, mobileIcon }) => {
+      [image, mobileImage, desktopIcon, mobileIcon].forEach(img => {
+        if (img) {
+          this.setState({ loading: loading += 1 });
+          const newImage = new Image();
+          newImage.onload = this.setState({ loaded: loaded += 1 });
+          newImage.src = img;
+        }
+      });
+    });
+    this.setState({ isLoading: true });
   }
 
   render() {
-    return <Carousel title="test" slides={allSlides} />;
+    const { isLoading, loading, loaded } = this.state;
+    const isReady = isLoading && loading === loaded;
+
+    if (!isReady) {
+      return (<div><h1>Loading...</h1></div>);
+    }
+    return (
+      <Carousel title="test" slides={allSlides} />);
   }
 }
