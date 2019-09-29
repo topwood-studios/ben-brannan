@@ -2,10 +2,10 @@
 title: Waitrose
 client: Waitrose
 slides:
-  - animation: None
+  - animation: none
     description: Full Editorial Redesign
     image: /static/img/waitrose-1.jpg
-    mobileImage: /static/img/iphone-6-7-8-–-1.png
+    mobileImage: /static/img/waitrose-1-mobile.jpg
     name: Waitrose & Partners
     theme: Light
   - animation: None
