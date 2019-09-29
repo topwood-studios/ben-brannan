@@ -195,7 +195,7 @@ const MenuText = styled.div`
 
   /* Laptop */
   @media (${media.laptop}) {
-    font-size: 32px;
+    font-size: 34px;
     line-height: 40px;
   }
 

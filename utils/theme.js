@@ -10,6 +10,6 @@ module.exports = {
   },
   media: {
     laptop: 'min-width: 992px',
-    desktop: 'min-width: 1440px',
+    desktop: 'min-width: 1441px',
   },
 };
