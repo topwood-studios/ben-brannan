@@ -87,6 +87,7 @@ const MenuToggle = styled(Plus)`
   right: 32px;
   height: 32px;
   width: 32px;
+  /* user-select: none;  */
 
   z-index: 10;
   margin: 0;
@@ -96,14 +97,20 @@ const MenuToggle = styled(Plus)`
   transform: rotate(${({ isOpen }) => isOpen && '-45deg'});
   
   path {
-    transition: stroke 0.3s ease-in
-    transition-delay: 0.5s;
+    transition-property: stroke;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
+    transition-delay: ${({ isOpen }) => !isOpen ? '0.5s' : ''};
     stroke: ${({ isOpen, theme }) => (isOpen || theme === 'Dark' ? 'white' : 'black')} !important;
   }
 
   &:hover {
     cursor: pointer;
   }
+
+  /* &:focus {
+    outline: none;
+  } */
 
   @media (max-width: 768px) {
     top: 16px;
