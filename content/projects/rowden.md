@@ -19,7 +19,7 @@ slides:
   - animation: none
     description: Brand Identity | Digital | Print
     image: /static/img/rowden-power-point-dt.jpg
-    mobileImage: /static/img/iphone-6-7-8-–-11.png
+    mobileImage: /static/img/rowden-background-2.jpg
     name: Rowden Technologies
     theme: Dark
 ---
