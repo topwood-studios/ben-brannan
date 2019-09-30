@@ -5,6 +5,9 @@ import { colors } from '../utils/theme';
 import Menu from './Menu';
 import { backgroundZoom, fadeIn, fadeUp, recordSpin } from './Animations';
 import Logo from './Logo';
+import { settings } from '../data.json';
+
+const ANIMATION_SPEED = settings[0].carouselSpeed;
 
 // const pauseIcon = '/static/assets/pause.svg';
 // const playIcon = '/static/assets/play-icon.svg';
@@ -182,7 +185,7 @@ const StyledBackground = styled.div`
 
   &.background-zoom {
     animation-name: ${({ animateIn }) => animateIn && backgroundZoom};
-    animation-duration: 5s;
+    animation-duration: ${ANIMATION_SPEED + 1000}ms;
     animation-direction: forwards;
     animation-timing-function: linear;
   }
