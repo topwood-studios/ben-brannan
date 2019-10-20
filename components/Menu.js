@@ -162,7 +162,7 @@ const Contents = styled.div`
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
 
   @media (${media.laptop}) {
-    max-width: 920px;
+    max-width: 950px;
     padding: 32px;
   }
 
