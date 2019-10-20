@@ -20,7 +20,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     const {
-      attributes: { siteTitle, description, keywords }
+      attributes: { siteTitle, siteDescription, keywords, siteUrl }
     } = content;
 
     console.log({ content });
@@ -29,12 +29,17 @@ class MyApp extends App {
       <AppWrapper>
         <Head>
           <title>{siteTitle}</title>
-          <meta name="description" content={description} />
+          <meta name="name" content={siteTitle} />
+          <meta name="url" content={siteUrl} />
+          <meta name="description" content={siteDescription} />
           <meta name="keywords" content={keywords} />
 
           {/* Facebook Open Graph tags */}
+          <meta property="og:site_name" content={siteTitle} />
           <meta property="og:title" content={siteTitle} />
-          <meta property="og:description" content={description} />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={siteUrl} />
+          <meta property="og:description" content={siteDescription} />
           {/* TODO: Get Image */}
           {/* <meta property="og:image" content={siteTitle} /> */}
         </Head>
