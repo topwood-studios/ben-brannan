@@ -41,6 +41,7 @@ export default class Home extends Component {
   render() {
     const { isLoading, imagesToLoad, imagesLoaded } = this.state;
     const isReady = isLoading && imagesToLoad === imagesLoaded;
+    const progress = imagesLoaded / imagesToLoad * 100;
 
     if (!isReady) {
       return (
@@ -50,7 +51,7 @@ export default class Home extends Component {
             <span>+</span>
             Brannan
           </h1>
-          <ProgressBar />
+          <ProgressBar complete={progress} />
         </LoadingPage>
       );
     }
