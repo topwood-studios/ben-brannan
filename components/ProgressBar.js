@@ -17,6 +17,6 @@ const Progress = styled.span`
   color: ${colors.black};
   padding: 5px;
   width: ${({ complete }) => complete}%;
-  transition: width 0.5 ease;
+  transition: width 0.5s ease;
   position: absolute;
 `;

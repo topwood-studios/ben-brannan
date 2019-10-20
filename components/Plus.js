@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Plus = ({ stroke = '#000', ...rest }) => (
-  <Svg {...rest}>
+  <Svg viewbox="0 0 32 32" {...rest}>
     <defs>
       <clipPath id="prefix__a">
         <path fill="none" d="M0 0h32v32H0z" />
