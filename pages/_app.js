@@ -23,6 +23,8 @@ class MyApp extends App {
       attributes: { siteTitle, description, keywords }
     } = content;
 
+    console.log({ content });
+
     return (
       <AppWrapper>
         <Head>
