@@ -12,7 +12,7 @@ slides:
     theme: Dark
   - animation: none
     description: Brand Identity | Digital | Print
-    image: /static/img/rowden-background-2.jpg
+    image: /static/img/rowden-proposals-dt.jpg
     mobileImage: /static/img/rowden-background-1.jpg
     name: Proposal
     theme: Dark
