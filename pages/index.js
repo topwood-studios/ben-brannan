@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
 
 // import Router from 'next/router';
-import { projects } from '../data.json';
-import Carousel from '../containers/Carousel';
-import { recordSpin } from '../components/Animations';
-import { colors } from '../utils/theme';
+import { projects } from "../data.json";
+import Carousel from "../containers/Carousel";
+import ProgressBar from "../components/ProgressBar";
+import { colors } from "../utils/theme";
 
 const slideArray = [];
-projects.forEach((project) => {
+projects.forEach(project => {
   const slides = [];
-  project.slides.forEach((slide) => slides.push({ ...slide, title: project.title }));
+  project.slides.forEach(slide =>
+    slides.push({ ...slide, title: project.title })
+  );
   slideArray.push(slides);
 });
 const allSlides = slideArray.flat();
@@ -24,10 +26,10 @@ export default class Home extends Component {
     allSlides.forEach(({ image, mobileImage, desktopIcon, mobileIcon }) => {
       [image, mobileImage, desktopIcon, mobileIcon].forEach(img => {
         if (img) {
-          this.setState({ imagesToLoad: imagesToLoad += 1 });
+          this.setState({ imagesToLoad: (imagesToLoad += 1) });
           const newImage = new Image();
           newImage.onload = () => {
-            this.setState({ imagesLoaded: imagesLoaded += 1 });
+            this.setState({ imagesLoaded: (imagesLoaded += 1) });
           };
           newImage.src = img;
         }
@@ -45,14 +47,14 @@ export default class Home extends Component {
         <LoadingPage>
           <h1>
             Studio
-            <Plus>+</Plus>
+            <span>+</span>
             Brannan
           </h1>
+          <ProgressBar />
         </LoadingPage>
       );
     }
-    return (
-      <Carousel title="test" slides={allSlides} />);
+    return <Carousel title="test" slides={allSlides} />;
   }
 }
 
@@ -64,8 +66,9 @@ const LoadingPage = styled.div`
   right: 0;
   left: 0;
   bottom: 0;
-  font-size: 60px;
-  color: white;
+  font-size: 28px;
+  background: white;
+  color: black;
 
   h1 {
     position: absolute;
@@ -81,14 +84,9 @@ const LoadingPage = styled.div`
     margin: 0;
     margin-bottom: 1rem;
     letter-spacing: 0.05rem;
-  }
-  `;
 
-const Plus = styled.strong`
-  color: ${colors.grey};
-  animation-name: ${recordSpin};
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  will-change: transform;
+    span {
+      color: ${colors.grey};
+    }
+  }
 `;
