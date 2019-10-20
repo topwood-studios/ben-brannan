@@ -9,6 +9,7 @@ module.exports = {
     white,
   },
   media: {
+    mobile: 'max-width: 991px',
     laptop: 'min-width: 992px',
     desktop: 'min-width: 1441px',
   },

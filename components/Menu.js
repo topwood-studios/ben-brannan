@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styled from 'styled-components';
-import { attributes } from '../content/settings/global.md';
-import { colors, media } from '../utils/theme';
-import Markdown from './Markdown';
-import Plus from './Plus';
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
+import { attributes } from "../content/settings/global.md";
+import { colors, media } from "../utils/theme";
+import Markdown from "./Markdown";
+import Plus from "./Plus";
 
 const Menu = ({ isOpen, toggleMenu, theme }) => {
   const { menuText, menuContact, menuAddress } = attributes;
@@ -12,13 +12,13 @@ const Menu = ({ isOpen, toggleMenu, theme }) => {
     <>
       <MenuToggle
         isOpen={isOpen}
-        onClick={(e) => {
+        onClick={e => {
           e.stopPropagation();
           toggleMenu();
         }}
         theme={theme}
       />
-      <Backdrop isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
+      <Backdrop isOpen={isOpen} onClick={e => e.stopPropagation()}>
         <Contents isOpen={isOpen}>
           <MenuText>
             <Markdown source={menuText} />
@@ -43,15 +43,19 @@ export default Menu;
 Menu.propTypes = {
   isOpen: PropTypes.bool,
   toggleMenu: PropTypes.func,
-  theme: PropTypes.string,
+  theme: PropTypes.string
 };
 
 const Address = styled.address`
   white-space: pre-wrap;
   font-style: normal;
+  display: none;
 
-  @media (max-width: 768px) {
-    display: none;
+  @media (${media.laptop}) {
+    display: block;
+  }
+
+  @media (${media.desktop}) {
   }
 `;
 
@@ -65,12 +69,8 @@ const Contact = styled.div`
 const Flex = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 24px;
+  font-size: 16px;
   letter-spacing: 0.025rem;
-
-  @media (max-width: 768px) {
-    font-size: 16px;
-  }
 
   p {
     margin: 0;
@@ -79,43 +79,49 @@ const Flex = styled.div`
   > * {
     flex: 1;
   }
+
+  @media (${media.laptop}) {
+    font-size: 24px;
+    display: block;
+  }
+
+  @media (${media.desktop}) {
+  }
 `;
 
 const MenuToggle = styled(Plus)`
   position: fixed;
-  top: 32px;
-  right: 32px;
+  top: 16px;
+  right: 16px;
   height: 32px;
   width: 32px;
-  /* user-select: none;  */
 
   z-index: 10;
   margin: 0;
   padding: 0;
 
-  transition: transform 0.3s ease-in-out;
-  transform: rotate(${({ isOpen }) => isOpen && '-45deg'});
-  
+  transition: transform 0.3s ease;
+  transform: rotate(${({ isOpen }) => isOpen && "-45deg"});
+
   path {
     transition-property: stroke;
     transition-duration: 0.3s;
     transition-timing-function: ease-in;
-    transition-delay: ${({ isOpen }) => !isOpen ? '0.5s' : ''};
-    stroke: ${({ isOpen, theme }) => (isOpen || theme === 'Dark' ? 'white' : 'black')} !important;
+    transition-delay: ${({ isOpen }) => (!isOpen ? "0.5s" : "")};
+    stroke: ${({ isOpen, theme }) =>
+      isOpen || theme === "Dark" ? "white" : "black"} !important;
   }
 
   &:hover {
     cursor: pointer;
   }
 
-  /* &:focus {
-    outline: none;
-  } */
+  @media (${media.laptop}) {
+    top: 32px;
+    right: 32px;
+  }
 
-  @media (max-width: 768px) {
-    top: 16px;
-    right: 16px;
-    font-size: 24px;
+  @media (${media.desktop}) {
   }
 `;
 
@@ -134,7 +140,7 @@ const Backdrop = styled.div`
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
   transition-delay: ${({ isOpen }) => (isOpen ? 0 : 500)}ms;
-  transform: translateY(${({ isOpen }) => (isOpen ? '0' : '-100%')});
+  transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100%")});
 `;
 
 const Contents = styled.div`
@@ -163,7 +169,6 @@ const Contents = styled.div`
 
   /* Desktop */
   @media (${media.desktop}) {
-
   }
 `;
 

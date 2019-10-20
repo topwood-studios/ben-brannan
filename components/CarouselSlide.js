@@ -1,16 +1,13 @@
-import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { colors } from '../utils/theme';
-import Menu from './Menu';
-import { backgroundZoom, fadeIn, fadeUp, recordSpin } from './Animations';
-import Logo from './Logo';
-import { settings } from '../data.json';
+import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import { colors, media } from "../utils/theme";
+import Menu from "./Menu";
+import { backgroundZoom, fadeIn, fadeUp, recordSpin } from "./Animations";
+import Logo from "./Logo";
+import { settings } from "../data.json";
 
 const ANIMATION_SPEED = settings[0].carouselSpeed;
-
-// const pauseIcon = '/static/assets/pause.svg';
-// const playIcon = '/static/assets/play-icon.svg';
 
 const Slide = ({
   contents,
@@ -23,19 +20,20 @@ const Slide = ({
     desktopIcon,
     mobileIcon,
     theme,
-    title,
+    title
   },
   activeSlide,
   lastActiveSlide,
   totalSlideCount,
   setStartCarousel,
   paused,
-  index,
+  index
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const isActive = activeSlide === contents;
   const isLastActiveSlide = lastActiveSlide === contents;
-  const animateText = index === 0 || activeSlide.title !== lastActiveSlide.title;
+  const animateText =
+    index === 0 || activeSlide.title !== lastActiveSlide.title;
 
   const animatedLayer = mobileIcon || desktopIcon;
 
@@ -106,7 +104,7 @@ Slide.propTypes = {
   contents: PropTypes.object,
   totalSlideCount: PropTypes.number,
   setStartCarousel: PropTypes.func,
-  paused: PropTypes.bool,
+  paused: PropTypes.bool
 };
 
 const SlideWrapper = styled.div`
@@ -119,9 +117,10 @@ const SlideWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: ${({ animateIn, animateOut }) => (animateIn ? 2 : animateOut ? 1 : -1)};
+  z-index: ${({ animateIn, animateOut }) =>
+    animateIn ? 2 : animateOut ? 1 : -1};
 
-  pointer-events: ${({ clickable }) => (clickable ? 'default' : 'none')};
+  pointer-events: ${({ clickable }) => (clickable ? "default" : "none")};
 `;
 
 const IconWrapper = styled.div`
@@ -141,10 +140,10 @@ const AnimatedLayer = styled.img`
   max-width: 55%;
   max-height: 55%;
 
-  display: ${({ mobile }) => mobile ? 'none' : 'block'};
+  display: ${({ mobile }) => (mobile ? "block" : "none")};
 
-  @media (max-width: 768px) {
-    display: ${({ mobile }) => mobile ? 'block' : 'none'};
+  @media (${media.laptop}) {
+    display: ${({ mobile }) => (mobile ? "none" : "block")};
   }
 
   &.record-spin {
@@ -162,20 +161,22 @@ const StyledBackground = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-  
-  background-image: url(${({ src }) => src});
-  background-size: cover;
-  background-position: center;
-  
-  display: flex;
-  align-items: flex-end;
-  
-  @media (max-width: 768px) {
-    background-image: url(${({ mobileImage, src }) => mobileImage || src});
+
+  background-image: url(${({ mobileImage, src }) => mobileImage || src});
+
+  @media (${media.laptop}) {
+    background-image: url(${({ src }) => src});
   }
 
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: flex-end;
+
   > div > * {
-    visibility: ${({ animateIn, animateOut }) => (animateIn || animateOut ? '' : 'hidden')};
+    visibility: ${({ animateIn, animateOut }) =>
+      animateIn || animateOut ? "" : "hidden"};
   }
 
   transition-property: opacity;
@@ -201,7 +202,7 @@ const Contents = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 32px;
+  padding: 16px;
   z-index: 3;
   pointer-events: none;
   overflow: hidden;
@@ -212,8 +213,11 @@ const Contents = styled.div`
 
   color: white;
 
-  @media (max-width: 768px) {
-    padding: 16px;
+  @media (${media.laptop}) {
+    padding: 32px;
+  }
+
+  @media (${media.desktop}) {
   }
 `;
 
@@ -221,7 +225,6 @@ const Counter = styled.p`
   margin: 0;
   padding: 0;
   color: ${colors.grey};
-  font-size: 18px;
   margin-bottom: 0.25rem;
   opacity: ${({ animate }) => (animate ? 0 : 1)};
   animation: ${({ animate }) => animate && fadeIn} 500ms forwards 1000ms;
@@ -231,43 +234,53 @@ const Counter = styled.p`
     margin: 2px;
   }
 
-  @media (max-width: 768px) {
-    font-size: 14px;
-    font-weight: 500;
+  font-size: 14px;
+  font-weight: 500;
+
+  @media (${media.laptop}) {
+    font-size: 18px;
+    /* font-weight: 300; */
+  }
+
+  @media (${media.desktop}) {
   }
 `;
 
 const Title = styled.h1`
-  font-size: 28px;
+  font-size: 20px;
   font-weight: normal;
-  color: ${({ theme }) => (theme === 'Light' ? '#000' : '#FFF')};
+  color: ${({ theme }) => (theme === "Light" ? "#000" : "#FFF")};
 
   opacity: ${({ animate }) => (animate ? 0 : 1)};
   animation: ${({ animate }) => animate && fadeUp} 600ms forwards 300ms;
   letter-spacing: 0.05rem;
   margin: 0;
 
-  @media (max-width: 768px) {
-    font-size: 20px;
-    font-weight: 500;
+  @media (${media.laptop}) {
+    font-size: 28px;
+  }
+
+  @media (${media.desktop}) {
   }
 `;
 
 const Description = styled.h2`
-  font-size: 28px;
-  font-weight: normal;
+  font-weight: 500;
   color: ${colors.grey};
 
   opacity: ${({ animate }) => (animate ? 0 : 1)};
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   letter-spacing: 0.025rem;
 
   animation: ${({ animate }) => animate && fadeUp} 1000ms forwards 300ms;
 
-  @media (max-width: 768px) {
-    font-size: 14px;
-    margin-bottom: 6px;
-    font-weight: 500;
+  @media (${media.laptop}) {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: normal;
+  }
+
+  @media (${media.desktop}) {
   }
 `;

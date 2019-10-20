@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const AsyncBackground = ({ src, children, ...props }) => {
   const [loaded, setLoaded] = useState(false);
@@ -29,7 +29,7 @@ export default AsyncBackground;
 
 AsyncBackground.propTypes = {
   src: PropTypes.string,
-  children: PropTypes.any,
+  children: PropTypes.any
 };
 
 const BackgroundImage = styled.div`
@@ -40,16 +40,6 @@ const BackgroundImage = styled.div`
   background-image: url(${({ src }) => src});
   background-size: cover;
   background-position: center;
-
-  /* animation: fadeIn 2s forwards;
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  } */
 `;
 
 const Contents = styled.div`
