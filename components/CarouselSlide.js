@@ -186,7 +186,7 @@ const StyledBackground = styled.div`
 
   &.background-zoom {
     animation-name: ${({ animateIn }) => animateIn && backgroundZoom};
-    animation-duration: ${ANIMATION_SPEED + 1000}ms;
+    animation-duration: ${ANIMATION_SPEED + 2000}ms;
     animation-direction: forwards;
     animation-timing-function: linear;
   }
