@@ -1,7 +1,7 @@
 ---
 siteTitle: Studio Brannan
 siteUrl: studiobrannan.com
-siteDescription: A short description to use for Metadata
+siteDescription: Freelance art director and graphic designer based in London.
 carouselSpeed: 4000
 menuText: >-
   # We are Studio**+**Brannan.
