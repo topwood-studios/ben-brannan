@@ -3,8 +3,8 @@ siteTitle: Studio Brannan
 siteUrl: studiobrannan.com
 siteDescription: Freelance art director and graphic designer based in London.
 keywords: >-
-  Graphic design, art, design, web design, print media, print, professional,
-  services, media, UK
+  magazine design, publication design, graphic design, design, web design,
+  graphics, art, print media, print, professional, services, media, UK
 carouselSpeed: 4000
 menuText: >-
   # We are Studio**+**Brannan.
