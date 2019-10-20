@@ -31,9 +31,13 @@
   },
   "dependencies": {
     "array-flat-polyfill": "^1.0.1",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-optipng": "^7.1.0",
+    "imagemin-svgo": "^7.0.0",
     "netlify-cms": "^2.9.7",
     "netlify-cms-app": "^2.9.7",
     "next": "^9.0.2",
+    "next-optimized-images": "^2.5.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

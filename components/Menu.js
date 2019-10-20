@@ -55,8 +55,8 @@ const Address = styled.address`
     display: block;
   }
 
-  @media (${media.desktop}) {
-  }
+  /* @media (${media.desktop}) {
+  } */
 `;
 
 const Contact = styled.div`
@@ -81,11 +81,11 @@ const Flex = styled.div`
   }
 
   @media (${media.laptop}) {
-    font-size: 24px;
-    display: block;
+    font-size: 20px;
   }
 
   @media (${media.desktop}) {
+    font-size: 24px;
   }
 `;
 
@@ -121,8 +121,8 @@ const MenuToggle = styled(Plus)`
     right: 32px;
   }
 
-  @media (${media.desktop}) {
-  }
+  /* @media (${media.desktop}) {
+  } */
 `;
 
 const Backdrop = styled.div`
@@ -161,15 +161,13 @@ const Contents = styled.div`
   transition-delay: ${({ isOpen }) => (isOpen ? 500 : 0)}ms;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
 
-  /* Laptop */
   @media (${media.laptop}) {
     max-width: 920px;
     padding: 32px;
   }
 
-  /* Desktop */
-  @media (${media.desktop}) {
-  }
+  /* @media (${media.desktop}) {
+  } */
 `;
 
 const MenuText = styled.div`
@@ -205,13 +203,11 @@ const MenuText = styled.div`
   font-size: 20px;
   line-height: 24px;
 
-  /* Laptop */
   @media (${media.laptop}) {
     font-size: 34px;
     line-height: 40px;
   }
 
-  /* Desktop */
   @media (${media.desktop}) {
     font-size: 44px;
     line-height: 50px;

@@ -238,11 +238,12 @@ const Counter = styled.p`
   font-weight: 500;
 
   @media (${media.laptop}) {
-    font-size: 18px;
+    font-size: 15px;
     /* font-weight: 300; */
   }
 
   @media (${media.desktop}) {
+    font-size: 18px;
   }
 `;
 
@@ -257,16 +258,18 @@ const Title = styled.h1`
   margin: 0;
 
   @media (${media.laptop}) {
-    font-size: 28px;
+    font-size: 22px;
   }
 
   @media (${media.desktop}) {
+    font-size: 28px;
   }
 `;
 
 const Description = styled.h2`
   font-weight: 500;
   color: ${colors.grey};
+  font-size: 14px;
 
   opacity: ${({ animate }) => (animate ? 0 : 1)};
   margin: 0;
@@ -276,11 +279,12 @@ const Description = styled.h2`
   animation: ${({ animate }) => animate && fadeUp} 1000ms forwards 300ms;
 
   @media (${media.laptop}) {
-    font-size: 28px;
+    font-size: 22px;
     margin-bottom: 10px;
     font-weight: normal;
   }
 
   @media (${media.desktop}) {
+    font-size: 28px;
   }
 `;
