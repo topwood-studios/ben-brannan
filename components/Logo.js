@@ -13,7 +13,7 @@ const Logo = ({ menuOpen, theme }) => (
 
 Logo.propTypes = {
   menuOpen: PropTypes.bool,
-  theme: PropTypes.string
+  theme: PropTypes.string,
 };
 
 export default Logo;
@@ -28,8 +28,7 @@ const Text = styled.h1`
 
   font-size: 20px;
   font-weight: bold;
-  color: ${({ theme }) =>
-    theme === "Light" ? "#000" : theme === "Dark" ? "#FFF" : "#FFF"};
+  color: ${({ theme }) => theme === "Light" ? "#000" : theme === "Dark" ? "#FFF" : "#FFF"};
 
   letter-spacing: 0.025rem;
   transition: opacity 0.3s ease;
@@ -42,9 +41,10 @@ const Text = styled.h1`
   @media (${media.laptop}) {
     top: 32px;
     left: 32px;
-    font-size: 28px;
+    font-size: 22px;
   }
 
   @media (${media.desktop}) {
+    font-size: 28px;
   }
 `;
