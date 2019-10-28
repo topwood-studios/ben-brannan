@@ -147,7 +147,7 @@ const Contents = styled.div`
   color: ${colors.white};
   position: absolute;
   width: 100%;
-  max-width: 300px;
+  max-width: 288px;
   height: 100%;
   padding: 16px;
   display: flex;
