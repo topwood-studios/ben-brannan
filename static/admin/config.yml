@@ -56,5 +56,5 @@ collections:
               widget: relation
               collection: projects
               searchFields: [title, client]
-              valueField: [title, description, slides]
+              valueField: title
               displayFields: title
