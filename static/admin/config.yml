@@ -52,10 +52,6 @@ collections:
     files:
       - file: "content/settings/carousel.md"
         label: "Carousel Settings"
-        label: "Projects"
-        name: "projects"
-        widget: "relation"
-        collection: "projects"
-        searchFields: ["title", "client"]
-        valueField: "title"
-        displayFields: ["slides", "title", "client"]
+        name: "carousel-settings"
+        fields: 
+        - { label: Projects, name: projects, widget: "relation", collection: "projects", searchFields: ["title", "client"], valueField: "title", displayFields: ["slides", "title", "client"] }
