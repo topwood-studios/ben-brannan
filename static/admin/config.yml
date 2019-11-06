@@ -43,7 +43,6 @@ collections:
           - { label: Menu text, name: menuText, widget: markdown, required: false }
           - { label: Menu address, name: menuAddress, widget: text, required: false }
           - { label: Menu contact, name: menuContact, widget: markdown, required: false }
-    files:
       - file: content/settings/carousel.md
         label: Carousel Settings
         name: carousel-settings
