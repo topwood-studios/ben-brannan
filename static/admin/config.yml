@@ -43,3 +43,19 @@ collections:
           - { label: Menu text, name: menuText, widget: markdown, required: false }
           - { label: Menu address, name: menuAddress, widget: text, required: false }
           - { label: Menu contact, name: menuContact, widget: markdown, required: false }
+
+  - name: "carousel"
+    label: "Carousel"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "content/settings/carousel.md"
+        label: "Carousel Settings"
+        label: "Projects"
+        name: "projects"
+        widget: "relation"
+        collection: "projects"
+        searchFields: ["title", "client"]
+        valueField: "title"
+        displayFields: ["slides", "title", "client"]
