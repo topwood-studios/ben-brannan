@@ -53,7 +53,8 @@ collections:
           fields:
             - label: Project
               widget: relation
+              unique: true
               collection: projects
-              valueField: slides
+              valueField: title
               searchFields: [title, client]
               displayFields: title
