@@ -1,9 +1,9 @@
 ---
 projects:
-  - undefined: Funnel Music
-  - undefined: Minerva Research LTD
-  - undefined: Rapha Racing LTD
-  - undefined: Rowden Technologies
-  - undefined: Waitrose
+  - project: Funnel Music
+  - project: Minerva Research LTD
+  - project: Rapha Racing LTD
+  - project: Rowden Technologies
+  - project: Waitrose
 ---
 
