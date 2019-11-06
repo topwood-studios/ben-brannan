@@ -50,9 +50,9 @@ collections:
     editor:
       preview: false
     files:
-      - file: "content/settings/carousel.md"
-        label: "Carousel Settings"
-        name: "carousel-settings"
+      - file: content/settings/carousel.md
+        label: Carousel Settings
+        name: carousel-settings
         fields: 
         - label: Projects
           name: projects
@@ -61,6 +61,6 @@ collections:
             - label: Project
               widget: relation
               collection: projects
-              searchFields: ["title", "client"]
-              valueField: "title"
-              displayFields: ["slides", "title", "client"]
+              valueField: slides
+              searchFields: [title, client]
+              displayFields: title
