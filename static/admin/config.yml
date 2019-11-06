@@ -54,4 +54,13 @@ collections:
         label: "Carousel Settings"
         name: "carousel-settings"
         fields: 
-        - { label: Projects, name: projects, widget: "relation", collection: "projects", searchFields: ["title", "client"], valueField: "title", displayFields: ["slides", "title", "client"] }
+        - label: Projects
+          name: projects
+          widget: list
+          fields:
+            - label: Project
+              widget: relation
+              collection: projects
+              searchFields: ["title", "client"]
+              valueField: "title"
+              displayFields: ["slides", "title", "client"]
