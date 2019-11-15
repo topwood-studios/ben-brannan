@@ -7,7 +7,7 @@ import { backgroundZoom, fadeIn, fadeUp, recordSpin } from "./Animations";
 import Logo from "./Logo";
 import { settings } from "../data.json";
 
-const ANIMATION_SPEED = settings[0].carouselSpeed;
+const ANIMATION_SPEED = settings.find(({ name }) => name === 'global').carouselSpeed;
 
 const Slide = ({
   contents,
@@ -20,20 +20,19 @@ const Slide = ({
     desktopIcon,
     mobileIcon,
     theme,
-    title
+    title,
   },
   activeSlide,
   lastActiveSlide,
   totalSlideCount,
   setStartCarousel,
   paused,
-  index
+  index,
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const isActive = activeSlide === contents;
   const isLastActiveSlide = lastActiveSlide === contents;
-  const animateText =
-    index === 0 || activeSlide.title !== lastActiveSlide.title;
+  const animateText = index === 0 || activeSlide.title !== lastActiveSlide.title;
 
   const animatedLayer = mobileIcon || desktopIcon;
 
@@ -104,7 +103,7 @@ Slide.propTypes = {
   contents: PropTypes.object,
   totalSlideCount: PropTypes.number,
   setStartCarousel: PropTypes.func,
-  paused: PropTypes.bool
+  paused: PropTypes.bool,
 };
 
 const SlideWrapper = styled.div`
@@ -117,8 +116,7 @@ const SlideWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: ${({ animateIn, animateOut }) =>
-    animateIn ? 2 : animateOut ? 1 : -1};
+  z-index: ${({ animateIn, animateOut }) => animateIn ? 2 : animateOut ? 1 : -1};
 
   pointer-events: ${({ clickable }) => (clickable ? "default" : "none")};
 `;
@@ -175,8 +173,7 @@ const StyledBackground = styled.div`
   align-items: flex-end;
 
   > div > * {
-    visibility: ${({ animateIn, animateOut }) =>
-      animateIn || animateOut ? "" : "hidden"};
+    visibility: ${({ animateIn, animateOut }) => animateIn || animateOut ? "" : "hidden"};
   }
 
   transition-property: opacity;

@@ -10,7 +10,7 @@ import { projects, settings } from '../data.json';
 
 // TODO: Preload everything
 
-const CAROUSEL_SPEED = settings[0].carouselSpeed;
+const CAROUSEL_SPEED = settings.find(({ name }) => name === "global").carouselSpeed;
 
 const Carousel = ({ slides, project, title }) => {
   const [index, setIndex] = useState(0);
