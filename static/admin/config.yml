@@ -17,6 +17,7 @@ collections:
         widget: list
         fields: 
           - { label: "Name", name: "name", widget: "string", required: true }
+          - { label: "Carousel Order", name: "order", widget: "number", valueType: "int", min: 1, max: 100, step: 1, unique: true }
           - { label: "Description", name: "description", widget: "text" }
           - { label: "Theme", name: "theme", widget: "select", options: ["Dark", "Light"], default: "Light" }
           - { label: "Animation", name: "animation", widget: "select", options: ["none", "background-zoom", "record-spin"], default: "none" }
