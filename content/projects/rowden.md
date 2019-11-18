@@ -12,7 +12,7 @@ slides:
     theme: Dark
   - animation: none
     description: Brand Identity | Digital | Print
-    image: /static/img/rowden-brand.png
+    image: /static/img/rowden-brand.jpg
     mobileImage: ''
     name: Brand
     theme: Light
