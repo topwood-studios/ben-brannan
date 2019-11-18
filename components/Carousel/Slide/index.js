@@ -103,7 +103,7 @@ const SlideWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  pointer-events: ${({ clickable }) => (clickable ? "default" : "none")};
+  /* pointer-events: ${({ clickable }) => (clickable ? "default" : "none")}; */
 `;
 
 const IconWrapper = styled.div`
