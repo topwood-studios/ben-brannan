@@ -43,7 +43,6 @@ const Carousel = ({ slides }) => {
             index={slides.indexOf(item)}
             totalSlideCount={slides.length}
             setStartCarousel={toggleCarousel}
-            animationProps={props}
             {...item}
           />
         </animated.div>

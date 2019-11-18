@@ -11,7 +11,7 @@ const slideArray = [];
 projects.forEach(project => {
   const tempArray = [];
   project.slides.forEach((slide, i) =>
-    tempArray.push({ ...slide, id: `${project.client}_${project.title}_Slide${i + 1}` }));
+    tempArray.push({ ...slide, client: project.client, id: `${project.client}_${project.title}_Slide${i + 1}` }));
   slideArray.push(tempArray);
 });
 const allSlides = slideArray.flat();

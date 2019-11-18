@@ -13,21 +13,18 @@ const ANIMATION_SPEED = settings.find(({ name }) => name === "global")
 const Slide = ({
   image,
   mobileImage,
+  desktopIcon,
   description,
   animation,
-  // animatedLayer,
-  desktopIcon,
   mobileIcon,
   theme,
-  title,
   name,
-  activeSlide,
-  lastActiveSlide,
   totalSlideCount,
   setStartCarousel,
-  paused,
   index,
-  animationProps,
+
+  // missing
+  paused,
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const animatedLayer = mobileIcon || desktopIcon;
@@ -81,14 +78,18 @@ const Slide = ({
 export default Slide;
 
 Slide.propTypes = {
-  activeSlide: PropTypes.object,
-  lastActiveSlide: PropTypes.object,
-  title: PropTypes.string,
   index: PropTypes.number,
-  // contents: PropTypes.object,
+  image: PropTypes.string,
+  mobileImage: PropTypes.string,
   totalSlideCount: PropTypes.number,
   setStartCarousel: PropTypes.func,
   paused: PropTypes.bool,
+  desktopIcon: PropTypes.string,
+  description: PropTypes.string,
+  animation: PropTypes.string,
+  mobileIcon: PropTypes.string,
+  theme: PropTypes.string,
+  name: PropTypes.string,
 };
 
 const SlideWrapper = styled.div`
@@ -156,11 +157,6 @@ const StyledBackground = styled.div`
   display: flex;
   align-items: flex-end;
 
-  /* transition-property: opacity;
-  transition-duration: 250ms;
-  transition-timing-function: ease-in; */
-  /* opacity: ${({ animateIn, animateOut }) => (animateIn || animateOut ? 1 : 0)}; */
-
   &.background-zoom {
     animation-name: ${backgroundZoom};
     animation-duration: ${ANIMATION_SPEED + 2000}ms;
@@ -184,9 +180,6 @@ const Contents = styled.div`
   pointer-events: none;
   overflow: hidden;
   white-space: nowrap;
-
-  transition: opacity 0.3s ease-in;
-
   color: white;
 
   @media (${media.laptop}) {
@@ -202,8 +195,8 @@ const Counter = styled.p`
   padding: 0;
   color: ${colors.grey};
   margin-bottom: 0.25rem;
-  opacity: ${({ animate }) => (animate ? 0 : 1)};
-  animation: ${({ animate }) => animate && fadeIn} 500ms forwards 1000ms;
+  opacity: 0;
+  animation: ${fadeIn} 2000ms forwards 1000ms;
   letter-spacing: 0.075rem;
 
   span {
@@ -227,8 +220,8 @@ const Title = styled.h1`
   font-weight: normal;
   color: ${({ theme }) => (theme === "Light" ? "#000" : "#FFF")};
 
-  opacity: ${({ animate }) => (animate ? 0 : 1)};
-  animation: ${({ animate }) => animate && fadeUp} 600ms forwards 300ms;
+  opacity: 0;
+  animation: ${fadeUp} 600ms forwards 300ms;
   letter-spacing: 0.05rem;
   margin: 0;
 
@@ -246,12 +239,12 @@ const Description = styled.h2`
   color: ${colors.grey};
   font-size: 14px;
 
-  opacity: ${({ animate }) => (animate ? 0 : 1)};
+  opacity: 0;
   margin: 0;
   margin-bottom: 6px;
   letter-spacing: 0.025rem;
 
-  animation: ${({ animate }) => animate && fadeUp} 1000ms forwards 300ms;
+  animation: ${fadeUp} 1000ms forwards 300ms;
 
   @media (${media.laptop}) {
     font-size: 22px;
