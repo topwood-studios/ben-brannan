@@ -10,7 +10,7 @@ slides:
     theme: Dark
   - animation: none
     description: Brand Identity | Digital Design | Print Design
-    image: /static/img/funnel-mobile.png
+    image: /static/img/1.jpg
     name: Funnel Mobile
     theme: Light
 ---
