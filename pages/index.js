@@ -3,17 +3,15 @@ import styled from "styled-components";
 
 // import Router from 'next/router';
 import { projects } from "../data.json";
-import Carousel from "../containers/Carousel";
+import Carousel from "../components/Carousel";
 import ProgressBar from "../components/ProgressBar";
 import { colors } from "../utils/theme";
 
 const slideArray = [];
 projects.forEach(project => {
-  const slides = [];
-  project.slides.forEach(slide =>
-    slides.push({ ...slide, title: project.title })
-  );
-  slideArray.push(slides);
+  const tempArray = [];
+  project.slides.forEach((slide, i) => tempArray.push({ ...slide, client: project.client, id: `${project.client}_${project.title}_Slide${i + 1}` }));
+  slideArray.push(tempArray);
 });
 const allSlides = slideArray.flat();
 
@@ -41,7 +39,7 @@ export default class Home extends Component {
   render() {
     const { isLoading, imagesToLoad, imagesLoaded } = this.state;
     const isReady = isLoading && imagesToLoad === imagesLoaded;
-    const progress = imagesLoaded / imagesToLoad * 100;
+    const progress = (imagesLoaded / imagesToLoad) * 100;
 
     if (!isReady) {
       return (
@@ -55,7 +53,7 @@ export default class Home extends Component {
         </LoadingPage>
       );
     }
-    return <Carousel title="test" slides={allSlides} />;
+    return <Carousel slides={allSlides} />;
   }
 }
 
