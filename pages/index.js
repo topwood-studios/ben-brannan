@@ -1,16 +1,24 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import 'array-flat-polyfill';
+
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
 // import Router from 'next/router';
-import { projects } from "../data.json";
-import Carousel from "../components/Carousel";
-import ProgressBar from "../components/ProgressBar";
-import { colors } from "../utils/theme";
+import { projects } from '../data.json';
+import Carousel from '../components/Carousel';
+import ProgressBar from '../components/ProgressBar';
+import { colors } from '../utils/theme';
 
 const slideArray = [];
 projects.forEach(project => {
   const tempArray = [];
-  project.slides.forEach((slide, i) => tempArray.push({ ...slide, client: project.client, id: `${project.client}_${project.title}_Slide${i + 1}` }));
+  project.slides.forEach((slide, i) =>
+    tempArray.push({
+      ...slide,
+      client: project.client,
+      id: `${project.client}_${project.title}_Slide${i + 1}`,
+    }),
+  );
   slideArray.push(tempArray);
 });
 const allSlides = slideArray.flat();
