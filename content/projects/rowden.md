@@ -18,7 +18,7 @@ slides:
     theme: Light
   - animation: none
     description: Brand Identity | Digital | Print
-    image: /static/img/rowden-screens.png
+    image: /static/img/rowden-screens.jpg
     mobileImage: /static/img/rowden-background-2.jpg
     name: Rowden Screens
     theme: Light
