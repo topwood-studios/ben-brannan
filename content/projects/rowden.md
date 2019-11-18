@@ -12,15 +12,15 @@ slides:
     theme: Dark
   - animation: none
     description: Brand Identity | Digital | Print
-    image: /static/img/rowden-proposals-dt.jpg
-    mobileImage: /static/img/rowden-background-1.jpg
-    name: Proposal
-    theme: Dark
+    image: /static/img/rowden-brand.png
+    mobileImage: ''
+    name: Brand
+    theme: Light
   - animation: none
     description: Brand Identity | Digital | Print
-    image: /static/img/rowden-power-point-dt.jpg
+    image: /static/img/rowden-screens.png
     mobileImage: /static/img/rowden-background-2.jpg
-    name: Rowden Technologies
-    theme: Dark
+    name: Rowden Screens
+    theme: Light
 ---
 
