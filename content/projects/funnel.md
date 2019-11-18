@@ -10,15 +10,8 @@ slides:
     theme: Dark
   - animation: none
     description: Brand Identity | Digital Design | Print Design
-    image: /static/img/funnel-2.jpg
-    mobileImage: /static/img/iphone-6-7-8-–-5.png
-    name: Funnel Bag
+    image: /static/img/web-1920-–-11-2x.jpg
+    name: Funnel Mobile
     theme: Light
-  - animation: none
-    description: Brand Identity | Digital Design | Print Design
-    image: /static/img/funnel-phones-dt.jpg
-    mobileImage: /static/img/funnel-iphone-background.jpg
-    name: Funnel Music
-    theme: Dark
 ---
 
