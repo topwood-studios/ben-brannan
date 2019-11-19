@@ -56,6 +56,11 @@ collections:
               name: project
               widget: relation
               collection: projects
-              searchFields: [title, client]
+              searchFields:
+                - title
+                - client
+                - slug
+              displayFields: 
+                - title
+                - slug
               valueField: slug
-              displayFields: title
