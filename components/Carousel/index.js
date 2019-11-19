@@ -14,9 +14,9 @@ const Carousel = ({ slides }) => {
     enter: { opacity: 1 },
     leave: { opacity: 0 },
     config: {
-      // tension: 280,
-      // friction: 120,
-      duration: 250,
+      tension: 280,
+      friction: 120,
+      // duration: 250,
     },
   });
 
