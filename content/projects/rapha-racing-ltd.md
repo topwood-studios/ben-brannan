@@ -1,6 +1,7 @@
 ---
 title: Rapha Racing LTD
 client: Rapha Racing LTD
+order: 3
 slides:
   - animation: None
     description: Publications | Books | Brochures
