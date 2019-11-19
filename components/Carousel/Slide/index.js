@@ -1,13 +1,13 @@
-import PropTypes from "prop-types";
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { colors, media } from "../../../utils/theme";
-import Menu from "../../Menu";
-import { backgroundZoom, fadeIn, fadeUp, recordSpin } from "../../Animations";
-import Logo from "../../Logo";
-import { settings } from "../../../data.json";
+import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { colors, media } from '../../../utils/theme';
+import Menu from '../../Menu';
+import { backgroundZoom, fadeIn, fadeUp, recordSpin } from '../../Animations';
+import Logo from '../../Logo';
+import { settings } from '../../../data.json';
 
-const ANIMATION_SPEED = settings.find(({ name }) => name === "global")
+const ANIMATION_SPEED = settings.find(({ name }) => name === 'global')
   .carouselSpeed;
 
 const Slide = ({
@@ -21,6 +21,7 @@ const Slide = ({
   name,
   totalSlideCount,
   setStartCarousel,
+  animateText,
   index,
 
   // missing
@@ -60,15 +61,15 @@ const Slide = ({
       />
       <Contents fadeOut={menuIsOpen}>
         <div>
-          <Counter>
+          <Counter animate={animateText}>
             {index + 1}
             <span>|</span>
             {totalSlideCount}
           </Counter>
-          <Title theme={theme}>
+          <Title animate={animateText} theme={theme}>
             {name}
           </Title>
-          <Description>{description}</Description>
+          <Description animate={animateText}>{description}</Description>
         </div>
       </Contents>
     </SlideWrapper>
@@ -89,6 +90,7 @@ Slide.propTypes = {
   animation: PropTypes.string,
   mobileIcon: PropTypes.string,
   theme: PropTypes.string,
+  animateText: PropTypes.bool,
   name: PropTypes.string,
 };
 
@@ -102,8 +104,6 @@ const SlideWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* pointer-events: ${({ clickable }) => (clickable ? "default" : "none")}; */
 `;
 
 const IconWrapper = styled.div`
@@ -123,10 +123,10 @@ const AnimatedLayer = styled.img`
   max-width: 55%;
   max-height: 55%;
 
-  display: ${({ mobile }) => (mobile ? "block" : "none")};
+  display: ${({ mobile }) => (mobile ? 'block' : 'none')};
 
   @media (${media.laptop}) {
-    display: ${({ mobile }) => (mobile ? "none" : "block")};
+    display: ${({ mobile }) => (mobile ? 'none' : 'block')};
   }
 
   &.record-spin {
@@ -195,8 +195,8 @@ const Counter = styled.p`
   padding: 0;
   color: ${colors.grey};
   margin-bottom: 0.25rem;
-  opacity: 0;
-  animation: ${fadeIn} 2000ms forwards 1000ms;
+  opacity: ${({ animate }) => (animate ? 0 : 1)};
+  animation: ${({ animate }) => animate && fadeIn} 2000ms forwards 1000ms;
   letter-spacing: 0.075rem;
 
   span {
@@ -218,10 +218,10 @@ const Counter = styled.p`
 const Title = styled.h1`
   font-size: 20px;
   font-weight: normal;
-  color: ${({ theme }) => (theme === "Light" ? "#000" : "#FFF")};
+  color: ${({ theme }) => (theme === 'Light' ? '#000' : '#FFF')};
 
-  opacity: 0;
-  animation: ${fadeUp} 600ms forwards 300ms;
+  opacity: ${({ animate }) => (animate ? 0 : 1)};
+  animation: ${({ animate }) => animate && fadeUp} 600ms forwards 300ms;
   letter-spacing: 0.05rem;
   margin: 0;
 
@@ -238,13 +238,12 @@ const Description = styled.h2`
   font-weight: 500;
   color: ${colors.grey};
   font-size: 14px;
-
-  opacity: 0;
   margin: 0;
   margin-bottom: 6px;
   letter-spacing: 0.025rem;
 
-  animation: ${fadeUp} 1000ms forwards 300ms;
+  opacity: ${({ animate }) => (animate ? 0 : 1)};
+  animation: ${({ animate }) => animate && fadeUp} 1000ms forwards 300ms;
 
   @media (${media.laptop}) {
     font-size: 22px;

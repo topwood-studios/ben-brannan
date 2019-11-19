@@ -1,9 +1,9 @@
+/* eslint-disable implicit-arrow-linebreak */
 import 'array-flat-polyfill';
 
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-// import Router from 'next/router';
 import { projects } from '../data.json';
 import Carousel from '../components/Carousel';
 import ProgressBar from '../components/ProgressBar';
@@ -15,6 +15,7 @@ projects.forEach(project => {
   project.slides.forEach((slide, i) =>
     tempArray.push({
       ...slide,
+      animateText: i === 0,
       client: project.client,
       id: `${project.client}_${project.title}_Slide${i + 1}`,
     }),
