@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const AsyncBackground = ({ src, children, ...props }) => {
   const [loaded, setLoaded] = useState(false);
@@ -29,7 +29,7 @@ export default AsyncBackground;
 
 AsyncBackground.propTypes = {
   src: PropTypes.string,
-  children: PropTypes.any
+  children: PropTypes.any,
 };
 
 const BackgroundImage = styled.div`
