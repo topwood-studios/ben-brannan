@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-void */
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
@@ -13,11 +14,17 @@ const Carousel = ({ slides }) => {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    config: { tension: 280, friction: 120 },
+    config: {
+      // tension: 280,
+      // friction: 120,
+      duration: 350,
+    },
   });
 
   useEffect(
-    () => setInterval(() => set(state => (state + 1) % slides.length),
+    () =>
+      setInterval(
+        () => set(state => (state + 1) % slides.length),
         settings.carouselSpeed,
       ),
     [],
