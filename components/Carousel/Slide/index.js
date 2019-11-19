@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colors, media } from '../../../utils/theme';
 import Menu from '../../Menu';
@@ -22,27 +22,16 @@ const Slide = ({
   setStartCarousel,
   animateText,
   index,
-
-  // missing
-  paused,
+  toggleCarousel,
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const animatedLayer = mobileIcon || desktopIcon;
 
-  useEffect(() => {
-    if (menuIsOpen) {
-      setStartCarousel(false);
-    } else {
-      setStartCarousel(true);
-    }
-  }, [menuIsOpen]);
-
   return (
-    <SlideWrapper paused={paused}>
+    <SlideWrapper>
       <StyledBackground
         src={image}
         mobileImage={mobileImage}
-        // animateText={animateText}
         className={animation}
       />
       {animatedLayer && (
@@ -56,7 +45,10 @@ const Slide = ({
         isOpen={menuIsOpen}
         setStartCarousel={setStartCarousel}
         theme={theme}
-        toggleMenu={() => setMenuIsOpen(!menuIsOpen)}
+        toggleMenu={() => {
+          setMenuIsOpen(!menuIsOpen);
+          toggleCarousel(menuIsOpen);
+        }}
       />
       <Contents fadeOut={menuIsOpen}>
         <div>
@@ -83,7 +75,7 @@ Slide.propTypes = {
   mobileImage: PropTypes.string,
   totalSlideCount: PropTypes.number,
   setStartCarousel: PropTypes.func,
-  paused: PropTypes.bool,
+  toggleCarousel: PropTypes.func,
   desktopIcon: PropTypes.string,
   description: PropTypes.string,
   animation: PropTypes.string,
@@ -91,7 +83,6 @@ Slide.propTypes = {
   theme: PropTypes.string,
   animateText: PropTypes.bool,
   client: PropTypes.string,
-  // name: PropTypes.string,
 };
 
 const SlideWrapper = styled.div`
