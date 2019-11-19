@@ -5,10 +5,9 @@ import { colors, media } from '../../../utils/theme';
 import Menu from '../../Menu';
 import { backgroundZoom, fadeIn, fadeUp, recordSpin } from '../../Animations';
 import Logo from '../../Logo';
-import { settings } from '../../../data.json';
+import { attributes as settings } from '../../../content/settings/global.md';
 
-const ANIMATION_SPEED = settings.find(({ name }) => name === 'global')
-  .carouselSpeed;
+const ANIMATION_SPEED = settings.carouselSpeed;
 
 const Slide = ({
   image,
@@ -18,7 +17,7 @@ const Slide = ({
   animation,
   mobileIcon,
   theme,
-  name,
+  client,
   totalSlideCount,
   setStartCarousel,
   animateText,
@@ -67,7 +66,7 @@ const Slide = ({
             {totalSlideCount}
           </Counter>
           <Title animate={animateText} theme={theme}>
-            {name}
+            {client}
           </Title>
           <Description animate={animateText}>{description}</Description>
         </div>
@@ -91,7 +90,8 @@ Slide.propTypes = {
   mobileIcon: PropTypes.string,
   theme: PropTypes.string,
   animateText: PropTypes.bool,
-  name: PropTypes.string,
+  client: PropTypes.string,
+  // name: PropTypes.string,
 };
 
 const SlideWrapper = styled.div`
