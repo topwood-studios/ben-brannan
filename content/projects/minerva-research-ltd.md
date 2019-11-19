@@ -4,8 +4,8 @@ client: Minerva Research LTD
 slides:
   - animation: None
     description: App Design | Brand Identity | Info Graphics
-    image: /static/img/minerva-screens-dt.jpg
-    mobileImage: /static/img/screen-shot-2019-08-12-at-17.27.38.png
+    image: /static/img/home-page-slides5.jpg
+    mobileImage: /static/img/home-page-slides5.jpg
     name: Minerva Research LTD
     theme: Light
 ---
