@@ -1,10 +1,10 @@
-import React from "react";
-import App, { Container } from "next/app";
-import styled from "styled-components";
-import Head from "next/head";
+import React from 'react';
+import App, { Container } from 'next/app';
+import styled from 'styled-components';
+import Head from 'next/head';
 
 // Global data
-import content from "../content/settings/global.md";
+import content from '../content/settings/global.md';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -20,7 +20,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     const {
-      attributes: { siteTitle, siteDescription, keywords, siteUrl }
+      attributes: { siteTitle, siteDescription, keywords, siteUrl },
     } = content;
 
     return (
