@@ -10,6 +10,7 @@ import ProgressBar from '../components/ProgressBar';
 import { colors } from '../utils/theme';
 
 const slideArray = [];
+projects.sort((a, b) => a.order - b.order);
 projects.forEach(project => {
   const tempArray = [];
   project.slides.forEach((slide, i) =>
