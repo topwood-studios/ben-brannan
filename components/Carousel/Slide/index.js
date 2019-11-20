@@ -46,7 +46,7 @@ const Slide = ({
       />
       {animatedLayer && (
         <IconWrapper>
-          <AnimatedLayer src={mobileIcon} mobile className={animation} />
+          <AnimatedLayer src={animatedLayer} mobile className={animation} />
           <AnimatedLayer src={desktopIcon} className={animation} />
         </IconWrapper>
       )}
