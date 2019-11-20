@@ -172,6 +172,8 @@ const Contents = styled.div`
   overflow: hidden;
   white-space: nowrap;
   color: white;
+  transition: opacity 0.3s;
+  opacity: ${({ fadeOut }) => fadeOut ? 0 : 1};
 
   @media (${media.laptop}) {
     padding: 32px;
