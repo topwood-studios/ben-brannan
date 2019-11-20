@@ -5,7 +5,7 @@ siteDescription: Freelance art director and graphic designer based in London.
 keywords: >-
   magazine design, publication design, graphic design, design, web design,
   graphics, art, print media, print, professional, services, media, UK
-carouselSpeed: 4000
+carouselSpeed: 3000
 menuText: >-
   # We are Studio**+**Brannan.
 
