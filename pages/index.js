@@ -3,11 +3,15 @@ import 'array-flat-polyfill';
 
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import ReactGA from 'react-ga';
 
 import { projects } from '../data.json';
 import Carousel from '../components/Carousel';
 import ProgressBar from '../components/ProgressBar';
 import { colors } from '../utils/theme';
+
+ReactGA.initialize('UA-153007435-1');
+ReactGA.pageview('/');
 
 const slideArray = [];
 projects.sort((a, b) => a.order - b.order);
