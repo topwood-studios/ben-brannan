@@ -43,27 +43,26 @@ const Slide = ({
         src={image}
         mobileImage={mobileImage}
         className={animation}
-      >
-        {animatedLayer && (
-          <IconWrapper>
-            <AnimatedLayer src={animatedLayer} mobile className={animation} />
-            <AnimatedLayer src={desktopIcon} className={animation} />
-          </IconWrapper>
-        )}
-        <Contents fadeOut={menuIsOpen}>
-          <div>
-            <Counter animate={animateText}>
-              {index + 1}
-              <span>|</span>
-              {totalSlideCount}
-            </Counter>
-            <Title animate={animateText} theme={theme}>
-              {client}
-            </Title>
-            <Description animate={animateText}>{description}</Description>
-          </div>
-        </Contents>
-      </StyledBackground>
+      />
+      {animatedLayer && (
+        <IconWrapper>
+          <AnimatedLayer src={mobileIcon} mobile className={animation} />
+          <AnimatedLayer src={desktopIcon} className={animation} />
+        </IconWrapper>
+      )}
+      <Contents fadeOut={menuIsOpen}>
+        <div>
+          <Counter animate={animateText}>
+            {index + 1}
+            <span>|</span>
+            {totalSlideCount}
+          </Counter>
+          <Title animate={animateText} theme={theme}>
+            {client}
+          </Title>
+          <Description animate={animateText}>{description}</Description>
+        </div>
+      </Contents>
     </SlideWrapper>
   );
 };
