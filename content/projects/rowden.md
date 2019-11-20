@@ -1,7 +1,7 @@
 ---
 title: Rowden Technologies
 client: Rowden Technologies
-order: 4
+order: 30
 slides:
   - animation: background-zoom
     description: Brand Identity | Digital | Print
