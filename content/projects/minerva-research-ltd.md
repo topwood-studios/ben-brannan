@@ -1,7 +1,7 @@
 ---
 title: Minerva Research LTD
 client: Minerva Research LTD
-order: 1
+order: 50
 slides:
   - animation: None
     description: App Design | Brand Identity | Info Graphics
