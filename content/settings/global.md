@@ -6,7 +6,7 @@ keywords: >-
   magazine design, publication design, graphic design, design, web design,
   graphics, art, print media, print, professional, services, media, UK, app,
   branding
-carouselSpeed: 3000
+carouselSpeed: 3500
 menuText: >-
   # We are Studio**+**Brannan.
 
