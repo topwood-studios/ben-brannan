@@ -35,16 +35,6 @@ export default class MyDocument extends Document {
           {/* <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" /> */}
           {/* <meta name="theme-color" content="#ffffff" /> */}
           {this.props.styleTags}
-
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153007435-1" />
-          <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments)}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-153007435-1');
-          </script>
-
         </Head>
         <body>
           <Main />
