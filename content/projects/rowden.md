@@ -13,14 +13,14 @@ slides:
     theme: Dark
   - animation: none
     description: Brand Identity | Digital | Print
-    image: /static/img/home-page-slides11.jpg
+    image: /static/img/rowden-branding.jpg
     mobileImage: ''
     name: Brand
     theme: Light
   - animation: none
     description: Brand Identity | Digital | Print
-    image: /static/img/home-page-slides10.jpg
-    mobileImage: /static/img/rowden-background-2.jpg
+    image: /static/img/rowden-website.jpg
+    mobileImage: /static/img/rowden-website.jpg
     name: Rowden Screens
     theme: Light
 ---
