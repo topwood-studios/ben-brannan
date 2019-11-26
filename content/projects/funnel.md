@@ -14,10 +14,5 @@ slides:
     image: /static/img/home-page-slides.jpg
     name: Funnel Mobile
     theme: Light
-  - animation: none
-    description: xxxxxx
-    image: /static/img/funnel-test-web.jpg
-    name: Mobile test
-    theme: Light
 ---
 
