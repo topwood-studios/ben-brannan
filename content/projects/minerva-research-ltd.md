@@ -9,5 +9,10 @@ slides:
     mobileImage: /static/img/home-page-slides5.jpg
     name: Minerva Research LTD
     theme: Light
+  - animation: none
+    description: Test
+    image: /static/img/funnel-test-web.jpg
+    name: Test
+    theme: Light
 ---
 
