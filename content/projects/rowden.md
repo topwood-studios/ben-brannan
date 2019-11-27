@@ -11,17 +11,5 @@ slides:
     mobileImage: ''
     name: Animated background
     theme: Dark
-  - animation: none
-    description: Brand Identity | Digital | Print
-    image: /static/img/rowden-branding.jpg
-    mobileImage: ''
-    name: Brand
-    theme: Light
-  - animation: none
-    description: Brand Identity | Digital | Print
-    image: /static/img/rowden-website.jpg
-    mobileImage: /static/img/rowden-website.jpg
-    name: Rowden Screens
-    theme: Light
 ---
 
