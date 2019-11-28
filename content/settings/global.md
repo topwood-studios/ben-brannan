@@ -17,15 +17,15 @@ menuText: >-
 
 
   We enjoy working with a range of clients, from established international
-  brands to innovative start-ups. Please [contact us](info@benbrannan.com) to
-  see more of our work and discuss a project.
+  brands to innovative start-ups. Please [contact
+  us](mailto:info@benbrannan.com) to see more of our work and discuss a project.
 menuAddress: |-
   Studio 18
   Glove Factory Studios
   Bradford-on-Avon
   Wilts, BA14 6RL
 menuContact: |-
-  [info@benbrannan.com](mailto:info@studiobrannan.com)
+  <mailto:info@benbrannan.com>
 
   [+44 (0)7812 173 137](<tel:+44 (0)7812 173 137>)
 ---
