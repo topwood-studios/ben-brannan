@@ -5,8 +5,8 @@ order: 40
 slides:
   - animation: none
     description: Full Editorial Redesign
-    desktopIcon: ''
-    image: /static/img/home-page-slides3.jpg
+    desktopIcon: /static/img/waitrose-logo4.png
+    image: /static/img/waitrose-background.jpg
     mobileIcon: ''
     mobileImage: /static/img/waitrose-cover-mob.jpg
     name: Waitrose & Partners
