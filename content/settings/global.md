@@ -20,7 +20,7 @@ menuText: >-
   to innovative start-ups. 
 
 
-  Please [contact us](mailto:info@benbrannan.com) to see more of our work and
+  Please [contact](info@studiobrannan.com) us to see more of our work and
   discuss \
 
   a project.
@@ -30,7 +30,7 @@ menuAddress: |-
   Bradford-on-Avon
   Wilts, BA14 6RL
 menuContact: |-
-  [info@benbrannan.com](mailto:info@benbrannan.com)
+  info@studiobrannan.com
 
   [+44 (0)7812 173 137](<tel:+44 (0)7812 173 137>)
 ---
