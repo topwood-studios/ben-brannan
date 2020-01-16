@@ -15,21 +15,11 @@ slides:
     description: Brand Identity | Digital | Print
     image: /static/img/Rowden3.jpg
     name: Rowden Technologies
-    theme: Light
-  - animation: none
-    description: Brand Identity | Digital | Print
-    image: /static/img/Rowden4.jpg
-    name: Rowden Technologies
-    theme: Light
+    theme: Dark
   - animation: none
     description: Brand Identity | Digital | Print
     image: /static/img/Rowden.jpg
     name: Rowden Technologies
-    theme: Light
-  - animation: none
-    description: Brand Identity | Digital | Print
-    image: /static/img/Rowden4.jpg
-    name: Rowden Technologies
-    theme: Light
+    theme: Dark
 ---
 
