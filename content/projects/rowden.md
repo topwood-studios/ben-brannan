@@ -22,6 +22,6 @@ slides:
     image: /static/img/Rowden-Website.jpg
     mobileImage: /static/img/Rowden-Mobile.jpg
     name: Rowden Technologies
-    theme: Dark
+    theme: Light
 ---
 
