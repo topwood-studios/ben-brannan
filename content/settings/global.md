@@ -21,9 +21,7 @@ menuText: >-
 
 
   Please [contact](info@studiobrannan.com) us to see more of our work and
-  discuss \
-
-  a project.
+  discuss a project.
 menuAddress: |-
   Studio 18
   Glove Factory Studios
