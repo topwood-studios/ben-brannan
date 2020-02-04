@@ -4,9 +4,15 @@ client: Minerva Research LTD
 order: 30
 slides:
   - animation: None
-    description: App Design | Brand Identity | Info Graphics
-    image: /static/img/minerva-research.jpg
-    mobileImage: /static/img/sunday-briefing.jpg
+    description: App Design | Brand Identity | Infographics
+    image: /static/img/Minerva-Research-App.jpg
+    mobileImage: /static/img/Minerva-Research-Mobile.jpg
+    name: Minerva Research LTD
+    theme: Light
+  - animation: none
+    description: App Design | Brand Identity | Infographics
+    image: /static/img/Minerva-Research-Branding.jpg
+    mobileImage: /static/img/Minerva-Infographic.jpg
     name: Minerva Research LTD
     theme: Light
 ---
