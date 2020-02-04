@@ -20,7 +20,7 @@ menuText: >-
   to innovative start-ups. 
 
 
-  Please [contact](info@studiobrannan.com) us to see more of our work and
+  Please [contact us](mailto:info@studiobrannan.com) to see more of our work and
   discuss a project.
 menuAddress: |-
   Studio 18
