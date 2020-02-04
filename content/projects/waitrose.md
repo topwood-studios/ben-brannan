@@ -1,7 +1,7 @@
 ---
 title: Waitrose
 client: Waitrose
-order: 40
+order: 20
 slides:
   - animation: none
     description: Full Editorial Redesign
