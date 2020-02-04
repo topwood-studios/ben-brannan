@@ -6,7 +6,7 @@ slides:
   - animation: none
     description: Full Editorial Redesign
     desktopIcon: ''
-    image: /static/img/w3.jpg
+    image: /static/img/w-green.jpg
     mobileIcon: ''
     mobileImage: /static/img/Waitrose-Weekend-Cover-Mobile.jpg
     name: Waitrose & Partners
