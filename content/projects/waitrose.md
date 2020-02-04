@@ -6,15 +6,15 @@ slides:
   - animation: none
     description: Full Editorial Redesign
     desktopIcon: ''
-    image: /static/img/home-page-slides3.jpg
+    image: /static/img/Waitrose-Weekend-Branding.jpg
     mobileIcon: ''
-    mobileImage: /static/img/waitrose-cover-mob.jpg
+    mobileImage: /static/img/Waitrose-Weekend-Cover-Mobile.jpg
     name: Waitrose & Partners
     theme: Light
   - animation: None
     description: Full Editorial Redesign
-    image: /static/img/home-page-slides2.jpg
-    mobileImage: /static/img/waitrose-1-mob.jpg
+    image: /static/img/Waitrose-Weekend-Design.jpg
+    mobileImage: /static/img/Waitrose-Weekend-Mobile.jpg
     name: Waitrose & Partners
     theme: Light
 ---
