@@ -1,7 +1,7 @@
 ---
 title: Funnel Music
 client: Funnel Music
-order: 10
+order: 50
 slides:
   - animation: record-spin
     description: Brand Identity | Digital Design | Print Design
