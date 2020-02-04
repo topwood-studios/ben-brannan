@@ -22,8 +22,7 @@ menuText: >-
   Please [contact us](mailto:info@studiobrannan.com) to see more of our work and
   discuss a project.
 
-
-
+   
 
   **Selected clients include:** The Wall Street Journal, Waitrose & Partners,
   Rowden Technologies, Penguin Random House, Funnel Music, Rapha Racing and The
