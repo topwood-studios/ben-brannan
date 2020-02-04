@@ -11,9 +11,8 @@ menuText: >-
   # We are Studio**+**Brannan.
 
 
-  A design consultancy creating distinctive brand identities and direction
-  alongside finely crafted apps, websites, books, publications and information
-  graphics. 
+  A design consultancy creating distinctive brand identities, finely crafted
+  apps, websites, books, publications and information graphics. 
 
 
   We enjoy working with a range of clients from established international brands
