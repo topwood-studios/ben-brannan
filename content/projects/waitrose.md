@@ -13,7 +13,7 @@ slides:
     theme: Light
   - animation: None
     description: Full Editorial Redesign
-    image: /static/img/w-green2.jpg
+    image: /static/img/w5.jpg
     mobileImage: /static/img/Waitrose-Weekend-Mobile.jpg
     name: Waitrose & Partners
     theme: Dark
