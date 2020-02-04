@@ -5,14 +5,14 @@ order: 20
 slides:
   - animation: None
     description: Publications | Books | Brochures
-    image: /static/img/rapha-mondial.jpg
-    mobileImage: /static/img/rapha-mondial-mob.jpg
-    name: Rapha Racing LTD
+    image: /static/img/Rapha-Mondial-RCC.jpg
+    mobileImage: /static/img/Rapha-Mobile.jpg
+    name: Rapha Racing Ltd
     theme: Light
   - animation: none
     description: Publications | Books | Brochures
-    image: /static/img/rapha-doppio.jpg
-    mobileImage: /static/img/rapha-doppio-mob.jpg
+    image: /static/img/Rapha-Doppio.jpg
+    mobileImage: /static/img/Rapha-Doppio-Mobile.jpg
     name: Rapha Racing Ltd
     theme: Light
 ---
