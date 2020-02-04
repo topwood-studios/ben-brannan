@@ -19,11 +19,9 @@ menuText: >-
   to innovative start-ups. 
 
 
-
-
-  **Selected clients include:** The Wall Street Journal, Waitrose & Partners,
+  Selected clients include: *The Wall Street Journal, Waitrose & Partners,
   Rowden Technologies, Penguin Random House, Funnel Music, Rapha Racing and The
-  London Evening Standard
+  London Evening Standard*
 menuAddress: |-
   Studio 18
   Glove Factory Studios
