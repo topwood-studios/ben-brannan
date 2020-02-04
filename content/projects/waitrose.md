@@ -10,7 +10,7 @@ slides:
     mobileIcon: ''
     mobileImage: /static/img/Waitrose-Weekend-Cover-Mobile.jpg
     name: Waitrose & Partners
-    theme: Light
+    theme: Dark
   - animation: None
     description: Full Editorial Redesign
     image: /static/img/Waitrose-Weekend-Design.jpg
