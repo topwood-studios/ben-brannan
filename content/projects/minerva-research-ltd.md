@@ -11,7 +11,7 @@ slides:
     theme: Light
   - animation: none
     description: App Design | Brand Identity | Infographics
-    image: /static/img/Minerva-Research-Branding.jpg
+    image: /static/img/Minerva-Branding.jpg
     mobileImage: /static/img/Minerva-Infographic.jpg
     name: Minerva Research LTD
     theme: Light
