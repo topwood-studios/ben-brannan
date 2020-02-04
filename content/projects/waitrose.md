@@ -16,6 +16,6 @@ slides:
     image: /static/img/Waitrose-Weekend-Design.jpg
     mobileImage: /static/img/Waitrose-Weekend-Mobile.jpg
     name: Waitrose & Partners
-    theme: Light
+    theme: Dark
 ---
 
