@@ -8,13 +8,13 @@ slides:
     desktopIcon: ''
     image: /static/img/wnew.jpg
     mobileIcon: ''
-    mobileImage: /static/img/Waitrose-Weekend-Cover-Mobile.jpg
+    mobileImage: /static/img/Waitrose-Weekend-mobile.jpg
     name: Waitrose & Partners
     theme: Dark
   - animation: None
     description: Full Editorial Redesign
     image: /static/img/wnew2.jpg
-    mobileImage: /static/img/Waitrose-Weekend-Mobile.jpg
+    mobileImage: /static/img/Waitrose-mobile.jpg
     name: Waitrose & Partners
     theme: Dark
 ---
