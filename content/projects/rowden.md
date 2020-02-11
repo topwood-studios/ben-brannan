@@ -14,13 +14,13 @@ slides:
   - animation: none
     description: Brand Identity | Digital | Print
     image: /static/img/r2.jpg
-    mobileImage: /static/img/Rowden-Brand-Mobile.jpg
+    mobileImage: /static/img/Rowden-Branding-mobile.jpg
     name: Rowden Technologies
     theme: Dark
   - animation: none
     description: Brand Identity | Digital | Print
     image: /static/img/R1.jpg
-    mobileImage: /static/img/Rowden-Mobile.jpg
+    mobileImage: /static/img/Rowden-website-mobile.jpg
     name: Rowden Technologies
     theme: Light
 ---
