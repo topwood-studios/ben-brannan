@@ -38,12 +38,14 @@ export default class Home extends Component {
     allSlides.forEach(
       ({ image, mobileImage, desktopIcon, mobileIcon }, index) => {
         [image, mobileImage, desktopIcon, mobileIcon].forEach(img => {
-          if (img && index < 2) {
-            this.setState({ imagesToLoad: (imagesToLoad += 1) });
+          if (img) {
             const newImage = new Image();
-            newImage.onload = () => {
-              this.setState({ imagesLoaded: (imagesLoaded += 1) });
-            };
+            if (index < 2) {
+              this.setState({ imagesToLoad: (imagesToLoad += 1) });
+              newImage.onload = () => {
+                this.setState({ imagesLoaded: (imagesLoaded += 1) });
+              };
+            }
             newImage.src = img;
           }
         });
