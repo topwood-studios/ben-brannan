@@ -35,18 +35,20 @@ export default class Home extends Component {
   componentDidMount() {
     let { imagesToLoad, imagesLoaded } = this.state;
 
-    allSlides.forEach(({ image, mobileImage, desktopIcon, mobileIcon }) => {
-      [image, mobileImage, desktopIcon, mobileIcon].forEach(img => {
-        if (img) {
-          this.setState({ imagesToLoad: (imagesToLoad += 1) });
-          const newImage = new Image();
-          newImage.onload = () => {
-            this.setState({ imagesLoaded: (imagesLoaded += 1) });
-          };
-          newImage.src = img;
-        }
-      });
-    });
+    allSlides.forEach(
+      ({ image, mobileImage, desktopIcon, mobileIcon }, index) => {
+        [image, mobileImage, desktopIcon, mobileIcon].forEach(img => {
+          if (img && index < 2) {
+            this.setState({ imagesToLoad: (imagesToLoad += 1) });
+            const newImage = new Image();
+            newImage.onload = () => {
+              this.setState({ imagesLoaded: (imagesLoaded += 1) });
+            };
+            newImage.src = img;
+          }
+        });
+      },
+    );
     this.setState({ isLoading: true });
   }
 
