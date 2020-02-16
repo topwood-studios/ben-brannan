@@ -48,6 +48,16 @@ export default class Home extends Component {
             }
             newImage.src = img;
           }
+          if (mobileImage) {
+            const newImage = new Image();
+            if (index < 2) {
+              this.setState({ imagesToLoad: (imagesToLoad += 1) });
+              newImage.onload = () => {
+                this.setState({ imagesLoaded: (imagesLoaded += 1) });
+              };
+            }
+            newImage.src = img;
+          }
         });
       },
     );
