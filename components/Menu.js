@@ -1,10 +1,10 @@
-import PropTypes from "prop-types";
-import React from "react";
-import styled from "styled-components";
-import { attributes } from "../content/settings/global.md";
-import { colors, media } from "../utils/theme";
-import Markdown from "./Markdown";
-import Plus from "./Plus";
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
+import { attributes } from '../content/settings/global.md';
+import { colors, media } from '../utils/theme';
+import Markdown from './Markdown';
+import Plus from './Plus';
 
 const Menu = ({ isOpen, toggleMenu, theme }) => {
   const { menuText, menuContact, menuAddress } = attributes;
@@ -43,7 +43,7 @@ export default Menu;
 Menu.propTypes = {
   isOpen: PropTypes.bool,
   toggleMenu: PropTypes.func,
-  theme: PropTypes.string
+  theme: PropTypes.string,
 };
 
 const Address = styled.address`
@@ -101,15 +101,14 @@ const MenuToggle = styled(Plus)`
   padding: 0;
 
   transition: transform 0.3s ease;
-  transform: rotate(${({ isOpen }) => isOpen && "-45deg"});
+  transform: rotate(${({ isOpen }) => isOpen && '-45deg'});
 
   path {
     transition-property: stroke;
     transition-duration: 0.3s;
     transition-timing-function: ease-in;
-    transition-delay: ${({ isOpen }) => (!isOpen ? "0.5s" : "")};
-    stroke: ${({ isOpen, theme }) =>
-      isOpen || theme === "Dark" ? "white" : "black"} !important;
+    transition-delay: ${({ isOpen }) => (!isOpen ? '0.5s' : '')};
+    stroke: ${({ isOpen, theme }) => isOpen || theme === 'Dark' ? 'white' : 'black'} !important;
   }
 
   &:hover {
@@ -140,7 +139,7 @@ const Backdrop = styled.div`
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
   transition-delay: ${({ isOpen }) => (isOpen ? 0 : 500)}ms;
-  transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100%")});
+  transform: translateY(${({ isOpen }) => (isOpen ? '0' : '-100%')});
 `;
 
 const Contents = styled.div`

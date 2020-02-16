@@ -27,17 +27,19 @@ const Slide = ({
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const animatedLayer = mobileIcon || desktopIcon;
 
+  const handleOpenMenu = () => {
+    setMenuIsOpen(!menuIsOpen);
+    toggleCarousel(menuIsOpen);
+  };
+
   return (
     <SlideWrapper>
-      <Logo theme={theme} menuOpen={menuIsOpen} />
+      <Logo theme={theme} menuOpen={menuIsOpen} onClick={handleOpenMenu} />
       <Menu
         isOpen={menuIsOpen}
         setStartCarousel={setStartCarousel}
         theme={theme}
-        toggleMenu={() => {
-          setMenuIsOpen(!menuIsOpen);
-          toggleCarousel(menuIsOpen);
-        }}
+        toggleMenu={handleOpenMenu}
       />
       <StyledBackground
         src={image}
@@ -173,7 +175,7 @@ const Contents = styled.div`
   white-space: nowrap;
   color: white;
   transition: opacity 0.3s;
-  opacity: ${({ fadeOut }) => fadeOut ? 0 : 1};
+  opacity: ${({ fadeOut }) => (fadeOut ? 0 : 1)};
 
   @media (${media.laptop}) {
     padding: 32px;

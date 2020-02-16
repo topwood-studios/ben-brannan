@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { colors, media } from "../utils/theme";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { colors, media } from '../utils/theme';
 
-const Logo = ({ menuOpen, theme }) => (
-  <Text fadeOut={menuOpen} theme={theme}>
+const Logo = ({ menuOpen, ...rest }) => (
+  <Text {...rest} fadeOut={menuOpen}>
     Studio
     <span>+</span>
     Brannan
@@ -13,6 +13,7 @@ const Logo = ({ menuOpen, theme }) => (
 
 Logo.propTypes = {
   menuOpen: PropTypes.bool,
+  onClick: PropTypes.func,
   theme: PropTypes.string,
 };
 
@@ -25,10 +26,11 @@ const Text = styled.h1`
   top: 16px;
   left: 16px;
   margin: 0;
+  cursor: pointer;
 
   font-size: 20px;
   font-weight: bold;
-  color: ${({ theme }) => theme === "Light" ? "#000" : theme === "Dark" ? "#FFF" : "#FFF"};
+  color: ${({ theme }) => theme === 'Light' ? '#000' : theme === 'Dark' ? '#FFF' : '#FFF'};
 
   letter-spacing: 0.025rem;
   transition: opacity 0.3s ease;
