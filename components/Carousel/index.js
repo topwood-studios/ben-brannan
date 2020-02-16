@@ -45,7 +45,7 @@ const Carousel = ({ slides }) => {
   }, []);
 
   useEffect(() => {
-    // startCarousel();
+    startCarousel();
   }, []);
 
   // Reset carousel timer on page change
