@@ -42,8 +42,6 @@ export default class Home extends Component {
             const newImage = new Image();
             newImage.src = img;
 
-            console.log('loading...', img);
-
             // If one of the first two slides, add image to loading bar
             if (index < 2) {
               this.setState({ imagesToLoad: (imagesToLoad += 1) });
