@@ -39,15 +39,18 @@ export default class Home extends Component {
       ({ image, mobileImage, desktopIcon, mobileIcon }, index) => {
         [image, mobileImage, desktopIcon, mobileIcon].forEach(img => {
           if (img) {
-            console.log('loading', img);
             const newImage = new Image();
+            newImage.src = img;
+
+            console.log('loading...', img);
+
+            // If one of the first two slides, add image to loading bar
             if (index < 2) {
               this.setState({ imagesToLoad: (imagesToLoad += 1) });
               newImage.onload = () => {
                 this.setState({ imagesLoaded: (imagesLoaded += 1) });
               };
             }
-            newImage.src = img;
           }
         });
       },
