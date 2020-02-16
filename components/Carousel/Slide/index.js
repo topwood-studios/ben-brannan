@@ -5,6 +5,7 @@ import { colors, media } from '../../../utils/theme';
 import Menu from '../../Menu';
 import { backgroundZoom, fadeIn, fadeUp, recordSpin } from '../../Animations';
 import Logo from '../../Logo';
+import Arrow from '../../Arrow';
 import { attributes as settings } from '../../../content/settings/global.md';
 
 const ANIMATION_SPEED = settings.carouselSpeed;
@@ -66,10 +67,17 @@ const Slide = ({
           <Description animate={animateText}>{description}</Description>
         </div>
       </Contents>
-      <Pagination>
-        <button type="button" onClick={() => changePage(-1)}>Prev</button>
-        <button type="button" onClick={() => changePage(+1)}>Next</button>
-      </Pagination>
+      <PaginationWrapper>
+        <PaginationButton
+          onClick={() => changePage(-1)}
+          style={{ transform: 'rotate(180deg)' }}
+          stroke={theme === 'Light' ? '#000' : '#FFF'}
+        />
+        <PaginationButton
+          onClick={() => changePage(+1)}
+          stroke={theme === 'Light' ? '#000' : '#FFF'}
+        />
+      </PaginationWrapper>
     </SlideWrapper>
   );
 };
@@ -93,7 +101,17 @@ Slide.propTypes = {
   changePage: PropTypes.func,
 };
 
-const Pagination = styled.div`
+const PaginationButton = styled(Arrow)`
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const PaginationWrapper = styled.div`
   position: fixed;
   top: 0;
   bottom: 0;
@@ -102,7 +120,13 @@ const Pagination = styled.div`
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+
+  padding: 16px;
+
+  @media (${media.laptop}) {
+    padding: 32px;
+  }
 `;
 
 const SlideWrapper = styled.div`
