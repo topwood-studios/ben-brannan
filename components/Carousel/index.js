@@ -22,11 +22,12 @@ const Carousel = ({ slides }) => {
 
   let carouselTimer;
 
+  // Set carousel index
+  const setIndex = n =>
+    set(state => (state + n + slides.length) % slides.length);
+
   const startCarousel = useCallback(() => {
-    carouselTimer = setInterval(
-      () => set(state => (state + 1) % slides.length),
-      settings.carouselSpeed,
-    );
+    carouselTimer = setInterval(() => setIndex(+1), settings.carouselSpeed);
   }, []);
 
   const stopCarousel = useCallback(() => {
@@ -34,6 +35,7 @@ const Carousel = ({ slides }) => {
     carouselTimer = null;
   }, []);
 
+  // Play / pause carousel
   const toggleCarousel = useCallback(start => {
     if (start) {
       startCarousel();
@@ -46,6 +48,21 @@ const Carousel = ({ slides }) => {
     startCarousel();
   }, []);
 
+  // Reset carousel timer on page change
+  const changePage = n => {
+    stopCarousel();
+    setIndex(n);
+    startCarousel();
+  };
+
+  // Detect when client changes
+  const { client } = slides[index] || {};
+  useEffect(() => {
+    if (client) {
+      // console.log('Client changed:', client);
+    }
+  }, [client]);
+
   return (
     <div>
       {transitions.map(({ item, props, key }) => (
@@ -56,6 +73,7 @@ const Carousel = ({ slides }) => {
             toggleCarousel={toggleCarousel}
             stopCarousel={stopCarousel}
             startCarousel={startCarousel}
+            changePage={changePage}
             {...item}
           />
         </animated.div>

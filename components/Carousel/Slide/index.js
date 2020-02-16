@@ -16,6 +16,7 @@ const Slide = ({
   description,
   animation,
   mobileIcon,
+  changePage,
   theme,
   client,
   totalSlideCount,
@@ -65,6 +66,10 @@ const Slide = ({
           <Description animate={animateText}>{description}</Description>
         </div>
       </Contents>
+      <Pagination>
+        <button type="button" onClick={() => changePage(-1)}>Prev</button>
+        <button type="button" onClick={() => changePage(+1)}>Next</button>
+      </Pagination>
     </SlideWrapper>
   );
 };
@@ -85,7 +90,20 @@ Slide.propTypes = {
   theme: PropTypes.string,
   animateText: PropTypes.bool,
   client: PropTypes.string,
+  changePage: PropTypes.func,
 };
+
+const Pagination = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const SlideWrapper = styled.div`
   position: fixed;
