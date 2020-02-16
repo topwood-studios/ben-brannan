@@ -39,6 +39,7 @@ export default class Home extends Component {
       ({ image, mobileImage, desktopIcon, mobileIcon }, index) => {
         [image, mobileImage, desktopIcon, mobileIcon].forEach(img => {
           if (img) {
+            console.log('loading', img);
             const newImage = new Image();
             if (index < 2) {
               this.setState({ imagesToLoad: (imagesToLoad += 1) });
