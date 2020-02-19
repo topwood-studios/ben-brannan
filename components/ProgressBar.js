@@ -1,14 +1,21 @@
-import React from "react";
-import styled from "styled-components";
-import { colors } from "../utils/theme";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { colors } from '../utils/theme';
 
-export default ({ complete = 0, ...rest }) => (
-  <ProgressBar {...rest}>
+const ProgressBar = ({ complete = 0, ...rest }) => (
+  <ProgressWrapper {...rest}>
     <Progress complete={complete} />
-  </ProgressBar>
+  </ProgressWrapper>
 );
 
-const ProgressBar = styled.div`
+export default ProgressBar;
+
+ProgressBar.propTypes = {
+  complete: PropTypes.number,
+};
+
+const ProgressWrapper = styled.div`
   width: 100%;
 `;
 

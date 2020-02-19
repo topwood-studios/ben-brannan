@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { colors, media } from '../../../utils/theme';
-import Menu from '../../Menu';
 import { backgroundZoom, fadeIn, fadeUp, recordSpin } from '../../Animations';
-import Logo from '../../Logo';
-import Arrow from '../../Arrow';
+
 import { attributes as settings } from '../../../content/settings/global.md';
 
 const ANIMATION_SPEED = settings.carouselSpeed;
@@ -17,32 +15,17 @@ const Slide = ({
   description,
   animation,
   mobileIcon,
-  changePage,
   theme,
   client,
   totalSlideCount,
-  setStartCarousel,
   animateText,
+  menuIsOpen,
   index,
-  toggleCarousel,
 }) => {
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
   const animatedLayer = mobileIcon || desktopIcon;
-
-  const handleOpenMenu = () => {
-    setMenuIsOpen(!menuIsOpen);
-    toggleCarousel(menuIsOpen);
-  };
 
   return (
     <SlideWrapper>
-      <Logo theme={theme} menuOpen={menuIsOpen} onClick={handleOpenMenu} />
-      <Menu
-        isOpen={menuIsOpen}
-        setStartCarousel={setStartCarousel}
-        theme={theme}
-        toggleMenu={handleOpenMenu}
-      />
       <StyledBackground
         src={image}
         mobileImage={mobileImage}
@@ -67,17 +50,6 @@ const Slide = ({
           <Description animate={animateText}>{description}</Description>
         </div>
       </Contents>
-      <PaginationWrapper>
-        <PaginationButton
-          onClick={() => changePage(-1)}
-          style={{ transform: 'rotate(180deg)' }}
-          stroke={theme === 'Light' ? '#000' : '#FFF'}
-        />
-        <PaginationButton
-          onClick={() => changePage(+1)}
-          stroke={theme === 'Light' ? '#000' : '#FFF'}
-        />
-      </PaginationWrapper>
     </SlideWrapper>
   );
 };
@@ -89,8 +61,8 @@ Slide.propTypes = {
   image: PropTypes.string,
   mobileImage: PropTypes.string,
   totalSlideCount: PropTypes.number,
-  setStartCarousel: PropTypes.func,
-  toggleCarousel: PropTypes.func,
+  // setStartCarousel: PropTypes.func,
+  // toggleCarousel: PropTypes.func,
   desktopIcon: PropTypes.string,
   description: PropTypes.string,
   animation: PropTypes.string,
@@ -98,36 +70,9 @@ Slide.propTypes = {
   theme: PropTypes.string,
   animateText: PropTypes.bool,
   client: PropTypes.string,
-  changePage: PropTypes.func,
+  // changePage: PropTypes.func,
+  menuIsOpen: PropTypes.bool,
 };
-
-const PaginationButton = styled(Arrow)`
-  cursor: pointer;
-  transition: opacity 0.3s ease-in-out;
-  opacity: 0.5;
-
-  &:hover {
-    opacity: 1;
-  }
-`;
-
-const PaginationWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 32px;
-
-  @media (${media.laptop}) {
-    display: flex;
-  }
-`;
 
 const SlideWrapper = styled.div`
   position: fixed;

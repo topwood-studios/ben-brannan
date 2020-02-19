@@ -30,10 +30,12 @@ const Text = styled.h1`
 
   font-size: 20px;
   font-weight: bold;
+
+  transition: color 0.3s ease-in ${({ isOpen }) => (!isOpen ? '0.5s' : '')}, opacity 0.3s ease;;
+
   color: ${({ theme }) => theme === 'Light' ? '#000' : theme === 'Dark' ? '#FFF' : '#FFF'};
 
   letter-spacing: 0.025rem;
-  transition: opacity 0.3s ease;
   opacity: ${({ fadeOut }) => (fadeOut ? 0 : 1)};
 
   span {
