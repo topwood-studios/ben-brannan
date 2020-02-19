@@ -118,14 +118,14 @@ const PaginationWrapper = styled.div`
   left: 0;
   right: 0;
 
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
 
-  padding: 16px;
+  padding: 32px;
 
   @media (${media.laptop}) {
-    padding: 32px;
+    display: flex;
   }
 `;
 
