@@ -68,8 +68,8 @@ const Carousel = ({ slides }) => {
 
   return (
     <Swipeable
-      onSwipedRight={() => changePage(+1)}
-      onSwipedLeft={() => changePage(-1)}
+      onSwipedRight={() => changePage(-1)}
+      onSwipedLeft={() => changePage(+1)}
     >
       {transitions.map(({ item, props, key }) => (
         <animated.div key={key} style={props}>
