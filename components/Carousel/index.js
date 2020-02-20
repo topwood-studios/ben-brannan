@@ -69,17 +69,21 @@ const Carousel = ({ slides }) => {
   }, []);
 
   const pageDown = () => {
-    setReverse(true);
-    stopCarousel();
-    setIndex(-1);
-    startCarousel();
+    if (!menuIsOpen) {
+      setReverse(true);
+      stopCarousel();
+      setIndex(-1);
+      startCarousel();
+    }
   };
 
   const pageUp = () => {
-    setReverse(false);
-    stopCarousel();
-    setIndex(+1);
-    startCarousel();
+    if (!menuIsOpen) {
+      setReverse(false);
+      stopCarousel();
+      setIndex(+1);
+      startCarousel();
+    }
   };
 
   const changePage = n => {
