@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { colors, media } from '../../../utils/theme';
-import Menu from '../../Menu';
 import { backgroundZoom, fadeIn, fadeUp, recordSpin } from '../../Animations';
-import Logo from '../../Logo';
+
 import { attributes as settings } from '../../../content/settings/global.md';
 
 const ANIMATION_SPEED = settings.carouselSpeed;
@@ -19,28 +18,14 @@ const Slide = ({
   theme,
   client,
   totalSlideCount,
-  setStartCarousel,
   animateText,
+  menuIsOpen,
   index,
-  toggleCarousel,
 }) => {
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
   const animatedLayer = mobileIcon || desktopIcon;
-
-  const handleOpenMenu = () => {
-    setMenuIsOpen(!menuIsOpen);
-    toggleCarousel(menuIsOpen);
-  };
 
   return (
     <SlideWrapper>
-      <Logo theme={theme} menuOpen={menuIsOpen} onClick={handleOpenMenu} />
-      <Menu
-        isOpen={menuIsOpen}
-        setStartCarousel={setStartCarousel}
-        theme={theme}
-        toggleMenu={handleOpenMenu}
-      />
       <StyledBackground
         src={image}
         mobileImage={mobileImage}
@@ -76,8 +61,8 @@ Slide.propTypes = {
   image: PropTypes.string,
   mobileImage: PropTypes.string,
   totalSlideCount: PropTypes.number,
-  setStartCarousel: PropTypes.func,
-  toggleCarousel: PropTypes.func,
+  // setStartCarousel: PropTypes.func,
+  // toggleCarousel: PropTypes.func,
   desktopIcon: PropTypes.string,
   description: PropTypes.string,
   animation: PropTypes.string,
@@ -85,6 +70,8 @@ Slide.propTypes = {
   theme: PropTypes.string,
   animateText: PropTypes.bool,
   client: PropTypes.string,
+  // changePage: PropTypes.func,
+  menuIsOpen: PropTypes.bool,
 };
 
 const SlideWrapper = styled.div`

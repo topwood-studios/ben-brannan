@@ -35,18 +35,24 @@ export default class Home extends Component {
   componentDidMount() {
     let { imagesToLoad, imagesLoaded } = this.state;
 
-    allSlides.forEach(({ image, mobileImage, desktopIcon, mobileIcon }) => {
-      [image, mobileImage, desktopIcon, mobileIcon].forEach(img => {
-        if (img) {
-          this.setState({ imagesToLoad: (imagesToLoad += 1) });
-          const newImage = new Image();
-          newImage.onload = () => {
-            this.setState({ imagesLoaded: (imagesLoaded += 1) });
-          };
-          newImage.src = img;
-        }
-      });
-    });
+    allSlides.forEach(
+      ({ image, mobileImage, desktopIcon, mobileIcon }, index) => {
+        [image, mobileImage, desktopIcon, mobileIcon].forEach(img => {
+          if (img) {
+            const newImage = new Image();
+            newImage.src = img;
+
+            // If one of the first two slides, add image to loading bar
+            if (index < 2) {
+              this.setState({ imagesToLoad: (imagesToLoad += 1) });
+              newImage.onload = () => {
+                this.setState({ imagesLoaded: (imagesLoaded += 1) });
+              };
+            }
+          }
+        });
+      },
+    );
     this.setState({ isLoading: true });
   }
 
