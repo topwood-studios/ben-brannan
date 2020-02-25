@@ -23,7 +23,7 @@ menuText: >-
   Technologies, Penguin Random House, Funnel Music, Rapha Racing and The London
   Evening Standard
 menuAddress: |-
-  Studio 18
+  Studio 22
   Glove Factory Studios
   Bradford-on-Avon
   Wilts, BA14 6RL
