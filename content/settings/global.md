@@ -6,7 +6,7 @@ keywords: >-
   ben brannan, studio brannan, magazine design, publication design, graphic
   design, design, web design, graphics, art, print media, print, professional,
   services, media, UK, app, branding
-carouselSpeed: 3500
+carouselSpeed: 4000
 menuText: >-
   # We are Studio**+**Brannan.
 
